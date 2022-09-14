@@ -9,7 +9,11 @@ import { resolve } from "path"
 export default defineConfig({
   plugins: [
     WindiCSS(),
-    Components({resolvers: []}),
+    Components({
+      dirs: ['src/components', 'src/pages'],
+      extensions: ['vue','ts'],
+      dts: './components.d.ts',
+    }),
     vue({ reactivityTransform: true }),
     // Inspect()
   ],
