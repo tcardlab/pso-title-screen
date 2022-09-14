@@ -3,7 +3,7 @@ import './style.scss'
 import App from './App.vue'
 import { router } from './pages/router'
 import pinia from './stores'
-import 'virtual:windi.css'
+import 'uno.css'
 
 const app = createApp(App)
 
