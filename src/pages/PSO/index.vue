@@ -135,7 +135,8 @@
 <style scoped lang="scss">
   .hex1 {
     position: absolute;
-    filter: blur(.75rem);
+    filter: blur(.35rem); //blur(8px);
+    opacity: 75%;
     translate: -6vw;
     z-index: 1;
   }
