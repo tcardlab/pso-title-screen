@@ -10,9 +10,11 @@ declare module '@vue/runtime-core' {
     GoodbyeWorld: typeof import('./src/components/GoodbyeWorld.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Middle: typeof import('./src/pages/Middle/index.vue')['default']
+    PSO: typeof import('./src/pages/PSO/index.vue')['default']
     Router: typeof import('./src/pages/router.ts')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Sigil: typeof import('./src/pages/PSO/sigil.vue')['default']
     Start: typeof import('./src/pages/Start/index.vue')['default']
   }
 }
