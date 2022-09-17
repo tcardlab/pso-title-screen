@@ -384,7 +384,6 @@
 </template>
 
 <style lang="scss">
-
 svg {
   overflow: visible;
   transform: scale(0.5);

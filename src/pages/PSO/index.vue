@@ -1,6 +1,7 @@
 <template>
   <div class="page">
  
+    <Hex class="hex" width="140vw" />
 
     <div class='wrapper'>
       <div class='blurred-wrapper'>
@@ -18,7 +19,7 @@
 
 <script setup lang="ts">
   import Sigil from './sigil.vue'
-
+  import Hex from './hexgrid.vue'
 </script>
 
 <style scoped lang="scss">
@@ -33,6 +34,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
+
+  filter: blur(0.06rem)
 }
 
 .wrapper {
@@ -87,8 +90,48 @@
 
 
 <style scoped lang="scss">
+  * {
+    --sigil-default: rgba(137, 235, 255, 0.809)
+  }
+  
   .sigil {
     position: absolute;
     z-index: 0;
+    //filter: blur(0.1rem)
+
+    animation: light-up 13.3s linear infinite;
+
+  }
+
+
+  @keyframes light-up {
+    0%{
+      fill: var(--sigil-default);
+    }
+    2%{
+      fill: rgba(255, 255, 255, 0.634);
+    }
+    3%{
+      fill: rgba(254, 254, 223, 0.634);
+    }
+    6%{
+      fill: rgba(255, 255, 255, 0.634);
+    }
+    9%{
+      fill: rgba(255, 255, 255, 0.807);
+    }
+    15%{
+      fill:  var(--sigil-default);
+    }
+    100%{
+      fill: var(--sigil-default)
+    }
+  }
+</style>
+
+<style scoped lang="scss">
+  .hex {
+    position: absolute;
+    filter: blur(.75rem)
   }
 </style>
