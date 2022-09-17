@@ -11,9 +11,7 @@
       <h1 class='still'> PHANTASY STAR<br>ONLINE </h1>
     </div>
 
-
-    <Sigil class="sigil"/>
-    
+    <Sigil class="sigil" width="120vw"/>
     
   </div>
 </template>
