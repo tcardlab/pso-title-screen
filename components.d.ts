@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     GoodbyeWorld: typeof import('./src/components/GoodbyeWorld.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Hexgrid: typeof import('./src/pages/PSO/hexgrid.vue')['default']
+    Hexgrid2: typeof import('./src/pages/PSO/hexgrid2.vue')['default']
     Middle: typeof import('./src/pages/Middle/index.vue')['default']
     PSO: typeof import('./src/pages/PSO/index.vue')['default']
     Router: typeof import('./src/pages/router.ts')['default']

@@ -1,5 +1,15 @@
 <template>
   <svg width="295.00mm" height="295.00mm" version="1.1" viewBox="0 0 295.00 295.00">
+    <filter id="white-glow">
+      <feFlood result="flood" flood-color="#ffffff" flood-opacity="0.5"></feFlood>
+      <feComposite in="flood" result="mask" in2="SourceGraphic" operator="in"></feComposite>
+      <feMorphology in="mask" result="dilated" operator="dilate" radius="0.5"></feMorphology>
+      <feGaussianBlur in="dilated" result="blurred" stdDeviation="1"></feGaussianBlur>
+      <feMerge>
+          <feMergeNode in="blurred"></feMergeNode>
+          <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
     
     <g class="main-frame">
       <g class="outer-circle">
@@ -389,6 +399,10 @@ svg {
   transform: scale(0.5);
 
   fill: rgba(35, 176, 223, 0.634)
+}
+
+svg > g {
+  //filter: url(#white-glow)
 }
 
 .main-frame {

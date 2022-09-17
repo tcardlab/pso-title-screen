@@ -1,7 +1,9 @@
 <template>
   <div class="page">
  
-    <Hex class="hex" width="140vw" />
+    <Hex class="hex1" width="140vw" />
+
+    <Hex2 class="hex2" width="140vw" />
 
     <div class='wrapper'>
       <div class='blurred-wrapper'>
@@ -20,6 +22,7 @@
 <script setup lang="ts">
   import Sigil from './sigil.vue'
   import Hex from './hexgrid.vue'
+  import Hex2 from './hexgrid2.vue'
 </script>
 
 <style scoped lang="scss">
@@ -71,7 +74,7 @@
 
 .still{
   color:black;
-  z-index: 1;
+  z-index: 6 !important;
 }
 
 .still {
@@ -96,7 +99,7 @@
   
   .sigil {
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     //filter: blur(0.1rem)
 
     animation: light-up 13.3s linear infinite;
@@ -130,8 +133,17 @@
 </style>
 
 <style scoped lang="scss">
-  .hex {
+  .hex1 {
     position: absolute;
-    filter: blur(.75rem)
+    filter: blur(.75rem);
+    translate: -6vw;
+    z-index: 1;
+  }
+
+  .hex2 {
+    position: absolute;
+    filter: blur(.15rem);
+    stroke: rgba(255, 255, 255, 0.355) !important;
+    z-index: 2;
   }
 </style>
