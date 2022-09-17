@@ -1,14 +1,20 @@
 <template>
-  <div class="container">
+  <div class="page">
+ 
 
-    <div class='blurred-wrapper'>
-      <h1> PHANTASY STAR<br>ONLINE </h1>
+    <div class='wrapper'>
+      <div class='blurred-wrapper'>
+        <h1 class='blurred'>
+          PHANTASY STAR <!-- <br>ONLINE  -->
+        </h1>
+      </div>
+      <h1 class='still'> PHANTASY STAR<br>ONLINE </h1>
     </div>
-    <!-- <Sigil/> -->
 
+
+    <Sigil class="sigil"/>
     
     
-
   </div>
 </template>
 
@@ -19,78 +25,72 @@
 
 <style scoped lang="scss">
 
-.container {
-  background-color: black;
+.page {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  display: flex;
+  background-color: black;
+  margin: 0;
+
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-h1 {
+.wrapper {
+  --blur: 1;
+  font-size: 3vw;
+  transform: scale(1.5,1);
+  text-align: center;
+
+
+  position:relative;
+  display:flex;
+  justify-content:center;
+  margin-top: -6vw;
+  //align-items: center;
+
+  width: 100%;
+
+  z-index: 2;
+}
+
+.blurred-wrapper {
+  position: absolute;
+  filter: blur(1rem);
+  transform: scale( var(--blur), 0.001 );
+}
+
+.blurred {
+  color: rgba(0, 149, 255, 0.849);
+  display: flex;
+  transform: scale( calc( 1/var(--blur) ), 1000);
+}
+
+
+.still{
+  color:black;
+  z-index: 1;
+}
+
+.still {
   position: relative;
-  font-size: 100px;
+  
   font-family: "Times New Roman", Times, serif;
   font-weight: lighter;
   color: black;
-  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.599);
-  text-shadow: 0px 0px 6px #fff;
-  transform: scale(1.5,1) ;
-  //box-shadow: -4px -3px 45px 21px blue;
-  filter: drop-shadow(0px 0px 3px rgb(185, 185, 240))
-          //drop-shadow(0px 0px 4px rgb(178, 178, 255))
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.318);
+  text-shadow: 0px 0px 2px #fff;
+  
+  filter: drop-shadow(0px 0px 2px rgba(250, 250, 255, 0.434))
+          drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.521))
 }
+</style>
 
 
-/* h1::before {
-  content:'PHANTASY STAR';
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  z-index: -1;
-
-  color: rgba(0, 145, 255, 0.155);
-  -webkit-text-stroke: transparent;
-  
-  text-shadow: 0px 0px 10px rgba(24, 112, 235, 0.383);
-  
-  filter: drop-shadow(0px 0px 20px rgb(91, 210, 218));
-  transform: scale(1.04,1.07) translateY(-2px)
-} */
-
-
-h1::before {
-  content:'PHANTASY STAR';
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  z-index: -1;
-
-  color: rgba(0, 145, 255, 0.853);
-  -webkit-text-stroke: transparent;
-  
-  //text-shadow: 0px 0px 10px rgba(24, 112, 235, 0.383);
-  
-  /* filter: drop-shadow(30px 0px 60px rgb(91, 210, 218))
-          drop-shadow(-30px 0px 60px rgb(91, 210, 218)); */
-
-  //transform: scale( calc( 1/var(--blur) ), 1000 );
-  //filter: blur(.2rem);
-
-  transform: scale( -1.07, 1);
-  filter: blur(1rem);
-}
-
-/* .blurred-wrapper {
-  font-size: 5rem;
-  --blur: 5;
-  transform: scale( 1.5, 1  )
-} */
-
+<style scoped lang="scss">
+  .sigil {
+    position: absolute;
+    z-index: 0;
+  }
 </style>

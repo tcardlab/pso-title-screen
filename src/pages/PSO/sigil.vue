@@ -389,7 +389,7 @@ svg {
   overflow: visible;
   transform: scale(0.5);
 
-  fill: rgba(23, 166, 214, 0.5)
+  fill: rgba(35, 176, 223, 0.634)
 }
 
 .main-frame {
