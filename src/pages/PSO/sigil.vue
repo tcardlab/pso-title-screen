@@ -1,10 +1,10 @@
 <template>
   <svg width="295.00mm" height="295.00mm" version="1.1" viewBox="0 0 295.00 295.00">
     <filter id="white-glow">
-      <feFlood result="flood" flood-color="#ffffff" flood-opacity="0.5"></feFlood>
+      <feFlood result="flood" flood-color="#ffffff" flood-opacity="0.6"></feFlood>
       <feComposite in="flood" result="mask" in2="SourceGraphic" operator="in"></feComposite>
-      <feMorphology in="mask" result="dilated" operator="dilate" radius="0.5"></feMorphology>
-      <feGaussianBlur in="dilated" result="blurred" stdDeviation="1"></feGaussianBlur>
+      <feMorphology in="mask" result="dilated" operator="dilate" radius="0.6"></feMorphology>
+      <feGaussianBlur in="dilated" result="blurred" stdDeviation="2"></feGaussianBlur>
       <feMerge>
           <feMergeNode in="blurred"></feMergeNode>
           <feMergeNode in="SourceGraphic"></feMergeNode>
@@ -163,7 +163,6 @@
         <path transform="translate(47.447 .0097348)" d="m93.576 289.11c-1.7056-0.23148-5.1354-1.1355-7.3456-1.9361l-2.3186-0.83984 0.83216-1.5137c0.45769-0.83254 0.97346-1.7069 1.1462-1.9431l0.31398-0.42942 2.2308 0.76142c1.2269 0.41875 3.1832 0.96073 4.3474 1.2044l2.1167 0.443 3.3073 0.0108 3.3073 0.0109 2.3148-0.44482c1.2731-0.24466 3.1781-0.74747 4.2333-1.1174 1.0552-0.36992 2.0979-0.72962 2.3171-0.79928l0.39861-0.12674 0.99045 1.722c0.54475 0.94718 0.99046 1.8318 0.99046 1.9658 0 0.58727-4.7713 2.1531-8.5675 2.8117l-2.3498 0.40762-3.7357-0.0396c-2.0546-0.0217-4.0928-0.0881-4.5294-0.14737z"/>
       </g>
     </g>
-
 
     <g class="rot-text">
       <g class="inner-text" >
@@ -402,7 +401,8 @@ svg {
 }
 
 svg > g {
-  //filter: url(#white-glow)
+  // filter: url(#white-glow)
+  // wish this wasnt so laggy...
 }
 
 .main-frame {

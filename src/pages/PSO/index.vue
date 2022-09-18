@@ -39,6 +39,7 @@
   position: relative;
 
   filter: blur(0.06rem)
+  // whish this wasn't laggy either
 }
 
 .wrapper {
@@ -68,7 +69,7 @@
 .blurred {
   color: rgba(0, 149, 255, 0.849);
   display: flex;
-  transform: scale( calc( 1/var(--blur) ), 1000);
+  transform: scale( calc( 1/var(--blur) ), calc(1000 + 100));
 }
 
 
@@ -100,10 +101,10 @@
   .sigil {
     position: absolute;
     z-index: 1;
-    //filter: blur(0.1rem)
+    //filter: blur(0.1rem);
 
     animation: light-up 13.3s linear infinite;
-
+    opacity: .7
   }
 
 
@@ -143,7 +144,7 @@
 
   .hex2 {
     position: absolute;
-    filter: blur(.15rem);
+    //filter: blur(.15rem);
     stroke: rgba(255, 255, 255, 0.5) !important;
     z-index: 2;
   }
