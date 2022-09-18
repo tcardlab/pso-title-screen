@@ -10,9 +10,9 @@ export default function useTwo(tempRef) {
   })
   
   two.renderer.ctx.globalCompositeOperation = 'screen';
-  two.scene.translation.set(two.width / 2, (two.height / 2) - (two.height/20));
+  two.scene.translation.set(two.width / 2, (two.height / 2));
   two.bind('resize', function() {
-    two.scene.translation.set(two.width / 2, (two.height / 2) - (two.height/20));
+    two.scene.translation.set(two.width / 2, (two.height / 2));
   })
   
   onMounted(() => {

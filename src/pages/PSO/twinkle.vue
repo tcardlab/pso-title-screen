@@ -19,7 +19,7 @@
     for (var j = 0; j < amount; j++) {
 
       var x = 0, y = 0;
-      var length = 180;
+      var length = Math.round (two.width / 7);
       var resolution = 4;
       var points = [];
       var vx = (Math.max(Math.random(), 0.2) - 0.5) * length;
@@ -63,5 +63,6 @@
 <style scoped lang="scss">
   .twinkle {
    // filter: blur(0.05rem) !important
+   transform: translateY(-1vw);
   }
 </style>

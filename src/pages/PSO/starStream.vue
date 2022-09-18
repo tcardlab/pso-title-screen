@@ -14,12 +14,12 @@
   let starStream = $ref(null)
   let two = useTwo($$(starStream))
 
-  let speed = 2
-  let maxSize = 16
+  let speed = Math.round(two.width / 450)
+  let maxSize = Math.round(two.width / 90) + 1 
   let amount = 250
 
   function genParticle() {
-    let size = Math.max(maxSize * Math.random(), 9)
+    let size = Math.max(maxSize * Math.random(), Math.round(two.width / 160) )
     let p = {
       x: 0, 
       y: (maxSize/2) * (Math.random()-0.5),

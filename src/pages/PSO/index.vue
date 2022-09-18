@@ -162,7 +162,14 @@
     position: absolute;
     height: 100vh;
     width: 100vw;
+    margin-top: -6vw !important;
+  }
+
+  .starStream, .twinkle {
     z-index: 3;
   }
 
+  .twinkle {
+    z-index: 1;
+  }
 </style>
