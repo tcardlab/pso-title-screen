@@ -15,6 +15,8 @@
     </div>
 
     <Sigil class="sigil" width="120vw"/>
+
+    <StarStream class="starStream" />
     
   </div>
 </template>
@@ -23,6 +25,8 @@
   import Sigil from './sigil.vue'
   import Hex from './hexgrid.vue'
   import Hex2 from './hexgrid2.vue'
+
+  import StarStream from './starStream.vue'
 </script>
 
 <style scoped lang="scss">
@@ -147,5 +151,14 @@
     //filter: blur(.15rem);
     stroke: rgba(255, 255, 255, 0.5) !important;
     z-index: 2;
+  }
+</style>
+
+
+<style scoped lang="scss">
+  .starStream {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
   }
 </style>
