@@ -144,7 +144,7 @@
   .hex2 {
     position: absolute;
     filter: blur(.15rem);
-    stroke: rgba(255, 255, 255, 0.355) !important;
+    stroke: rgba(255, 255, 255, 0.5) !important;
     z-index: 2;
   }
 </style>
