@@ -184,10 +184,21 @@
     height: 100vh;
     width: 100vw;
     z-index: 10;
-    opacity: 55%;
+    //opacity: 35%;
+    
 
     // prevent scan-lines from squishing into oblivion
     min-width: 940px !important;
-    min-height: 600px !important
+    min-height: 600px !important;
+
+
+    opacity: 40%;
+    mix-blend-mode: overlay;
+
+    //opacity: 30%;
+    //mix-blend-mode: color-burn;
+
+    //opacity: 30%;
+    //mix-blend-mode: luminosity;
   }
 </style>
