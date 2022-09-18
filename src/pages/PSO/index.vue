@@ -8,7 +8,7 @@
     <div class='wrapper'>
       <div class='blurred-wrapper'>
         <h1 class='blurred'>
-          PHANTASY STAR <!-- <br>ONLINE  -->
+          PHANTASY STAR <br>ONLINE 
         </h1>
       </div>
       <h1 class='still'> PHANTASY STAR<br>ONLINE </h1>
@@ -18,6 +18,9 @@
 
     <Twinkle class="twinkle"/>
     <StarStream class="starStream" />
+
+
+    <img class="scan-lines" src="@/assets/928ae6bbbd636c4d41c5681db4c85368c4dd6833.png">
     
   </div>
 </template>
@@ -75,7 +78,7 @@
 .blurred {
   color: rgba(0, 149, 255, 0.849);
   display: flex;
-  transform: scale( calc( 1/var(--blur) ), calc(1000 + 100));
+  transform: scale( calc( 1/var(--blur) ), calc(1000 + 40));
 }
 
 
@@ -171,5 +174,20 @@
 
   .twinkle {
     z-index: 1;
+  }
+</style>
+
+
+<style scoped lang="scss">
+  .scan-lines {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    opacity: 55%;
+
+    // prevent scan-lines from squishing into oblivion
+    min-width: 940px !important;
+    min-height: 600px !important
   }
 </style>
