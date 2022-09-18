@@ -32,6 +32,13 @@
 
   import StarStream from './starStream.vue'
   import Twinkle from './twinkle.vue'
+
+  import { Howl } from 'howler'
+  var sound = new Howl({
+    src: ['src/assets/a_song_for_eternal_story.mp3']
+    // src: ['src/assets/my_song_for_eternal_story.wav']
+  });
+  sound.play()
 </script>
 
 <style scoped lang="scss">
