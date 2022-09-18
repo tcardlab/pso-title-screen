@@ -7,27 +7,12 @@
 
 <script setup lang="ts">
   // @ts-nocheck
-  import {onMounted} from "vue"
-  import Two from "two.js";
+  import useTwo from './useTwo'
+
+  import { onMounted } from "vue"
 
   let starStream = $ref(null)
-
-  var two = new Two({
-    type: Two.Types.canvas,
-    fullscreen: true,
-    autostart: true
-  })
-
-  two.renderer.ctx.globalCompositeOperation = 'screen';
-  two.scene.translation.set(two.width / 2, (two.height / 2) - (two.height/19));
-  two.bind('resize', function() {
-    two.scene.translation.set(two.width / 2, two.height / 2);
-  })
-
-  onMounted(() => {
-    two.appendTo(starStream);
-  });
-
+  let two = useTwo($$(starStream))
 
   let speed = 2
   let maxSize = 16

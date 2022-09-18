@@ -16,6 +16,7 @@
 
     <Sigil class="sigil" width="120vw"/>
 
+    <Twinkle class="twinkle"/>
     <StarStream class="starStream" />
     
   </div>
@@ -27,6 +28,7 @@
   import Hex2 from './hexgrid2.vue'
 
   import StarStream from './starStream.vue'
+  import Twinkle from './twinkle.vue'
 </script>
 
 <style scoped lang="scss">
@@ -156,9 +158,11 @@
 
 
 <style scoped lang="scss">
-  .starStream {
+  .starStream, .twinkle {
     position: absolute;
     height: 100vh;
     width: 100vw;
+    z-index: 3;
   }
+
 </style>
