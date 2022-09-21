@@ -55,7 +55,11 @@
   height: 100vh;
   width: 100%;
   display: flex;
-  background-color: black;
+  background-color: red;
+  background-image: linear-gradient(148deg, rgb(0, 12, 56) 0%, rgb(0, 0, 0) 83%, rgb(0, 0, 0) 100%); //url(https://github.com/HelloKitty/Booma.PSOBB.Client/blob/master/Assets/Content/UI/Titlescreen/BackgroundPSO.png?raw=true);
+  background-repeat: no-repeat;
+  background-size: cover;
+
   margin: 0;
 
   align-items: center;
