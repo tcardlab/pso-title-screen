@@ -19,7 +19,7 @@
   svg {
     overflow: visible;
     transform: scale(0.5);
-    stroke-width: 83 !important;
+    stroke-width: 75 !important;
   }
   .hex2 {
     position: absolute;

@@ -48,7 +48,7 @@
 <style scoped lang="scss">
   .orb-container {
     width: 45vw;
-    transform: translate(0, -3.75vw);
+    transform: translate(1vw, -3.75vw);
     &> svg {
       width: 100%;
       overflow: visible

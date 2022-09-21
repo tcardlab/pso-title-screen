@@ -21,6 +21,7 @@ declare module '@vue/runtime-core' {
     Sigil: typeof import('./src/pages/PSO/sigil.vue')['default']
     StarStream: typeof import('./src/pages/PSO/starStream.vue')['default']
     Start: typeof import('./src/pages/Start/index.vue')['default']
+    Title: typeof import('./src/pages/PSO/title.vue')['default']
     Twinkle: typeof import('./src/pages/PSO/twinkle.vue')['default']
     UseTwo: typeof import('./src/pages/PSO/useTwo.ts')['default']
   }
