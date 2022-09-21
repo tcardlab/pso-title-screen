@@ -14,13 +14,13 @@
   let starStream = $ref(null)
   let two = useTwo($$(starStream))
 
-  let speed = Math.round(two.width / 450)
-  let maxSize = Math.round(two.width / 90) + 1 
-  let amount = 250
+  let speed = Math.round(two.width / 375)
+  let maxSize = Math.round(two.width / 60) + 1 
+  let amount = 300
 
   function genParticle() {
     // Generate particle attributes
-    let size = Math.max(maxSize * Math.random(), Math.round(two.width / 160) )
+    let size = Math.max(maxSize * Math.random(), Math.round(two.width / 80) )
     let p = {
       x: 0, 
       y: (maxSize/2) * (Math.random()-0.5),
@@ -72,7 +72,7 @@
       for (var circle of circleArr) {   
         // update all circles 
         
-        if (circle.position.x < -two.width / 3 || circle.position.x > two.width / 3) {
+        if (circle.position.x < -two.width / 2 || circle.position.x > two.width / 2) {
           // regenerate circle in center once it leaves specified range
           var { y, size, color, vx } = genParticle()
           circle.position.x = 0
@@ -85,9 +85,9 @@
           circle.position.x += circle.vx
         }
         
-        if (circle.radius > 2 && Math.abs(circle.position.x) >= two.width/20 ) {
+        if (circle.radius > 2 && Math.abs(circle.position.x) >= two.width/16 ) {
           // outside center area, shrink size and update color
-          circle.radius -= (circle.radius / maxSize) * 0.07
+          circle.radius -= (circle.radius / maxSize) * 0.1
           circle.fill = calcColor(circle.radius)
         }
         

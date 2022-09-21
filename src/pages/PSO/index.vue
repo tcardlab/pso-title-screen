@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="page vignette">
  
     <Hex class="hex1" width="140vw" />
 
@@ -58,8 +58,14 @@
   justify-content: center;
   position: relative;
 
-  filter: blur(0.06rem)
+  //filter: blur(0.06rem)
+  filter: blur(0.045rem)
   // whish this wasn't laggy either
+}
+
+.vignette {
+  box-shadow: 0 0 10vw rgb(0, 0, 0) inset, 
+              0 0 10vw rgba(0, 5, 87, 0.8) inset
 }
 
 .wrapper {
@@ -115,7 +121,9 @@
 
 <style scoped lang="scss">
   * {
-    --sigil-default: rgba(137, 235, 255, 0.809)
+    --sigil-default: rgba(144, 197, 237, 0.95);
+    // #6bc0e7;
+    //rgba(139, 194, 214, 0.942);
   }
   
   .sigil {
