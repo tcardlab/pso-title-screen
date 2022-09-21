@@ -1,16 +1,27 @@
 # PSO Title Screen
 
-I decided to try recreating the *Phantasy Star Online* title-screen using web technology.
+I decided to try recreating the [*Phantasy Star Online*](https://en.wikipedia.org/wiki/Phantasy_Star_Online) title-screen using web technology.
 For that reason, it is incredibly laggy... I do not recommend running at full screen!
 
 
 This is not a faithful recreation of any particular PSO version, but it is most similar to [@HelloKitty](https://github.com/HelloKitty)'s version seen [here](https://www.youtube.com/watch?v=DB9-mvFJ53Q).
 
 
+### Getting Started
+```
+# clone repo and enter directory
+$ npm i
+$ npm run dev
+# visit given port in browser
+```
+
+
 <details style="display: flex; flex-direction: row">
   <summary><h3 style="display: inline"> Notable Sources: </h3></summary>
-  NOTE – If you know of other relevant sources or title screen recreations, let me know or make a PR, I'd be happy to add them here!
-
+  
+    NOTE – If you know of other relevant sources or title screen recreations, 
+    let me know or make a PR, I'd be happy to add them here!
+  
 
   - [@HelloKitty's PSOBB2 Title Screen](https://github.com/HelloKitty/Booma.PSOBB.Client/tree/master/Assets/Content)
     - [demo-video](https://www.youtube.com/watch?v=DB9-mvFJ53Q)
@@ -35,30 +46,28 @@ This is not a faithful recreation of any particular PSO version, but it is most 
     - [fontstruct/phantasy_star_online_cyr_ver_1](https://fontstruct.com/fontstructions/show/253531/phantasy_star_online_cyr_ver_1)  (includes punctuation)
 </details>
 
-### Getting Started
-```
-# clone and enter directory
-$ npm i
-$ npm run dev
-# visit given port in browser
-```
 
 <details style="display: flex; flex-direction: row">
   <summary><h3 style="display: inline"> To-Do: </h3></summary>
-  NOTE – StarStream utilizes a glitch in how two.js renders HSL colors, where intensity/luminance is collective when overlapping. 
-  This breaks when window is resized... I'm looking for a better solution... For now, the version is pinned incase its fixed.
+  
+    NOTE – StarStream utilizes a glitch in how two.js renders HSL colors, 
+    where intensity/luminance is collective when overlapping. This breaks when window is resized... 
+    I'm looking for a better solution... For now, the version is pinned incase its fixed.
 
-
-  Performance:
+  <details style="display: flex; flex-direction: row">
+    <summary><i>PERFORMANCE:</i></summary>
+    
   - [ ] Optimize Sigil svg et al.
   - [ ] Move svg animations to canvas
   - [ ] [Switch Two.js to webgl](https://two.js.org/docs/renderers/webgl/)  (`Two.Types.webgl`)
   - [ ] [Use faster canvas Lib](https://benchmarks.slaylines.io/)  (should be fine as long as it has path support)
   - [ ] [Don't even use js? – rust wasm + simd](https://www.reddit.com/r/rust/comments/tm10wi/media_i_made_a_website_to_demonstrate_performance/)
   - [ ] No sound until interaction – pretty sure there is no fix for web as its [the intended effect](https://developer.chrome.com/blog/autoplay)
-
-
-  Accuracy:
+  </details>
+  <br>
+  <details style="display: flex; flex-direction: row">
+    <summary><i>ACCURACY:</i></summary>
+  
   - [ ] Create a more accurate Sigil svg.
   - [ ] Hex Grid does not cover scree.n (its also scaled incorrectly)
   - [ ] Background is just a gradient, need a better image. (or see improvements)
@@ -70,9 +79,11 @@ $ npm run dev
   - [ ] I guessed on rotation speeds based on HelloKitty/Gladers video
   - [ ] StartStream initializes from one point and may have gaps in center. The OG initializes within a range and doesn't have gaps in the middle afaik.
   - [ ] text blur is incorrect, is should be blurred away from the middle. but directional blur is hard to achieve with css. (unless [cloning the object multiple times](https://css-tricks.com/how-to-create-a-realistic-motion-blur-with-css-transitions/) and blurring together.)
+  </details>
+  <br>
+  <details style="display: flex; flex-direction: row">
+    <summary><i>IMPROVEMENTS:</i></summary>
 
-
-  Improvements:
   - [ ] Bg-text animations (ideas: infinite scroll, words that endlessly cycle characters, intermittently change a words letters with pr character slide animation, meaningful text like in [ep3 title screen](https://www.pso-world.com/forums/showthread.php?204265-Episode-3-Title-Background-Text))
   - [ ] Rather than grungy background image, use gradients/blurry objects that respond to mouse location/movement
   - [ ] Add strong white glow to sigil during Hex animation [Glader does this, I think its nice](https://www.youtube.com/watch?v=DB9-mvFJ53Q&t=8s).
@@ -85,15 +96,18 @@ $ npm run dev
     - [js Babylon walk-through](https://babylonjs.medium.com/retro-crt-shader-a-post-processing-effect-study-1cb3f783afbc)
     - [gflx js](https://www.zachstronaut.com/posts/2012/08/17/webgl-fake-crt-html5.html)
     - [vanilla js](https://gist.github.com/KHN190/d7c467a471b15e72302b16a9336440a5)
+  </details>
 </details>
 
 
 <details style="display: flex; flex-direction: row">
   <summary><h3 style="display: inline"> Notable Tech: </h3></summary>
+
+    NOTE – sorry for some of the package bloat, unused stuff is from my template
+  
   - [Vite](https://github.com/vitejs/vite)
   - [Vue 3](https://github.com/vuejs)
   - [Two.js](https://github.com/jonobr1/two.js)
   - [Howler](https://github.com/goldfire/howler.js)
-  sorry for some of the package bloat, unused stuff is from my template
 </details>
 
