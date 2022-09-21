@@ -140,11 +140,11 @@ function intersect(arr1: any[], arr2: any[]) {
 
 
 // Auth wrap
-let authorize = (auth:any) : boolean => { console.log('requires auth function'); return false}
+/* let authorize = (auth:any) : boolean => { console.log('requires auth function'); return false}
 const authWrap = (auth:any) => (ogF:()=>any, ...args:any) => {
   if (authorize(auth)) return ogF.apply(this, args)
   console.log("just what do you think you're doing Dave?")
-}
+} */
 
 
 /***
@@ -157,7 +157,7 @@ function defaultWrap(this:any, ogF:()=>void, ...args:any) {
   //console.log('post-wrap')
 }
 
-module.exports = (ogFunc:()=>any, wrap = defaultWrap) => {
+function wrapper (ogFunc:()=>any, wrap = defaultWrap) {
   return function () {
     /* work before the function is called */
     try {
@@ -364,11 +364,11 @@ function JSONstringifyWithFuncs2 (obj: object|any[]) {
 /***
  Import vs CMD-line call
 ***/
-if (require.main === module) {
+/* if (require.main === module) {
   console.log('called directly');
 } else {
   console.log('required as a module');
-}
+} */
 
 
 

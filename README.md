@@ -1,16 +1,99 @@
-# Vue 3 + TypeScript + Vite
+# PSO Title Screen
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+I decided to try recreating the *Phantasy Star Online* title-screen using web technology.
+For that reason, it is incredibly laggy... I do not recommend running at full screen!
 
-## Recommended IDE Setup
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+This is not a faithful recreation of any particular PSO version, but it is most similar to [@HelloKitty](https://github.com/HelloKitty)'s version seen [here](https://www.youtube.com/watch?v=DB9-mvFJ53Q).
 
-## Type Support For `.vue` Imports in TS
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+<details style="display: flex; flex-direction: row">
+  <summary><h3 style="display: inline"> Notable Sources: </h3></summary>
+  NOTE – If you know of other relevant sources or title screen recreations, let me know or make a PR, I'd be happy to add them here!
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+  - [@HelloKitty's PSOBB2 Title Screen](https://github.com/HelloKitty/Booma.PSOBB.Client/tree/master/Assets/Content)
+    - [demo-video](https://www.youtube.com/watch?v=DB9-mvFJ53Q)
+    - [dev-log video](https://www.youtube.com/watch?v=W8maC6ZdFqA)
+    - /Sound/ - Has many useful sound effects and songs (title screen song included)
+    - /UI/Titlescreen/ - Has the divided up assets of the title screen.  (I used the Orbs from here)
+    - [PSOBB2 Discord had a good full-circle](https://cdn.discordapp.com/attachments/540689032712159281/770541845599223808/PSO.png)  (I used this in creating an SVG)
+  - [GameCube Version](https://www.youtube.com/watch?v=7ORY-IFb3cY)
+  - [Egg+ / anycoloregg](http://anycoloregg.web.fc2.com/PSO/ep3card/3_sozai.html)
+    - [decent res full-circle](http://anycoloregg.web.fc2.com/PSO/ep3card/sozai/msg1130_1.gif)
+    - [decent res inner-circle](http://anycoloregg.web.fc2.com/PSO/ep3card/sozai/msg1130_2.gif)  (I used this in creating an SVG)
+  - [Circle Meaning](https://www.reddit.com/r/PSO/comments/8y4z8i/fan_translation_for_my_recent_pso_logo_project_i/)
+  - [Fringes of Algo](http://www.psalgo.com/boards/phantasy-star-online-fonts-vd244.html)  (I used PSO font from here)
+  - [dreamcast remake](https://cdn.discordapp.com/attachments/539772751796240386/959417156179742730/2022-04-01_12-43-34_psogame_480p.mp4)
+    - notably shows use of a sprite based StarStream
+  - Other Unused Fonts:  (its hard to know whats a duplicate or original source...)
+    - [font2s/pso_test_regular](https://font2s.com/fonts/63345/pso_test_regular.html#.YysVlexKjOR)
+    - [freefontsdownload/free-pso-test-regular-font](https://freefontsdownload.net/free-pso-test-regular-font-125365.htm)  (prob same as prior)
+    - [wfonts/pso-test](https://www.wfonts.com/font/pso-test)  (prob same as prior)
+    - [eleriaqueen/stylised-pso-font](https://www.pioneer2.net/community/threads/i-made-stylised-pso-fonts.13269/)  (links are broken, but I'd like a copy if anyone has them)
+    - [fontstruct/phantasy_star_online](https://fontstruct.com/fontstructions/show/253199/phantasy_star_online)  (includes punctuation)
+    - [fontstruct/phantasy_star_online_cyr_ver_1](https://fontstruct.com/fontstructions/show/253531/phantasy_star_online_cyr_ver_1)  (includes punctuation)
+</details>
+
+### Getting Started
+```
+# clone and enter directory
+$ npm i
+$ npm run dev
+# visit given port in browser
+```
+
+<details style="display: flex; flex-direction: row">
+  <summary><h3 style="display: inline"> To-Do: </h3></summary>
+  NOTE – StarStream utilizes a glitch in how two.js renders HSL colors, where intensity/luminance is collective when overlapping. 
+  This breaks when window is resized... I'm looking for a better solution... For now, the version is pinned incase its fixed.
+
+
+  Performance:
+  - [ ] Optimize Sigil svg et al.
+  - [ ] Move svg animations to canvas
+  - [ ] [Switch Two.js to webgl](https://two.js.org/docs/renderers/webgl/)  (`Two.Types.webgl`)
+  - [ ] [Use faster canvas Lib](https://benchmarks.slaylines.io/)  (should be fine as long as it has path support)
+  - [ ] [Don't even use js? – rust wasm + simd](https://www.reddit.com/r/rust/comments/tm10wi/media_i_made_a_website_to_demonstrate_performance/)
+  - [ ] No sound until interaction – pretty sure there is no fix for web as its [the intended effect](https://developer.chrome.com/blog/autoplay)
+
+
+  Accuracy:
+  - [ ] Create a more accurate Sigil svg.
+  - [ ] Hex Grid does not cover scree.n (its also scaled incorrectly)
+  - [ ] Background is just a gradient, need a better image. (or see improvements)
+  - [ ] I just guessed on colors, could prob color pick them.  (some of the blues and glows don't mesh as well as they should)
+  - [ ] I believe the StarStream in the original uses rough sprites, while I use circles.
+  - [ ] while these HD-remakes are nice, I believe you loose out a bit on the [CRT color-burnt intensity and bleeding colors](http://www.pso-world.com/images/guides/jplantern/00.jpg). (see improvements).
+  - [ ] The Sparkle is probably the least accurate as its rays are not tapered.  (needs total rework)
+  - [ ] action-text does not blink due to lag...
+  - [ ] I guessed on rotation speeds based on HelloKitty/Gladers video
+  - [ ] StartStream initializes from one point and may have gaps in center. The OG initializes within a range and doesn't have gaps in the middle afaik.
+  - [ ] text blur is incorrect, is should be blurred away from the middle. but directional blur is hard to achieve with css. (unless [cloning the object multiple times](https://css-tricks.com/how-to-create-a-realistic-motion-blur-with-css-transitions/) and blurring together.)
+
+
+  Improvements:
+  - [ ] Bg-text animations (ideas: infinite scroll, words that endlessly cycle characters, intermittently change a words letters with pr character slide animation, meaningful text like in [ep3 title screen](https://www.pso-world.com/forums/showthread.php?204265-Episode-3-Title-Background-Text))
+  - [ ] Rather than grungy background image, use gradients/blurry objects that respond to mouse location/movement
+  - [ ] Add strong white glow to sigil during Hex animation [Glader does this, I think its nice](https://www.youtube.com/watch?v=DB9-mvFJ53Q&t=8s).
+  - [ ] Needs to handle more screen dimensions/resolution that originally designed for.
+  - [ ] By moving more elements to canvas, a CRT shader can be used rather than a scan-line overlay. (add scan-lines, chromatic aberration, warp, color-burn, etc.)
+    - [Acerola CRT breakdown](https://www.youtube.com/watch?v=aWdySZ0BtJs)
+    - [Łukasz Łazarecki options walk through](https://www.youtube.com/watch?v=sa7eVUgb8Yw)
+    - well known: [CRT-Royale](https://emulation.gametechwiki.com/index.php/CRT-Royale)
+    - [Pixi js out of box filter](https://www.npmjs.com/package/@pixi/filter-crt)
+    - [js Babylon walk-through](https://babylonjs.medium.com/retro-crt-shader-a-post-processing-effect-study-1cb3f783afbc)
+    - [gflx js](https://www.zachstronaut.com/posts/2012/08/17/webgl-fake-crt-html5.html)
+    - [vanilla js](https://gist.github.com/KHN190/d7c467a471b15e72302b16a9336440a5)
+</details>
+
+
+<details style="display: flex; flex-direction: row">
+  <summary><h3 style="display: inline"> Notable Tech: </h3></summary>
+  - [Vite](https://github.com/vitejs/vite)
+  - [Vue 3](https://github.com/vuejs)
+  - [Two.js](https://github.com/jonobr1/two.js)
+  - [Howler](https://github.com/goldfire/howler.js)
+  sorry for some of the package bloat, unused stuff is from my template
+</details>
+
