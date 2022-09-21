@@ -16,6 +16,10 @@
 </script>
 
 <style scoped lang="scss">
+  svg {
+    overflow: visible;
+    transform: scale(0.5);
+  }
   .hex2 {
     position: absolute;
     //filter: blur(.2rem);

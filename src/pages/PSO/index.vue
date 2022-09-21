@@ -7,10 +7,13 @@
 
     <Hex2 class="hex2" width="140vw" />
 
+    <Orbs class="orbs"/>
+
     <div class='wrapper'>
       <div class='blurred-wrapper'>
         <h1 class='blurred'>
-          PHANTASY STAR <br>ONLINE 
+          PHANTASY STAR <br> ONLINE 
+          <!-- PHA &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp TAR -->
         </h1>
       </div>
       <h1 class='still'> PHANTASY STAR<br>ONLINE </h1>
@@ -32,7 +35,8 @@
   import Hex from './hexgrid.vue'
   import Hex2 from './hexgrid2.vue'
   import Text from './bgText.vue'
-
+  import Orbs from './orbs.vue'
+  
   import StarStream from './starStream.vue'
   import Twinkle from './twinkle.vue'
 
@@ -59,13 +63,13 @@
   position: relative;
 
   //filter: blur(0.06rem)
-  filter: blur(0.045rem)
+  filter: blur(0.045rem);
   // whish this wasn't laggy either
 }
 
 .vignette {
-  box-shadow: 0 0 10vw rgb(0, 0, 0) inset, 
-              0 0 10vw rgba(0, 5, 87, 0.8) inset
+  box-shadow: 0 0 12vw rgb(0, 0, 0) inset, 
+              0 0 12vw rgba(0, 5, 87, 0.8) inset
 }
 
 .wrapper {
@@ -183,6 +187,12 @@
     stroke: rgba(255, 255, 255, 0.5) !important;
     z-index: 1;
     opacity: 30%
+  }
+
+  .orbs {
+    position: absolute;
+    z-index: 2 !important;
+    //width: 90vw;
   }
 </style>
 
