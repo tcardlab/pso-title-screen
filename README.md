@@ -1,4 +1,4 @@
-# PSO Title Screen
+# Phantasy Star Online – Title Screen
 
 I decided to try recreating the [*Phantasy Star Online*](https://en.wikipedia.org/wiki/Phantasy_Star_Online) title-screen using web technology.
 For that reason, it is incredibly laggy... I do not recommend running at full screen!
@@ -19,6 +19,9 @@ $ npm run dev
 # visit given port in browser
 ```
 
+<br>
+
+## Dev Notes:
 
 <details style="display: flex; flex-direction: row">
   <summary><h3 style="display: inline"> Notable Sources: </h3></summary>
@@ -114,4 +117,60 @@ $ npm run dev
   - [Two.js](https://github.com/jonobr1/two.js)
   - [Howler](https://github.com/goldfire/howler.js)
 </details>
+
+<br>
+
+## Other PSO Info:
+
+<details style="display: flex; flex-direction: row">
+  <summary><h3 style="display: inline"> PSO Community Projects: </h3></summary>
+  
+  <details style="display: flex; flex-direction: row">
+  <summary><i>SERVERS, EMULATORS, ET AL:</i></summary>
+  
+    
+  - [NewServe](https://github.com/fuzziqersoftware/newserv) – PSO server/proxy
+  - Booma : ([proxy](https://github.com/HelloKitty/Booma.Proxy) | [client](https://github.com/HelloKitty/PSOBB2.Client) | [server](https://github.com/HelloKitty/Booma.Server)) – PSO:bb emulation suite
+  - PSO:BB2 : ([Library](https://github.com/kanon411/PSOBB2.Library) | [content](HelloKitty/PSOBB2.Content) | [Client](https://github.com/HelloKitty/PSOBB2.Client)) – PSO:bb remake in unity
+  - [Telepipe](https://github.com/BygoneWorlds/telepipe) – PSO on Dolphin Emulator 
+  - [Phantasmal](https://github.com/DaanVandenBosch/phantasmal-world) – web app, utils, and WIP  server
+  </details><br>
+  
+  <details style="display: flex; flex-direction: row">
+  <summary><i>CALC, STAT, & Utils:</i></summary>
+  
+  - [PSOCalc](https://github.com/gar-mil/psocalc) – PSO:bb section ID calc [ js ]
+  - [ID_generator](https://github.com/DiggsAsura/PSO_Section_ID_generator) – PSO:gc section ID calc [ rust ]
+  - [secid-calc](https://github.com/TimBeard/secid-calculator) – PSO section ID calc [ Vue.js ]
+  - [MAG database](https://github.com/SethClydesdale/psobb-mag-database) – PSO:bb plugin
+  - [MAG Calc](https://github.com/Jimaine/PsoMagCalculator) – PSO mag calculator
+  - [MAG AI](https://github.com/Lemonilla/MagAi) – Generate Mag Feeding plan
+  - [MAG Feeder](https://github.com/ariajanke/mag-feeder) – Mag Feeder Tool for PSOBB
+  – [drop chart](https://github.com/SethClydesdale/psobb-drop-charts) – PSO:bb plugin for drop chart
+  - [Map Simulator](https://github.com/aldelaro5/PSOMapRNGSimulation) – PSO:gc Map RGN simulation
+  </details><br>
+  
+  
+  <details style="display: flex; flex-direction: row">
+  <summary><i>AESTHETICS:</i></summary>
+    
+    
+  - [pso-highres-ui](https://github.com/eleriaqueen/pso-highres-ui) – highres ui for Dolphin emulator
+  - [highres-dreamcast-ui](https://github.com/eleriaqueen/pso-highres-dreamcube-ui) – highres Dreamcast ui for Dolphin emulator
+  - [Custom-HUD](https://github.com/izumidaye/psobb-custom-HUD) – PSO:bb custom hud plugin
+  </details><br>  
+</details>
+ 
+<details style="display: flex; flex-direction: row">
+  <summary><h3 style="display: inline"> PSO:BB Servers: </h3></summary>
+  
+  1. [Ephinea](https://ephinea.pioneer2.net)
+  2. [Ultima](https://www.phantasystaronline.net)
+  3. [Destiny](https://playpso.net)
+  
+</details>
+  
+  
+  
+
 
