@@ -27,12 +27,12 @@ This is not a faithful recreation of any particular PSO version, but it is most 
   - [dreamcast remake](https://cdn.discordapp.com/attachments/539772751796240386/959417156179742730/2022-04-01_12-43-34_psogame_480p.mp4)
     - notably shows use of a sprite based StarStream
   - Other Unused Fonts:  (its hard to know whats a duplicate or original source...)
-    - https://font2s.com/fonts/63345/pso_test_regular.html#.YysVlexKjOR
-    - https://freefontsdownload.net/free-pso-test-regular-font-125365.htm  (prob same as prior)
-    - https://www.wfonts.com/font/pso-test  (prob same as prior)
-    - https://www.pioneer2.net/community/threads/i-made-stylised-pso-fonts.13269/  (links are broken, but I'd like a copy if anyone has them)
-    - https://fontstruct.com/fontstructions/show/253199/phantasy_star_online  (includes punctuation)
-    - https://fontstruct.com/fontstructions/show/253531/phantasy_star_online_cyr_ver_1  (includes punctuation)
+    - [font2s/pso_test_regular](https://font2s.com/fonts/63345/pso_test_regular.html#.YysVlexKjOR)
+    - [freefontsdownload/free-pso-test-regular-font](https://freefontsdownload.net/free-pso-test-regular-font-125365.htm)  (prob same as prior)
+    - [wfonts/pso-test](https://www.wfonts.com/font/pso-test)  (prob same as prior)
+    - [eleriaqueen/stylised-pso-font](https://www.pioneer2.net/community/threads/i-made-stylised-pso-fonts.13269/)  (links are broken, but I'd like a copy if anyone has them)
+    - [fontstruct/phantasy_star_online](https://fontstruct.com/fontstructions/show/253199/phantasy_star_online)  (includes punctuation)
+    - [fontstruct/phantasy_star_online_cyr_ver_1](https://fontstruct.com/fontstructions/show/253531/phantasy_star_online_cyr_ver_1)  (includes punctuation)
 </details>
 
 ### Getting Started
