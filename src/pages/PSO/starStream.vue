@@ -87,7 +87,7 @@
         
         if (circle.radius > 2 && Math.abs(circle.position.x) >= two.width/16 ) {
           // outside center area, shrink size and update color
-          circle.radius -= (circle.radius / maxSize) * 0.1
+          circle.radius -= (circle.radius / maxSize) * 0.15
           circle.fill = calcColor(circle.radius)
         }
         

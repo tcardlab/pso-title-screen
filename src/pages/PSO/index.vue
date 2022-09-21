@@ -121,7 +121,7 @@
 
 <style scoped lang="scss">
   * {
-    --sigil-default: rgba(144, 197, 237, 0.95);
+    --sigil-default: rgba(183, 224, 255, 0.95);
     // #6bc0e7;
     //rgba(139, 194, 214, 0.942);
   }
