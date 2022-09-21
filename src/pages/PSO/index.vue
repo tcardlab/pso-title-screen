@@ -7,15 +7,18 @@
 
     <Hex2 class="hex2" width="140vw" />
 
+    <Sigil class="sigil" width="120vw"/>
+
     <Orbs class="orbs" />
 
     <PSOTitle class="pso-title" />
 
-    <Sigil class="sigil" width="120vw"/>
-
     <Twinkle class="twinkle"/>
     <StarStream class="starStream" />
 
+    <div class="action-text">
+      <p>PRESS ENTER KEY</p>
+    </div>
 
     <img class="scan-lines" src="@/assets/928ae6bbbd636c4d41c5681db4c85368c4dd6833.png">
     
@@ -164,11 +167,11 @@
 </style>
 
 
-<!-- Title Effect styles  -->
+<!-- Title & Text Effect styles  -->
 <style scoped lang="scss">
   .pso-title{
     z-index: 4;
-    opacity: 0.95
+    //opacity: 0.95
   }
 
   .starStream, .twinkle {
@@ -190,5 +193,37 @@
     position: absolute;
     z-index: 2 !important;
     //width: 90vw;
+  }
+
+  .action-text {
+    position: absolute;
+    z-index: 8;
+    transform: translateY(20vw);
+    opacity: 85%
+    //animation: blink 4s infinite; // adds a lot of lag
+  }
+
+  .action-text > p {
+    color:black;
+    font-family: Sans-Serif;
+    font-weight:bold;
+    //-webkit-text-stroke: .7px rgb(255, 255, 255);
+    text-shadow: 0px 0px .2vw #fff, 0px 0px .2vw #fff, 0px 0px .2vw #fff;
+    filter: drop-shadow(0px 0px .1vw rgb(255, 255, 255))
+            drop-shadow(0px 0px .1vw rgb(255, 255, 255))
+            drop-shadow(0px 0px .1vw rgb(255, 255, 255));
+    font-size: 2vw
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 0%
+    }
+    50%{
+      opacity: 85%
+    }
+    100%{
+      opacity: 0%
+    }
   }
 </style>
