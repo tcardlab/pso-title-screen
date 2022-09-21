@@ -5,7 +5,7 @@ import Middle from './Middle'
 import PSO from './PSO'
 
 const routes = [
-  { path: '/', component: Start },
+  { path: '/', component: PSO }, // Start
   { path: '/PSO', component: PSO },
   { path: '/PSO-bg', component: ()=>import('./PSO/bgText.vue') },
   { path: '/tsx', component: End },
