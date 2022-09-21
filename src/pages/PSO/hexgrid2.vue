@@ -7,7 +7,7 @@
       <circle id="circle-mask" cx="50%" cy="50%" r="30%" stroke-width="8%" stroke="white" fill="black" />
     </mask>
 
-    <Hex class="hex" width="100%" stroke="red" fill="white" mask="url(#myMask)"/>
+    <Hex class="hex" stroke-width="65" width="100%" mask="url(#myMask)"/>
   </svg>
 </template>
 
@@ -18,8 +18,7 @@
 <style scoped lang="scss">
   svg {
     overflow: visible;
-    transform: scale(0.5);
-    stroke-width: 75 !important;
+    transform: scale(0.5)
   }
   .hex2 {
     position: absolute;
@@ -27,6 +26,7 @@
     //stroke: rgba(255, 255, 255, 0.256) !important;
     stroke: white;
     z-index: 2;
+    //animation: dim-grid 13.3s linear infinite;  // too laggy
   }
 
   #circle-mask {
@@ -36,6 +36,7 @@
   @keyframes expand-mask {
     0%{
       r: 0%;
+      opacity: 100%;
     }
     2%{
       r: 20%;
@@ -45,12 +46,31 @@
     }
     6%{
       r: 50%;
+      opacity: 35%
     }
     9%{
       r: 100%;
+      opacity: 0%
     }
     100%{
       r: 100%;
+      opacity: 0%
     }
   }
+
+  /* @keyframes dim-grid {
+    // using two animations adds more lag 
+    0%{
+      opacity: 100%;
+    }
+    6%{
+      opacity: 50%;
+    }
+    9%{
+      opacity: 0%;
+    }
+    100%{
+      opacity: 0%;
+    }
+  } */
 </style>

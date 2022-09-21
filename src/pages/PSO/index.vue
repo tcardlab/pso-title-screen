@@ -1,7 +1,7 @@
 <template>
   <div class="page vignette">
  
-    <Hex class="hex1" width="140vw" />
+    <Hex class="hex1" width="140vw" stroke-width="75"/>
 
     <Text class="bg-text"/>
 
@@ -42,6 +42,7 @@
   sound.play()
 </script>
 
+<!-- Page & Cover styles  -->
 <style scoped lang="scss">
 
   .page {
@@ -68,109 +69,7 @@
     box-shadow: 0 0 12vw rgb(0, 0, 0) inset, 
                 0 0 12vw rgba(0, 5, 87, 0.8) inset
   }
-</style>
 
-<style scoped lang="scss">
-  .pso-title{
-    z-index: 4;
-    opacity: 0.95
-  }
-</style>
-
-
-<style scoped lang="scss">
-  * {
-    --sigil-default: rgba(183, 224, 255, 0.95);
-    // #6bc0e7;
-    //rgba(139, 194, 214, 0.942);
-  }
-  
-  .sigil {
-    position: absolute;
-    z-index: 1;
-    //filter: blur(0.1rem);
-
-    animation: light-up 13.3s linear infinite;
-    opacity: .7
-  }
-
-
-  @keyframes light-up {
-    0%{
-      fill: var(--sigil-default);
-    }
-    2%{
-      fill: rgba(255, 255, 255, 0.634);
-    }
-    3%{
-      fill: rgba(254, 254, 223, 0.634);
-    }
-    6%{
-      fill: rgba(255, 255, 255, 0.634);
-    }
-    9%{
-      fill: rgba(255, 255, 255, 0.807);
-    }
-    15%{
-      fill:  var(--sigil-default);
-    }
-    100%{
-      fill: var(--sigil-default)
-    }
-  }
-</style>
-
-<style scoped lang="scss">
-  .hex1 {
-    position: absolute;
-    filter: blur(.35rem); //blur(8px);
-    opacity: 75%;
-    translate: -6vw;
-    z-index: 1;
-  }
-
-  .hex2 {
-    position: absolute;
-    //filter: blur(.15rem);
-    stroke: rgba(255, 255, 255, 0.5) !important;
-    z-index: 2;
-  }
-
-  .bg-text {
-    position: absolute;
-    //filter: blur(.15rem);
-    stroke: rgba(255, 255, 255, 0.5) !important;
-    z-index: 1;
-    opacity: 30%
-  }
-
-  .orbs {
-    position: absolute;
-    z-index: 2 !important;
-    //width: 90vw;
-  }
-</style>
-
-
-<style scoped lang="scss">
-  .starStream, .twinkle {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    margin-top: -6vw !important;
-  }
-
-  .starStream, .twinkle {
-    z-index: 3;
-  }
-
-  .twinkle {
-    z-index: 1;
-  }
-</style>
-
-
-<style scoped lang="scss">
   .scan-lines {
     position: absolute;
     height: 100vh;
@@ -192,5 +91,104 @@
 
     //opacity: 30%;
     //mix-blend-mode: luminosity;
+  }
+</style>
+
+
+<!-- Sigil styles  -->
+<style scoped lang="scss">
+  * {
+    --sigil-default: rgba(183, 224, 255, 0.95);
+    // #6bc0e7;
+    //rgba(139, 194, 214, 0.942);
+  }
+  
+  .sigil {
+    position: absolute;
+    z-index: 1;
+    //filter: blur(0.1rem);
+
+    animation: light-up 13.3s linear infinite;
+    opacity: .7
+  }
+
+
+  @keyframes light-up {
+    0%{
+      fill: var(--sigil-default);
+      opacity: .7
+    }
+    2%{
+      fill: rgba(255, 255, 218, 0.76);
+    }
+    6%{
+      fill: rgb(255, 255, 255);
+      //mix-blend-mode: luminosity;
+    }
+    10%{
+      //mix-blend-mode: normal;
+      fill: var(--sigil-default);
+      opacity: .7
+    }
+    100%{
+      fill: var(--sigil-default)
+    }
+  }
+</style>
+
+
+<!-- Hex styles  -->
+<style scoped lang="scss">
+  .hex1 {
+    position: absolute;
+    filter: blur(.35rem); //blur(8px);
+    opacity: 75%;
+    translate: -6vw;
+    z-index: 1;
+  }
+
+  .hex2 {
+    position: absolute;
+    //filter: blur(.15rem);
+    stroke: rgba(255, 255, 255, 0.5) !important;
+    z-index: 2;
+  }
+
+  .bg-text {
+    position: absolute;
+    //filter: blur(.15rem);
+    stroke: rgba(255, 255, 255, 0.5) !important;
+    z-index: 1;
+    opacity: 45%
+  }
+</style>
+
+
+<!-- Title Effect styles  -->
+<style scoped lang="scss">
+  .pso-title{
+    z-index: 4;
+    opacity: 0.95
+  }
+
+  .starStream, .twinkle {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    margin-top: -6vw !important;
+  }
+
+  .starStream, .twinkle {
+    z-index: 3;
+  }
+
+  .twinkle {
+    z-index: 1;
+  }
+
+  .orbs {
+    position: absolute;
+    z-index: 2 !important;
+    //width: 90vw;
   }
 </style>
