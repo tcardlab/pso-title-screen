@@ -7,6 +7,7 @@ import PSO from './PSO'
 const routes = [
   { path: '/', component: Start },
   { path: '/PSO', component: PSO },
+  { path: '/PSO-bg', component: ()=>import('./PSO/bgText.vue') },
   { path: '/tsx', component: End },
   { path: '/tsx-setup', component: Middle }
 ]

@@ -19,6 +19,7 @@
   let amount = 250
 
   function genParticle() {
+    // Generate particle attributes
     let size = Math.max(maxSize * Math.random(), Math.round(two.width / 160) )
     let p = {
       x: 0, 
@@ -31,18 +32,25 @@
   }
 
   function calcColor (size) {
+    // Generate particle color
     return `hsl(206, 100%, ${Math.max(100 * size / maxSize, 40)}%)`
   }
 
   function genV() {
+    // Generate particle velocity
     //return (Math.max(Math.random(), 0.05) - 0.5) * speed
     // return Math.round( (Math.random() - 0.5) * speed)
     return (Math.random() > 0.5? 1 : -1) * Math.max(Math.random() * speed, 0.5)
   }
 
   onMounted(() => {
+    let circleArr = []
+
     two.bind('update', function(frameCount) {
+      // draw loop
+
       if(two.scene.children.length < amount && frameCount % 40) {
+        // add particles to scene
         var { x, y, size, color, vx } = genParticle()
       
         var circle = two.makeCircle(x, y, size, 100);
@@ -50,17 +58,22 @@
 
         circle.fill = color
         circle.noStroke()
+
+        circleArr.push(circle)
       }
       
       if ( frameCount === 130 ) {
+        // add white ellipse to center to make it look more full
+        // Should prob just init with a bunch of particles that only bounce in the center
         let ell = two.makeEllipse(0, 0, two.width/16, two.width/100)
         ell.fill = 'rgba(225, 225, 225, 1)'
       }
 
-      for (var i = 0; i < two.scene.children.length; i++) {
-        var circle = two.scene.children[i];
+      for (var circle of circleArr) {   
+        // update all circles 
         
         if (circle.position.x < -two.width / 3 || circle.position.x > two.width / 3) {
+          // regenerate circle in center once it leaves specified range
           var { y, size, color, vx } = genParticle()
           circle.position.x = 0
           circle.position.y = y
@@ -68,16 +81,19 @@
           circle.radius = size
           circle.fill = color
         } else {
+          // if not regenerated, update position
           circle.position.x += circle.vx
         }
         
         if (circle.radius > 2 && Math.abs(circle.position.x) >= two.width/20 ) {
+          // outside center area, shrink size and update color
           circle.radius -= (circle.radius / maxSize) * 0.07
           circle.fill = calcColor(circle.radius)
         }
         
         
         if (Math.abs(circle.position.x) > two.width/16 ) {
+          // navigate vertical displacement toward center over time
           circle.position.y += (0 - circle.position.y) * 0.01;
         }
       }

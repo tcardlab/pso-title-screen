@@ -397,7 +397,7 @@ svg {
   overflow: visible;
   transform: scale(0.5);
 
-  fill: rgba(35, 176, 223, 0.634)
+  fill: rgba(35, 126, 223, 0.716) // should actually be a gradient
 }
 
 svg > g {

@@ -3,6 +3,8 @@
  
     <Hex class="hex1" width="140vw" />
 
+    <Text class="bg-text"/>
+
     <Hex2 class="hex2" width="140vw" />
 
     <div class='wrapper'>
@@ -29,14 +31,16 @@
   import Sigil from './sigil.vue'
   import Hex from './hexgrid.vue'
   import Hex2 from './hexgrid2.vue'
+  import Text from './bgText.vue'
 
   import StarStream from './starStream.vue'
   import Twinkle from './twinkle.vue'
 
   import { Howl } from 'howler'
   var sound = new Howl({
-    src: ['src/assets/a_song_for_eternal_story.mp3']
-    // src: ['src/assets/my_song_for_eternal_story.wav']
+    src: ['src/assets/a_song_for_eternal_story.mp3'],
+    // src: ['src/assets/my_song_for_eternal_story.wav'],
+    loop: true
   });
   sound.play()
 </script>
@@ -164,6 +168,14 @@
     stroke: rgba(255, 255, 255, 0.5) !important;
     z-index: 2;
   }
+
+  .bg-text {
+    position: absolute;
+    //filter: blur(.15rem);
+    stroke: rgba(255, 255, 255, 0.5) !important;
+    z-index: 1;
+    opacity: 30%
+  }
 </style>
 
 
@@ -199,7 +211,7 @@
     min-height: 600px !important;
 
 
-    opacity: 40%;
+    opacity: 50%;
     mix-blend-mode: overlay;
 
     //opacity: 30%;
