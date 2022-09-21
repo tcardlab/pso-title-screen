@@ -69,7 +69,7 @@
 
   .textBox {
     font-family: PSO;
-    padding: 1vw;
+    padding: 0 1vw;
     font-size: 1.3vw;
     color: white;
   }
