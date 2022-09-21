@@ -98,6 +98,11 @@
         }
       }
     })
+
+    two.bind('resize', function() {
+      two.clear()
+      circleArr = []
+    })
   })
 </script>
 
