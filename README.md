@@ -95,6 +95,7 @@ $ npm run dev
   - [ ] Rather than grungy background image, use gradients/blurry objects that respond to mouse location/movement
   - [ ] Add strong white glow to sigil during Hex animation [Glader does this, I think its nice](https://www.youtube.com/watch?v=DB9-mvFJ53Q&t=8s).
   - [ ] Needs to handle more screen dimensions/resolution that originally designed for.
+  - [ ] Would be cool if starStream passed over orb-ring on right side and under on left to provide a bit more depth
   - [ ] By moving more elements to canvas, a CRT shader can be used rather than a scan-line overlay. (add scan-lines, chromatic aberration, warp, color-burn, etc.)
     - [Acerola CRT breakdown](https://www.youtube.com/watch?v=aWdySZ0BtJs)
     - [Łukasz Łazarecki options walk through](https://www.youtube.com/watch?v=sa7eVUgb8Yw)
