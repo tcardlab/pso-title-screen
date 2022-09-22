@@ -3,7 +3,7 @@
  
     <Hex class="hex1" width="140vw" stroke-width="75"/>
 
-    <!-- <Text class="bg-text"/> -->
+    <Text class="bg-text"/>
 
     <Hex2 class="hex2" width="140vw" />
 
@@ -32,7 +32,7 @@
   import Orbs from '@/components/orbs.vue'
   import PSOTitle from '@/components/title.vue'
 
-  //import Text from './bgText.vue'
+  import Text from './bgTextF.vue'
   import StarStreamF from './starStreamF.vue'
   //import Twinkle from './twinkle.vue'
 
