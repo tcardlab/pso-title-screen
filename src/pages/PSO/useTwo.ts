@@ -9,7 +9,6 @@ export default function useTwo(tempRef) {
     autostart: true
   })
   
-  two.renderer.ctx.globalCompositeOperation = 'screen';
   two.scene.translation.set(two.width / 2, (two.height / 2));
   two.bind('resize', function() {
     two.scene.translation.set(two.width / 2, (two.height / 2));
