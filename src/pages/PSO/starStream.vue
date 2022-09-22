@@ -99,7 +99,9 @@
       }
     })
 
+    two.renderer.ctx.globalCompositeOperation = 'screen'
     two.bind('resize', function() {
+      two.renderer.ctx.globalCompositeOperation = 'screen'  // gets cleared on resize for some reason
       two.clear()
       circleArr = []
     })
