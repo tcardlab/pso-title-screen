@@ -1,8 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
-import Unocss from 'unocss/vite'
-import { presetAttributify, presetUno } from 'unocss'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 import { resolve } from "path"
@@ -17,9 +15,6 @@ export default defineConfig({
       dts: './components.d.ts',
     }),
     vue({ reactivityTransform: true }),
-    Unocss({
-      presets: [presetAttributify(), presetUno()]
-    }),
     vueJsx({})
     // Inspect()
   ],
