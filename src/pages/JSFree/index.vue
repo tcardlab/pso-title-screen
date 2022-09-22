@@ -199,8 +199,8 @@
     position: absolute;
     z-index: 8;
     transform: translateY(20vw);
-    opacity: 85%
-    //animation: blink 4s infinite; // adds a lot of lag
+    opacity: 85%;
+    animation: blink 4s infinite; // adds a lot of lag
   }
 
   .action-text > p {

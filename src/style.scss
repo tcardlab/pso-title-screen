@@ -1,4 +1,6 @@
+@use "sass:math";
 @import 'normalize.css';
+
 
 html, body {
   margin: 0;
@@ -18,4 +20,8 @@ html, body {
 h1,h2,h3,h4,h4,h6 {
   margin: 0;
   padding: 0;
+}
+
+@function random1() {
+    @return calc(random(1000) / 1000)
 }
