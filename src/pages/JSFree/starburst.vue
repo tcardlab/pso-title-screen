@@ -26,7 +26,7 @@ html, body
   //opacity: .90
   
 @function random1()
-  @return math.random(1000) / 1000
+  @return calc(math.random(1000) / 1000)
   
 $amount: 35
 $length: 40vw
@@ -36,7 +36,7 @@ $length: 40vw
   $delay1: (random1()*3)
   .ray-#{$i}
     position: absolute
-    transform: rotate(calc(360deg * var(--rot))) translateY(($length / -2) - (random1()*3vw))
+    transform: rotate(calc(360deg * var(--rot))) translateY(calc($length / -2) - (random1()*3vw))
     height: math.max(random1() * $length, 13vw)
     width: .7vw
     background-color: hsl(190 + random1()*65, 100% , 82%)
@@ -57,7 +57,7 @@ $length: 40vw
   
 @keyframes move
   from
-    transform: rotate(calc(360deg * var(--rot))) translateY($length / -3) 
+    transform: rotate(calc(360deg * var(--rot))) translateY(calc($length / -3))
     
     
 @keyframes hide
