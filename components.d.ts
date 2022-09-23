@@ -21,6 +21,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Sigil: typeof import('./src/components/sigil.vue')['default']
+    Starburst: typeof import('./src/pages/JSFree/starburst.vue')['default']
     StarStream: typeof import('./src/pages/PSO/starStream.vue')['default']
     StarStreamF: typeof import('./src/pages/JSFree/starStreamF.vue')['default']
     Start: typeof import('./src/pages/Start/index.vue')['default']

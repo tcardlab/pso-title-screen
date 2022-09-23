@@ -13,7 +13,7 @@
 
     <PSOTitle class="pso-title" />
 
-    <!-- <Twinkle class="twinkle"/> -->
+    <Twinkle class="twinkle"/>
     <StarStreamF class="starStream" />
 
     <div class="action-text">
@@ -34,7 +34,7 @@
 
   import Text from './bgTextF.vue'
   import StarStreamF from './starStreamF.vue'
-  //import Twinkle from './twinkle.vue'
+  import Twinkle from './starburst.vue'
 
   /* import { Howl } from 'howler'
   var sound = new Howl({
