@@ -38,8 +38,8 @@ $length: 40vw
     position: absolute
     transform: rotate(calc(360deg * var(--rot))) translateY(calc($length / -2) - (random1()*3vw))
     height: math.max(random1() * $length, 13vw)
-    width: .7vw
-    background-color: hsl(190 + random1()*65, 100% , 82%)
+    width: 1.4vw
+    background-color: hsl(190 + random1()*65, 100% , 87%)
     clip-path: polygon(41% 68%, 45% 90%, 51% 100%, 57% 90%, 61% 68%, 62% 55%, 51% 0, 40% 56%)
     opacity: 0
     animation-name: move, sparkle, hide

@@ -24,7 +24,7 @@
   </div>
 
   <audio autoplay loop ref="audio">
-    <!-- <source src="@/assets/a_song_for_eternal_story.mp3" type="audio/mpeg"> -->
+    <source src="@/assets/a_song_for_eternal_story.mp3" type="audio/mpeg">
     Probably blocked by browser autoplay policy anyway...
   </audio>
 </template>
