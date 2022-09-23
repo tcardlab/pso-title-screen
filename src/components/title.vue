@@ -6,6 +6,7 @@
         <!-- PHA &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp TAR -->
       </h1>
     </div>
+    <slot></slot>
     <h1 class='still'> PHANTASY STAR<br>ONLINE </h1>
   </div>
 </template>
@@ -31,24 +32,34 @@
     width: 100%;
 
     z-index: 2;
+
+    //filter: drop-shadow(0px 0px 2px rgba(0, 0, 235, 0.643))
+    //filter: drop-shadow(0px 0px 20px rgb(26, 165, 246))
+    //filter: drop-shadow(0px 0px 20px rgb(0, 123, 255)) drop-shadow(0px 0px 20px rgba(0, 162, 255, 0.179))
+    //mix-blend-mode:hard-light
   }
 
   .blurred-wrapper {
     position: absolute;
-    filter: blur(1rem);
+    filter: blur(1.5vw);
     transform: scale( var(--blur), 0.001 );
   }
 
   .blurred {
-    color: rgba(0, 149, 255, 0.9);
+    color: transparent;
     display: flex;
-    transform: scale( calc( 1/var(--blur) ), calc(1000 + 40));
+    transform: scale( calc( 1/var(--blur) ), calc(1000 + 30));
+
+    background: linear-gradient(to right, rgba(0, 149, 255, 1), rgba(0, 149, 255, 0.5), rgba(0, 149, 255, 1));
+    -webkit-background-clip: text;
+    background-clip: text;
   }
 
 
   .still{
     color:black;
     z-index: 6 !important;
+    opacity: 0.9
   }
 
   .still {
@@ -56,12 +67,12 @@
     
     font-family: "Times New Roman", Times, serif;
     font-weight: lighter;
-    color: black;
-    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.388);
-    text-shadow: 0px 0px 3px #fff;
+    color: rgb(37, 37, 37);
+    -webkit-text-stroke: .1vw rgba(255, 255, 255, 0.271);
+    text-shadow: 0px 0px .3vw #fff;
     
-    filter: drop-shadow(0px 0px 2px rgba(250, 250, 255, 0.643))
-            drop-shadow(0px 0px 3px rgba(250, 250, 255, 0.545))
-            drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.521))
+    filter: drop-shadow(0px 0px .14vw rgba(250, 250, 255, 1))
+            drop-shadow(0px 0px .14vw rgba(250, 250, 255, 0.8))
+            drop-shadow(0px 0px .14vw rgba(250, 250, 255, 0.8))
   }
 </style>

@@ -1,13 +1,12 @@
   
 
 <template>
-  
   <svg class="hex2" viewBox="0 0 8465 8477">
     <mask id="myMask">
       <circle id="circle-mask" cx="50%" cy="50%" r="30%" stroke-width="8%" stroke="white" fill="black" />
     </mask>
 
-    <Hex class="hex" stroke-width="65" width="100%" mask="url(#myMask)"/>
+    <Hex class="hex" stroke-width="72" width="100%" mask="url(#myMask)"/>
   </svg>
 </template>
 

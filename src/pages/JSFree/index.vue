@@ -1,5 +1,5 @@
 <template>
-  <div class="page vignette">
+  <div class="page vignette" @click="play" @keypress="play">
  
     <Hex class="hex1" width="140vw" stroke-width="75"/>
 
@@ -14,15 +14,19 @@
     <PSOTitle class="pso-title" />
 
     <Twinkle class="twinkle"/>
-    <StarStream class="starStream" />
+    <StarStreamF class="starStream" />
 
     <div class="action-text">
       <p>PRESS ENTER KEY</p>
     </div>
 
     <img class="scan-lines" src="@/assets/928ae6bbbd636c4d41c5681db4c85368c4dd6833.png">
-    
   </div>
+
+  <audio autoplay loop ref="audio" volume="0.01">
+    <source src="@/assets/a_song_for_eternal_story.mp3" type="audio/mpeg">
+    Probably blocked by browser autoplay policy anyway...
+  </audio>
 </template>
 
 <script setup lang="ts">
@@ -32,18 +36,14 @@
   import Orbs from '@/components/orbs.vue'
   import PSOTitle from '@/components/title.vue'
 
-  import Text from './bgText.vue'
-  import StarStream from './starStream.vue'
-  import Twinkle from './twinkle.vue'
+  import Text from './bgTextF.vue'
+  import StarStreamF from './starStreamF.vue'
+  import Twinkle from './starburst.vue'
+  //import Twinkle from './twinkleF.vue'
 
-  import { Howl } from 'howler'
-  var sound = new Howl({
-    src: ['src/assets/a_song_for_eternal_story.mp3'],
-    // src: ['src/assets/my_song_for_eternal_story.wav'],
-    loop: true,
-    volume: 0.01
-  });
-  sound.play()
+  // JS only for audio as autoplay is often blocked
+  let audio = $ref(null)
+  const play = ()=>audio && (audio as HTMLAudioElement).play()
 </script>
 
 <!-- Page & Cover styles  -->
@@ -200,8 +200,8 @@
     position: absolute;
     z-index: 8;
     transform: translateY(20vw);
-    opacity: 85%
-    //animation: blink 4s infinite; // adds a lot of lag
+    opacity: 85%;
+    animation: blink 4s infinite; // adds a lot of lag
   }
 
   .action-text > p {
