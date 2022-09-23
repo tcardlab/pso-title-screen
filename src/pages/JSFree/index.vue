@@ -21,11 +21,10 @@
     </div>
 
     <img class="scan-lines" src="@/assets/928ae6bbbd636c4d41c5681db4c85368c4dd6833.png">
-    
   </div>
 
   <audio autoplay loop ref="audio">
-    <source src="@/assets/a_song_for_eternal_story.mp3" type="audio/mpeg">
+    <!-- <source src="@/assets/a_song_for_eternal_story.mp3" type="audio/mpeg"> -->
     Probably blocked by browser autoplay policy anyway...
   </audio>
 </template>
@@ -39,7 +38,8 @@
 
   import Text from './bgTextF.vue'
   import StarStreamF from './starStreamF.vue'
-  import Twinkle from './starburst.vue'
+  //import Twinkle from './starburst.vue'
+  import Twinkle from './twinkleF.vue'
 
   // JS only for audio as autoplay is often blocked
   let audio = $ref(null)
