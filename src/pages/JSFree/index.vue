@@ -23,7 +23,7 @@
     <img class="scan-lines" src="@/assets/928ae6bbbd636c4d41c5681db4c85368c4dd6833.png">
   </div>
 
-  <audio autoplay loop ref="audio">
+  <audio autoplay loop ref="audio" volume="0.01">
     <source src="@/assets/a_song_for_eternal_story.mp3" type="audio/mpeg">
     Probably blocked by browser autoplay policy anyway...
   </audio>

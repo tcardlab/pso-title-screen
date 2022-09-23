@@ -40,7 +40,8 @@
   var sound = new Howl({
     src: ['src/assets/a_song_for_eternal_story.mp3'],
     // src: ['src/assets/my_song_for_eternal_story.wav'],
-    loop: true
+    loop: true,
+    volume: 0.01
   });
   sound.play()
 </script>
