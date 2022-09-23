@@ -1,5 +1,5 @@
 <template>
-  <div class="page vignette" @click="reload">
+  <div class="page vignette" @click="play" @keypress="play">
  
     <Hex class="hex1" width="140vw" stroke-width="75"/>
 
@@ -24,7 +24,7 @@
     
   </div>
 
-  <audio autoplay loop>
+  <audio autoplay loop ref="audio">
     <source src="@/assets/a_song_for_eternal_story.mp3" type="audio/mpeg">
     Probably blocked by browser autoplay policy anyway...
   </audio>
@@ -41,8 +41,9 @@
   import StarStreamF from './starStreamF.vue'
   import Twinkle from './starburst.vue'
 
-  // most js-minimal way I can get autoplay to work...
-  const reload = ()=>location.reload()
+  // JS only for audio as autoplay is often blocked
+  let audio = $ref(null)
+  const play = ()=>audio && (audio as HTMLAudioElement).play()
 </script>
 
 <!-- Page & Cover styles  -->
