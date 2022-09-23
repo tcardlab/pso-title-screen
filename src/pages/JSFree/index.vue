@@ -38,8 +38,8 @@
 
   import Text from './bgTextF.vue'
   import StarStreamF from './starStreamF.vue'
-  //import Twinkle from './starburst.vue'
-  import Twinkle from './twinkleF.vue'
+  import Twinkle from './starburst.vue'
+  //import Twinkle from './twinkleF.vue'
 
   // JS only for audio as autoplay is often blocked
   let audio = $ref(null)
