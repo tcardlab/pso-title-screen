@@ -1,5 +1,5 @@
 <template>
-  <div class="page vignette">
+  <div class="page vignette" @click="reload">
  
     <Hex class="hex1" width="140vw" stroke-width="75"/>
 
@@ -23,6 +23,11 @@
     <img class="scan-lines" src="@/assets/928ae6bbbd636c4d41c5681db4c85368c4dd6833.png">
     
   </div>
+
+  <audio autoplay loop>
+    <source src="@/assets/a_song_for_eternal_story.mp3" type="audio/mpeg">
+    Probably blocked by browser autoplay policy anyway...
+  </audio>
 </template>
 
 <script setup lang="ts">
@@ -36,13 +41,8 @@
   import StarStreamF from './starStreamF.vue'
   import Twinkle from './starburst.vue'
 
-  /* import { Howl } from 'howler'
-  var sound = new Howl({
-    src: ['src/assets/a_song_for_eternal_story.mp3'],
-    // src: ['src/assets/my_song_for_eternal_story.wav'],
-    loop: true
-  });
-  sound.play() */
+  // most js-minimal way I can get autoplay to work...
+  const reload = ()=>location.reload()
 </script>
 
 <!-- Page & Cover styles  -->
