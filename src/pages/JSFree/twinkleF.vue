@@ -46,8 +46,8 @@ $amount: 60
     //transform: rotate(90 + ease($i, $amount, 0.5) + deg)
     //transform: rotate(ease($i, $amount, 2) + deg) rotate(random1()*4 + deg)
     transform: rotate(calc(var(--rot) * 1deg)) rotate(calc(var(--seed) * 4deg))
-    height: math.max(random1() * 55, 30 ) + vw
-    width: 1vw
+    height: math.max(random1() * 60, 30 ) + vw
+    width: 1.4vw
     background: hsl(206, 100% , 47%) // rgb(0, 136, 240)
     $mid1: 50% - random1() * 50 //25
     $mid2: 50% + random1() * 50 //25
@@ -72,7 +72,7 @@ $amount: 60
     transform: rotate(calc(var(--rot) * 1deg)) rotate(calc(var(--seed) * 4deg)) 
   10%
     opacity: 0%
-    transform: rotate(calc(var(--rot) * 1deg)) rotate(calc(var(--seed) * 4deg)) translateY( calc(2 * (var(--seed) - 0.5) * 15vw) ) scale(1, 1.5)
+    transform: rotate(calc(var(--rot) * 1deg)) rotate(calc(var(--seed) * 4deg)) translateY( calc(2 * (var(--seed) - 0.5) * 20vw) ) //scale(1, 1.5)
   100%
     opacity: 0%
     
