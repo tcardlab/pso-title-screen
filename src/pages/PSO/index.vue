@@ -7,6 +7,7 @@
 
     <Hex2 class="hex2" width="140vw" />
 
+    <Sigil class="sigil-glow" width="120vw"/>
     <Sigil class="sigil" width="120vw"/>
 
     <Orbs class="orbs" />
@@ -136,6 +137,31 @@
     }
     100%{
       fill: var(--sigil-default)
+    }
+  }
+
+  .sigil-glow {
+    position: absolute;
+    z-index: 0;
+    filter: blur(1.5vw);  //blur(1.25vw); 
+    fill: #00bfff;
+    animation: glow-burst 13.3s linear infinite;
+    //mix-blend-mode: hard-light;
+    opacity: 0.85
+  }
+
+  @keyframes glow-burst {
+    0%{
+      fill: #00bfff;
+    }
+    6%{
+      fill: white;
+    }
+    10%{
+      fill: #00bfff;
+    }
+    100%{
+      fill: #00bfff;
     }
   }
 </style>
