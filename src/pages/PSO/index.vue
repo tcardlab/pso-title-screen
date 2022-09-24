@@ -26,12 +26,12 @@
 </template>
 
 <script setup lang="ts">
-  import Sigil from '@/components/sigil.vue'
   import Hex from '@/components/hexgrid.vue'
   import Hex2 from '@/components/hexgrid2.vue'
   import Orbs from '@/components/orbs.vue'
   import PSOTitle from '@/components/title.vue'
 
+  import Sigil from './sigil.vue'
   import Text from './bgText.vue'
   import StarStream from './starStream.vue'
   import Twinkle from './twinkle.vue'
