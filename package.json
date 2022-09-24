@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "git checkout deploy && git merge master && vue-tsc --noEmit && vite build --base=/pso-title-screen/",
-    "deploy": "git checkout deploy && git subtree push --prefix dist tcardlab gh-pages",
+    "deploy": "git checkout deploy && git subtree push --prefix dist tcardlab gh-pages && git checkout master",
     "preview": "vite preview"
   },
   "dependencies": {
