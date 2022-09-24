@@ -104,12 +104,15 @@
       two.renderer.ctx.globalCompositeOperation = 'screen'  // gets cleared on resize for some reason
       two.clear()
       circleArr = []
+
+      speed = Math.round(two.width / 375)
+      maxSize = Math.round(two.width / 60) + 1 
     })
   })
 </script>
 
 <style scoped>
   .star-stream {
-    filter: blur(.2rem) !important
+    filter: blur(.3vw) !important
   }
 </style>
