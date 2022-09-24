@@ -35,7 +35,11 @@ to this repo in the future.
 <br>
 
 ## Dev Notes:
-
+<!-- 
+  Note to self: currently using git subtree to push changes to gh-pages branch. 
+  this is redundant... change to using workflow later
+  remember to merge master into deploy branch before building
+-->
 <details style="display: flex; flex-direction: row">
   <summary><h3 style="display: inline"> Notable Sources: </h3></summary>
   
