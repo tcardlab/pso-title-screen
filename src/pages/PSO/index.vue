@@ -37,9 +37,9 @@
   import Twinkle from './twinkle.vue'
 
   import { Howl } from 'howler'
+  import songURL from '@/assets/a_song_for_eternal_story.mp3' //'@/assets/my_song_for_eternal_story.wav'
   var sound = new Howl({
-    src: ['src/assets/a_song_for_eternal_story.mp3'],
-    // src: ['src/assets/my_song_for_eternal_story.wav'],
+    src: [songURL],
     loop: true,
     volume: 0.01
   });
