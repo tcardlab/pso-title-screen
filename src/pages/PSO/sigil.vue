@@ -11,7 +11,7 @@
         </feMerge>
     </filter>
     
-    <g class="all">
+    <g class="sigil-all" style="transform-origin: 49.66% 44.865%;">
       <g class="main-frame">
         <g class="outer-circle">
           <path 
@@ -130,7 +130,7 @@
       </g>
 
 
-      <g class="minor-circle">
+      <g class="minor-circle"  style="transform-origin: 50% 50%;">
         <g class="minor-circle-1" style="transform-origin: 13.7% 24.2%;">
           <path transform="translate(47.447 .0097348)" d="m-20.151 42.506c-0.92683-1.4714-1.5533-2.7452-1.4171-2.8814 0.0661-0.06613 1.2533-0.52522 2.6382-1.0202 2.1924-0.7836 4.2158-1.2748 7.5332-1.8286l0.8599-0.14356v4.4746l-0.59531 0.12256c-3.9064 0.80427-5.0726 1.0974-6.5138 1.6374-0.92683 0.34725-1.729 0.63137-1.7826 0.63137-0.0536 0-0.37872-0.44648-0.72247-0.99219z"/>
           <path transform="translate(47.447 .0097348)" d="m15.515 51.358c-0.87817-1.0354-2.6027-2.697-3.8324-3.6923l-2.2357-1.8098-3.1791-1.5812-3.1791-1.5813-2.9104-0.6814c-1.6007-0.37477-3.1783-0.73174-3.5057-0.79326l-0.59532-0.11185v-4.3962l0.8599 0.10458c8.5439 1.0391 16.72 5.3978 22.203 11.836 0.99444 1.1677 1.8081 2.2617 1.8081 2.4311 3e-5 0.30431-3.1863 2.2276-3.6148 2.182-0.12188-0.01299-0.9401-0.87078-1.8183-1.9062z"/>
@@ -400,95 +400,50 @@
   //let sigil = $ref(null)
   
   onMounted(() => {
-    gsap.to("#sigil", {
+    gsap.to(".sigil-all", {
       rotation:"-360",
       duration: 40,
       ease: 'none', 
-      repeat:-1
+      repeat:-1,
     })
     gsap.to(".rot-text", {
       rotation:"360",
       duration: 20,
       ease: 'none', 
-      repeat:-1
+      repeat:-1,
+      transformOrigin: '50% 50%'
     })
-    
-    /* gsap.to(".main-frame", {
-      rotation:"360",
-      duration: 40,
-      ease: 'none', 
-      repeat:-1
-    }) */
-
-    /* gsap.to(".minor-circle-1", {
+    gsap.to(".minor-circle-1", {
       rotation:"-360",
       duration: 40,
       ease: 'none', 
-      repeat:-1
-    })
+      repeat:-1,
+      transformOrigin: '50% 50%'
+    }) 
     gsap.to(".minor-circle-2", {
       rotation:"-360",
       duration: 40,
       ease: 'none', 
-      repeat:-1
+      repeat:-1,
+      transformOrigin: '50% 50%'
     })
     gsap.to(".minor-circle-3", {
       rotation:"-360",
       duration: 40,
       ease: 'none', 
-      repeat:-1
-    }) */
+      repeat:-1,
+      transformOrigin: '50% 50%'
+    })
   })
 </script>
 
 <style scoped lang="scss">
   svg {
     overflow: visible;
-    transform: scale(0.5);
-    opacity: 0.8
-    //fill: rgba(35, 126, 223, 0.716) // should actually be a gradient
+    transform: translate(0vw, -.5vw) scale(0.5);
   }
 
-  .all {
+  .sigil-all {
     filter: url(#sigil-glow)
-    // wish this wasnt so laggy...
-  }
-
-  .main-frame {
-    transform-origin: 49.5% 45%;
-    //animation: mainframe-rot 40s linear infinite;
-  }
-
-  @keyframes mainframe-rot {
-    0%{
-      transform: rotate(0deg);
-    }
-    100%{
-      transform: rotate(-360deg);
-    }
-  }
-
-
-  .minor-circle {
-    //transform-origin: 49.5% 45%;
-    //animation: mainframe-rot 40s linear infinite;
-    //g {
-      //animation: mainframe-rot 40s linear infinite;
-    //}
-  }
-
-
-  .rot-text {
-    transform-origin: 49.5% 45%;
-    //animation: text-rot 40s linear infinite;
-  }
-
-  @keyframes text-rot {
-    0%{
-      transform: rotate(0deg);
-    }
-    100%{
-      transform: rotate(360deg);
-    }
   }
 </style>
