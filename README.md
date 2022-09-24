@@ -7,6 +7,18 @@ For that reason, it is incredibly laggy... I do not recommend running at full sc
 This is not a faithful recreation of any particular PSO version, but it is most similar to [@HelloKitty](https://github.com/HelloKitty)'s version seen [here](https://www.youtube.com/watch?v=DB9-mvFJ53Q).
 
 
+**Routes:**
+ - [/ && /PSO](https://tcardlab.github.io/pso-title-screen/)  // default version
+ - [/js-free](https://tcardlab.github.io/pso-title-screen/jsFree)  // version built with css and html
+ - /accurate     // most accurate recreation (WIP)
+ - /improved     // design may deviate from original, see To-Do/Improvements (WIP)
+ - /performance  // most performant version (WIP)
+
+
+```
+I'll add a menu to navigate between pages and to this repo in the future.
+```
+
 
 https://user-images.githubusercontent.com/35203441/191578167-c41efb7b-b756-4dd6-8897-8b62aa9ef919.mp4
 
