@@ -24,6 +24,7 @@
       
       <text_1_Editor/>
       <text_2_Editor/>
+      <text_3_Editor/>
 
       <circle_2_Editor>
         <circle_2a_Editor/>
@@ -68,6 +69,13 @@
             <circle_2a class="child"/>
             <circle_2b class="child"/>
             <circle_2c class="child"/>
+          
+          <text_3 class="text-path text3"/>
+          <text class="outter-text circle_text_3a">
+            <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.2%"> 
+              FARLLA<!--  ESTLLA -->
+            </textPath>
+          </text>
           
           <circle_3/>
           <circle_4/>
@@ -137,6 +145,7 @@
 
   let [text_1, text_1_Editor, text_1_val] = genText('text_1', {r: 166.26,  s: 0.01})
   let [text_2, text_2_Editor, text_2_val] = genText('text_2', {r: 205.16,  s: 0.01})
+  let [text_3, text_3_Editor, text_3_val] = genText('text_3', {r: 365.58 ,  s: 0.2})
 
 
 
@@ -150,6 +159,11 @@
 
 <!-- Sigil Style-->
 <style lang="scss">
+  @font-face {
+    font-family: "PSO2";
+    src: url(@/assets/pso_font/psoRGcast.TTF) format("truetype")
+  }
+
   svg {
     stroke: rgb(80, 255, 249);
     fill: none;
@@ -166,6 +180,7 @@
 
   .text-path {
     stroke: none;
+    //stroke: lime;
   }
 
   .inner-text {
@@ -180,6 +195,16 @@
   .circle_text_2 {
     font-size: 245%;
     transform: rotate(98.34deg);
+  }
+
+  .outter-text {
+    stroke: none;
+    font-family: PSO2;
+    fill: red !important;
+    font-size: 245%;
+  }
+  .circle_text_3a {
+    transform: rotate(51.5deg);
   }
 
   .dashed {
