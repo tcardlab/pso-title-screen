@@ -24,6 +24,17 @@
         <label>s:  {{circle_1_s}}</label> <button @click="_circle_1_s">reset</button> <br>
         <input type="range"  min="0" max="2" step="0.005" v-model="circle_1_s">
       </details>
+
+
+      <details>
+        <summary> circle-2: </summary>
+
+        <label>r:  {{circle_2_r}}</label> <button @click="_circle_2_r">reset</button> <br>
+        <input type="range"  min="0" max="40" step="0.005" v-model="circle_2_r"><br>
+
+        <label>s:  {{circle_2_s}}</label> <button @click="_circle_2_s">reset</button> <br>
+        <input type="range"  min="0" max="2" step="0.005" v-model="circle_2_s">
+      </details>
      
 
     </div>
@@ -36,6 +47,8 @@
 
         <svg viewBox="-500 -500 1000 1000">
           <circle id="circle_1" :r="circle_1_r+'%'" :stroke-width="circle_1_s+'%'" x="50%" y="50%"/>
+
+          <circle id="circle_2" :r="circle_2_r+'%'" :stroke-width="circle_2_s+'%'" x="50%" y="50%"/>
         </svg>
 
       </div>
@@ -55,6 +68,10 @@
 
   let [circle_1_r, _circle_1_r] = memRef(14.155)
   let [circle_1_s, _circle_1_s] = memRef(1.81)
+
+
+  let [circle_2_r, _circle_2_r] = memRef(34.325)
+  let [circle_2_s, _circle_2_s] = memRef(0.93)
   
 
   const jsxNode = () => <div style="color: orange">+</div>
