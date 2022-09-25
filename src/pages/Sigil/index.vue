@@ -5,18 +5,27 @@
       <details>
         <summary> Display Port </summary>
 
-        <label>Offset:  {{offset}}</label> <button @click="_offset">reset</button> <br>
-        <input type="range"  min="-20" max="0" step="0.5" v-model="offset">
+        <label>OffsetX:  {{offsetX}}</label> <button @click="_offsetX">reset</button> <br>
+        <input type="range"  min="-1" max="1" step="0.005" v-model="offsetX">
+
+        <label>OffsetY:  {{offsetY}}</label> <button @click="_offsetY">reset</button> <br>
+        <input type="range"  min="-10" max="0" step="0.005" v-model="offsetY">
+
+        <label>Opacity:  {{opacity}}</label> <button @click="_opacity">reset</button> <br>
+        <input type="range"  min="0" max="1" step="0.05" v-model="opacity">
       </details>
 
       <details>
-        <summary> Sigil </summary>
+        <summary> circle-1: </summary>
 
-        <label>Offset:  {{offset}}</label> <br>
-        <input type="range"  min="-20" max="0" step="0.5" v-model="offset">
+        <label>r:  {{circle_1_r}}</label> <button @click="_circle_1_r">reset</button> <br>
+        <input type="range"  min="0" max="15" step="0.005" v-model="circle_1_r"><br>
+
+        <label>s:  {{circle_1_s}}</label> <button @click="_circle_1_s">reset</button> <br>
+        <input type="range"  min="0" max="2" step="0.005" v-model="circle_1_s">
       </details>
      
-      {{viewBox}}
+
     </div>
 
     <div class="display-port"  ref="svg">
@@ -24,9 +33,11 @@
 
       <div class="svg-out">
         <jsxNode />
-        <svg :viewBox="viewBox">
-          <circle r="125px" x="50%" y="50%"/>
+
+        <svg viewBox="-500 -500 1000 1000">
+          <circle id="circle_1" :r="circle_1_r+'%'" :stroke-width="circle_1_s+'%'" x="50%" y="50%"/>
         </svg>
+
       </div>
     </div>
   </div>
@@ -35,19 +46,16 @@
 <script lang="tsx" setup>
   import refImg from './PSO.png'
   import memRef from '@/use/memRef'
+
+  let [offsetX, _offsetX] = memRef(0.155)
+  let [offsetY, _offsetY] = memRef(-5.25)
+  let [opacity, _opacity] = memRef(.6)
   
 
-  import { useElementSize } from '@vueuse/core'
 
-  let [offset, _offset] = memRef(-9.5)
-
-  let svg = $ref(null)
-  let { width: svgW, height: svgH } = $( $$(useElementSize(svg)) )
-  let viewBox = $computed(()=> {
-    return "-500 -500 1000 1000";
-    if (!svgH) return "-500 -500 1000 1000";
-    return `${-svgH/2} ${-svgH/2} ${svgH} ${svgH}`
-  })
+  let [circle_1_r, _circle_1_r] = memRef(14.155)
+  let [circle_1_s, _circle_1_s] = memRef(1.81)
+  
 
   const jsxNode = () => <div style="color: orange">+</div>
 </script>
@@ -56,12 +64,12 @@
 <style scoped lang="scss">
   svg {
     stroke: red;
-    stroke-width: 10px;
     fill: none;
 
     overflow: visible;
-    height: calc(100% + v-bind("(-1*offset)+'%'"));
-    width: auto
+    height: 100%;  //calc(100% + v-bind("(-1*offsetY)+'%'"));
+    width: auto;
+    opacity: v-bind(opacity)
   }
 </style>
 
@@ -109,12 +117,14 @@
     height: 100%;
     display: grid;
     background-color: black;
+    overflow: visible;
 
     &> * {
       grid-area: 1 / 1;
       align-self: center;
       justify-self: center;
       height: 100vh;
+      overflow: visible;
       //width: auto
     }
   }
@@ -125,17 +135,15 @@
   }
 
   .svg-out {
-    //height: 100%;
-    //width: 1000px;
     display: grid;
-    z-index: 1;
+    z-index: 3;
     overflow: visible;
+    transform: translate( v-bind("offsetX+'%'") , v-bind("offsetY+'%'"));
 
     &> * {
       grid-area: 1 / 1;
       align-self: center;
       justify-self: center;
-      margin-top: v-bind("offset+'%'");
     }
   }
 </style>
