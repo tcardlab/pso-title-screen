@@ -1,32 +1,45 @@
 import { reactive } from "vue"
 
-export default function (label:string, defaults={x:0, y:0, r:10, s:2}) {
+interface Editor {
+  [Keys:string]: false | [number, number]
+}
 
-  let {x, y, r, s} = $( $$( reactive(defaults) ) )
+interface Defaults {
+  [Keys:string]: number
+}
 
-  let svgEl = () => <circle x={x} y={y} r={r} stroke-width={s}/>
+export default function (label:string, elOverrides={} , editorOverrides={}) {
+
+  let defaults: Defaults = {x:0, y:0, r:10, s:2, ...elOverrides }
+  let O = reactive(defaults)
+
+  let svgEl = () => <circle cx={O.x+'%'} cy={O.y+'%'} r={O.r+'%'} stroke-width={O.s+'%'}/>
+
+  let editor: Editor = {x: false, y:false, r:[0, 15], s:[0, 2], ...editorOverrides}
+  
+  let inputEl = (key:string) => {
+    if (editor[key]=== false ) return
+
+    let [min, max] = editor[key] as Array<number>
+    return <>
+      <label>{key}: {O[key]}</label> <button onClick={()=>O[key]=defaults[key]}>reset</button> <br/>
+      <input type="range"  min={min} max={max} step="0.005" v-model={O[key]}/>
+      <br/>
+    </>
+  }
+  
 
   let editorEl = () => (<>
     <details>
       <summary> {label} </summary>
 
-      <label>s:  {x}</label> <button onClick={()=>x=defaults.x}>reset</button> <br/>
-      <input type="range"  min="0" max="2" step="0.005" v-model={x}/>
-      <br/>
+      {inputEl('x')}
+      {inputEl('y')}
+      {inputEl('r')}
+      {inputEl('s')}
 
-      <label>s:  {y}</label> <button onClick={()=>y=defaults.y}>reset</button> <br/>
-      <input type="range"  min="0" max="2" step="0.005" v-model={y}/>
-      <br/>
-  
-      <label>r:  {r}</label> <button onClick={()=>r=defaults.r}>reset</button> <br/>
-      <input type="range"  min="0" max="15" step="0.005" v-model={r} />
-      <br/>
-  
-      <label>s:  {s}</label> <button onClick={()=>s=defaults.s}>reset</button> <br/>
-      <input type="range"  min="0" max="2" step="0.005" v-model={s}/>
-      <br/>
     </details>
   </>)
 
-  return [ svgEl, editorEl ]
+  return [ svgEl, editorEl, O ]
 }
