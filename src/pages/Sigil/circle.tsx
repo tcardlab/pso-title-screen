@@ -34,7 +34,7 @@ export default function (label:string, elOverrides={} , editorOverrides={}) {
     {})
 
   // SVG code
-  let svgEl = () => <circle cx={O.x.value+'%'} cy={O.y.value+'%'} r={O.r.value+'%'} stroke-width={O.s.value+'%'}/>
+  let svgEl = () => <circle id={label} cx={O.x.value+'%'} cy={O.y.value+'%'} r={O.r.value+'%'} stroke-width={O.s.value+'%'}/>
 
 
   // Editor code

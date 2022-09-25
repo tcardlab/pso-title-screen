@@ -18,12 +18,21 @@
 
       <circle_1_Editor>
         <circle_1a_Editor/>
+        <circle_1b_Editor/>
+        <circle_1c_Editor/>
       </circle_1_Editor>
       
 
-      <circle_2_Editor/>
+      <circle_2_Editor>
+        <circle_2a_Editor/>
+        <circle_2b_Editor/>
+        <circle_2c_Editor/>
+      </circle_2_Editor>
 
       <circle_3_Editor/>
+      <circle_4_Editor/>
+
+      <circle_n_Editor/>
 
     </div>
 
@@ -35,11 +44,19 @@
 
         <svg viewBox="-500 -500 1000 1000">
           <circle_1/>
-          <circle_1a/>
+            <circle_1a class="child"/>
+            <circle_1b class="child"/>
+            <circle_1c class="child"/>
 
           <circle_2/>
+            <circle_2a class="child"/>
+            <circle_2b class="child"/>
+            <circle_2c class="child"/>
+          
+          <circle_3/>
+          <circle_4/>
 
-          <circle_3 class="dashed"/>
+          <circle_n class="dashed"/>
         </svg>
 
       </div>
@@ -58,17 +75,53 @@
   let [offsetY, _offsetY] = memRef(-5.25)
   let [opacity, _opacity] = memRef(.6)
 
-  
-  
+  const toRad = (angle:number) => angle * (Math.PI / 180)
+  const cos = (angle:number) => Math.cos(toRad(angle))
+  const sin = (angle:number) => Math.sin(toRad(angle))
+
 
   let [circle_1, circle_1_Editor, circle_1_val] = genCircle('circle_1', {r: 14.155,  s: 1.81})
+    let [circle_1a, circle_1a_Editor] = genCircle('circle_1a', {
+      x: computed(()=>cos(-30)*circle_1_val.r.value), 
+      y: computed(()=>sin(-30)*circle_1_val.r.value),
+      r: 1.43,  s: 0.5}, {x:[-50,50], y:[-50,50]
+    })
+    let [circle_1b, circle_1b_Editor] = genCircle('circle_1b', {
+      x: computed(()=>cos(90)*circle_1_val.r.value), 
+      y: computed(()=>sin(90)*circle_1_val.r.value),
+      r: 1.43,  s: 0.5}, {x:[-50,50], y:[-50,50]
+    })
+    let [circle_1c, circle_1c_Editor] = genCircle('circle_1c', {
+      x: computed(()=>cos(-150)*circle_1_val.r.value), 
+      y: computed(()=>sin(-150)*circle_1_val.r.value),
+      r: 1.43,  s: 0.5}, {x:[-50,50], y:[-50,50]
+    })
 
-  let [circle_1a, circle_1a_Editor] = genCircle('circle_1a', {x: circle_1_val.r, y: circle_1_val.r, r: 14.155,  s: 1.81}, {x:[-50,50], y:[-50,50]})
+
+  let [circle_2, circle_2_Editor, circle_2_val] = genCircle('circle_2', {r: 34.325,  s: 0.93})
+    let [circle_2a, circle_2a_Editor] = genCircle('circle_2a', {
+      x: computed(()=>cos(-90)*circle_2_val.r.value), 
+      y: computed(()=>sin(-90)*circle_2_val.r.value),
+      r: 1.94,  s: 0.61}, {x:[-50,50], y:[-50,50]
+    })
+    let [circle_2b, circle_2b_Editor] = genCircle('circle_2b', {
+      x: computed(()=>cos(30)*circle_2_val.r.value), 
+      y: computed(()=>sin(30)*circle_2_val.r.value),
+      r: 1.94,  s: 0.61}, {x:[-50,50], y:[-50,50]
+    })
+    let [circle_2c, circle_2c_Editor] = genCircle('circle_2c', {
+      x: computed(()=>cos(150)*circle_2_val.r.value), 
+      y: computed(()=>sin(150)*circle_2_val.r.value),
+      r: 1.94,  s: 0.61}, {x:[-50,50], y:[-50,50]
+    })
+
+  let [circle_3, circle_3_Editor, circle_3_val] = genCircle('circle_3', {r: 41.53,  s: 0.62})
+  let [circle_4, circle_4_Editor, circle_4_val] = genCircle('circle_4', {r: 43.85,  s: 1.14})
 
 
-  let [circle_2, circle_2_Editor] = genCircle('circle_2', {r: 34.325,  s: 0.93})
-  let [circle_3, circle_3_Editor, circle_3_val] = genCircle('circle_3', {x: 35.425, y: -20.485, r: 10.895,  s: 1.475}, {x:[-50,50], y:[-50,50]})
-  let test = circle_3_val.r
+
+  let [circle_n, circle_n_Editor, circle_n_val] = genCircle('circle_n', {x: 35.425, y: -20.485, r: 10.895,  s: 1.475}, {x:[-50,50], y:[-50,50]})
+  let test = circle_n_val.r
 
 
 
@@ -78,13 +131,17 @@
 <!-- Sigil Style-->
 <style scoped lang="scss">
   svg {
-    stroke: red;
+    stroke: rgb(80, 255, 249);
     fill: none;
 
     overflow: visible;
     height: 100%;  //calc(100% + v-bind("(-1*offsetY)+'%'"));
     width: auto;
     opacity: v-bind(opacity)
+  }
+
+  .child {
+    stroke: rgb(90, 90, 255);
   }
 
   .dashed {
