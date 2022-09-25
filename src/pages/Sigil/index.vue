@@ -5,8 +5,8 @@
       <details>
         <summary> Display Port </summary>
 
-        <label>Offset:  {{offset.value}}</label> <button @click="offset.reset()">reset</button><br>
-        <input type="range"  min="-20" max="0" step="0.5" v-model="offset.value">
+        <label>Offset:  {{offset}}</label> <button @click="tmp">reset</button> <br>
+        <input type="range"  min="-20" max="0" step="0.5" v-model="offset">
       </details>
 
       <details>
@@ -35,7 +35,8 @@
   import refImg from './PSO.png'
   import memRef from '@/use/memRef'
 
-  let offset = $(memRef(-10))
+  let offset = memRef(-10)
+  const tmp = offset.reset
 
   const jsxNode = () => <div style="color: orange">+</div>
 </script>
@@ -76,6 +77,7 @@
 
   details {
     margin-bottom: 10px !important;
+    width: 80%;
     &> label {
       display: inline-block;
       margin-top: 10px !important;
@@ -85,6 +87,7 @@
     }
 
     &> button {
+      margin-left: auto;
       float: right
     }
   }
