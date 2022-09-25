@@ -11,11 +11,11 @@ interface Defaults {
 export default function (label:string, elOverrides={} , editorOverrides={}) {
 
   let defaults: Defaults = {x:0, y:0, r:10, s:2, ...elOverrides }
-  let O = reactive({...defaults})
+  let O = reactive<Defaults>({...defaults})
 
   let svgEl = () => <circle cx={O.x+'%'} cy={O.y+'%'} r={O.r+'%'} stroke-width={O.s+'%'}/>
 
-  let editor: Editor = {x: false, y:false, r:[0, 15], s:[0, 2], ...editorOverrides}
+  let editor: Editor = {x: false, y:false, r:[0, 60], s:[0, 2], ...editorOverrides}
   
   let inputEl = (key:string) => {
     if (editor[key]=== false ) return
@@ -41,5 +41,5 @@ export default function (label:string, elOverrides={} , editorOverrides={}) {
     </details>
   </>)
 
-  return [ svgEl, editorEl, O ]
+  return [ svgEl, editorEl, O ] as [()=>JSX.Element, ()=>JSX.Element, typeof O ]
 }

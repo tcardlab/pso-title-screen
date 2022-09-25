@@ -15,27 +15,10 @@
         <input type="range"  min="0" max="1" step="0.05" v-model="opacity">
       </details>
 
-      <details>
-        <summary> circle-1: </summary>
 
-        <label>r:  {{circle_1_r}}</label> <button @click="_circle_1_r">reset</button> <br>
-        <input type="range"  min="0" max="15" step="0.005" v-model="circle_1_r"><br>
+      <circle_1_Editor/>
 
-        <label>s:  {{circle_1_s}}</label> <button @click="_circle_1_s">reset</button> <br>
-        <input type="range"  min="0" max="2" step="0.005" v-model="circle_1_s">
-      </details>
-
-
-      <details>
-        <summary> circle-2: </summary>
-
-        <label>r:  {{circle_2_r}}</label> <button @click="_circle_2_r">reset</button> <br>
-        <input type="range"  min="0" max="40" step="0.005" v-model="circle_2_r"><br>
-
-        <label>s:  {{circle_2_s}}</label> <button @click="_circle_2_s">reset</button> <br>
-        <input type="range"  min="0" max="2" step="0.005" v-model="circle_2_s">
-      </details>
-
+      <circle_2_Editor/>
 
       <circle_3_Editor/>
 
@@ -48,11 +31,11 @@
         <jsxNode />
 
         <svg viewBox="-500 -500 1000 1000">
-          <circle id="circle_1" :r="circle_1_r+'%'" :stroke-width="circle_1_s+'%'" x="50%" y="50%"/>
+          <circle_1/>
 
-          <circle id="circle_2" :r="circle_2_r+'%'" :stroke-width="circle_2_s+'%'" x="50%" y="50%"/>
+          <circle_2/>
 
-          <circle_3/>
+          <circle_3 class="dashed"/>
         </svg>
 
       </div>
@@ -70,17 +53,10 @@
   let [opacity, _opacity] = memRef(.6)
   
 
-
-  let [circle_1_r, _circle_1_r] = memRef(14.155)
-  let [circle_1_s, _circle_1_s] = memRef(1.81)
-
-
-  let [circle_2_r, _circle_2_r] = memRef(34.325)
-  let [circle_2_s, _circle_2_s] = memRef(0.93)
-
-
-  let [circle_3, circle_3_Editor] = genCircle('circle_3')
-  
+  let [circle_1, circle_1_Editor] = genCircle('circle_1', {r: 14.155,  s: 1.81})
+  let [circle_2, circle_2_Editor] = genCircle('circle_2', {r: 34.325,  s: 0.93})
+  let [circle_3, circle_3_Editor, circle_3_val] = genCircle('circle_3', {x: 35.425, y: -20.485, r: 10.895,  s: 1.475}, {x:[-50,50], y:[-50,50]})
+  let test = $computed(()=>circle_3_val.r)
 
   const jsxNode = () => <div style="color: orange">+</div>
 </script>
@@ -95,6 +71,13 @@
     height: 100%;  //calc(100% + v-bind("(-1*offsetY)+'%'"));
     width: auto;
     opacity: v-bind(opacity)
+  }
+
+  .dashed {
+    //stroke-dasharray: 92 22 35 22; // r = 10.895
+    // stroke-dashoffset: 103;
+    stroke-dasharray: v-bind("`${8.44*test} ${2.02*test} ${3.21*test} ${2.02 * test}`");
+    stroke-dashoffset: v-bind("9.45*test")
   }
 </style>
 
