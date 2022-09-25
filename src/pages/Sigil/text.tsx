@@ -11,7 +11,7 @@ interface Defaults {
 
 export default function (label:string, elOverrides={} , editorOverrides={}) {
   // Shared inits
-  let keyArr = ['x', 'y', 'r', 's', 'o']
+  let keyArr = ['x', 'y', 'r', 's']
 
   let parseArg = (key:string) => {
     let v = elOverrides?.[key]
@@ -43,16 +43,13 @@ export default function (label:string, elOverrides={} , editorOverrides={}) {
       a ${r},${r} 0 1,1 ${r * 2},0
       a ${r},${r} 0 1,1 -${r * 2},0
     `.replace(/\n/g,' ').replace(/\s+/g, ' ')
-    return (<g id={label}>
-      <path 
+    return (
+      <path
         id={label+'_path'}
         stroke-width={O.s.value+'%'}
         d={path}
       />
-      <text class="circle_text">
-        <textPath href={'#'+label+'_path'} startOffset={O.o.value+'%'} lengthAdjust="spacingAndGlyphs" textLength="100.82%"> PLEASE PROTECT US BY VIRTUE OF YOUR THE GREAT LIGHT POWER  </textPath>
-      </text>
-    </g>)
+    )
   }
   //<circle id={label} cx={O.x.value+'%'} cy={O.y.value+'%'} r={O.r.value+'%'} />
 

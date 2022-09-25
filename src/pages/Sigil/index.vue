@@ -23,6 +23,7 @@
       </circle_1_Editor>
       
       <text_1_Editor/>
+      <text_2_Editor/>
 
       <circle_2_Editor>
         <circle_2a_Editor/>
@@ -49,7 +50,19 @@
             <circle_1b class="child"/>
             <circle_1c class="child"/>
           
-          <text_1 class="text1"/> 
+          <text_1 class="text-path text1"/>
+          <text class="inner-text circle_text_1">
+            <textPath href="#text_1_path" startOffset="0.01%" lengthAdjust="spacingAndGlyphs" textLength="100.82%"> 
+              PLEASE PROTECT US BY VIRTUE OF YOUR THE GREAT LIGHT POWER 
+            </textPath>
+          </text>
+
+          <text_2 class="text-path text2"/>
+          <text class="inner-text circle_text_2">
+            <textPath href="#text_2_path" lengthAdjust="spacingAndGlyphs" textLength="123%"> 
+              I WISH IT AT AN ALLIANCE FROM SEVERAL YEARS AGO
+            </textPath>
+          </text>
 
           <circle_2/>
             <circle_2a class="child"/>
@@ -122,7 +135,8 @@
   let [circle_3, circle_3_Editor, circle_3_val] = genCircle('circle_3', {r: 41.53,  s: 0.62})
   let [circle_4, circle_4_Editor, circle_4_val] = genCircle('circle_4', {r: 43.85,  s: 1.14})
 
-  let [text_1, text_1_Editor, text_1_val] = genText('text_1', {r: 166.26,  s: 0.01, 0:0.14})
+  let [text_1, text_1_Editor, text_1_val] = genText('text_1', {r: 166.26,  s: 0.01})
+  let [text_2, text_2_Editor, text_2_val] = genText('text_2', {r: 205.16,  s: 0.01})
 
 
 
@@ -150,26 +164,22 @@
     stroke: rgb(90, 90, 255);
   }
 
-  .text1 {
-    font-size: 166%;
-    font-family: PSO;
+  .text-path {
     stroke: none;
-    //stroke-width: .1%;
-    &> text {
-      fill: red !important;
-      transform: rotate(-83.47deg);
-    }
   }
-  .circle_text {
-    /* font-size: 1.6em;
-    font-family: PSO;
-    //stroke: none;
-    fill: red;
-    color: red;
 
-    &> * {
-      fill: red !important
-    } */
+  .inner-text {
+    stroke: none;
+    font-family: PSO;
+    fill: red !important;
+  }
+  .circle_text_1 {
+    font-size: 166%;
+    transform: rotate(-83.47deg);
+  }
+  .circle_text_2 {
+    font-size: 245%;
+    transform: rotate(98.34deg);
   }
 
   .dashed {
