@@ -35,7 +35,9 @@
         <label>s:  {{circle_2_s}}</label> <button @click="_circle_2_s">reset</button> <br>
         <input type="range"  min="0" max="2" step="0.005" v-model="circle_2_s">
       </details>
-     
+
+
+      <circle_3_Editor/>
 
     </div>
 
@@ -49,6 +51,8 @@
           <circle id="circle_1" :r="circle_1_r+'%'" :stroke-width="circle_1_s+'%'" x="50%" y="50%"/>
 
           <circle id="circle_2" :r="circle_2_r+'%'" :stroke-width="circle_2_s+'%'" x="50%" y="50%"/>
+
+          <circle_3/>
         </svg>
 
       </div>
@@ -59,6 +63,7 @@
 <script lang="tsx" setup>
   import refImg from './PSO.png'
   import memRef from '@/use/memRef'
+  import genCircle from './circle'
 
   let [offsetX, _offsetX] = memRef(0.155)
   let [offsetY, _offsetY] = memRef(-5.25)
@@ -72,6 +77,9 @@
 
   let [circle_2_r, _circle_2_r] = memRef(34.325)
   let [circle_2_s, _circle_2_s] = memRef(0.93)
+
+
+  let [circle_3, circle_3_Editor] = genCircle('circle_3')
   
 
   const jsxNode = () => <div style="color: orange">+</div>
