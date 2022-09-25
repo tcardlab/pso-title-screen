@@ -22,6 +22,7 @@
         <circle_1c_Editor/>
       </circle_1_Editor>
       
+      <text_1_Editor/>
 
       <circle_2_Editor>
         <circle_2a_Editor/>
@@ -42,11 +43,13 @@
       <div class="svg-out">
         <jsxNode />
 
-        <svg viewBox="-500 -500 1000 1000">
+        <svg id="sigil_output" viewBox="-500 -500 1000 1000">
           <circle_1/>
             <circle_1a class="child"/>
             <circle_1b class="child"/>
             <circle_1c class="child"/>
+          
+          <text_1 class="text1"/> 
 
           <circle_2/>
             <circle_2a class="child"/>
@@ -68,6 +71,7 @@
   import refImg from './PSO.png'
   import memRef from '@/use/memRef'
   import genCircle from './circle'
+  import genText from './text'
 
   import {reactive, computed} from 'vue'
 
@@ -118,6 +122,8 @@
   let [circle_3, circle_3_Editor, circle_3_val] = genCircle('circle_3', {r: 41.53,  s: 0.62})
   let [circle_4, circle_4_Editor, circle_4_val] = genCircle('circle_4', {r: 43.85,  s: 1.14})
 
+  let [text_1, text_1_Editor, text_1_val] = genText('text_1', {r: 166.48,  s: 0.05, 0:0.14})
+
 
 
   let [circle_n, circle_n_Editor, circle_n_val] = genCircle('circle_n', {x: 35.425, y: -20.485, r: 10.895,  s: 1.475}, {x:[-50,50], y:[-50,50]})
@@ -129,7 +135,7 @@
 </script>
 
 <!-- Sigil Style-->
-<style scoped lang="scss">
+<style lang="scss">
   svg {
     stroke: rgb(80, 255, 249);
     fill: none;
@@ -142,6 +148,27 @@
 
   .child {
     stroke: rgb(90, 90, 255);
+  }
+
+  .text1 {
+    font-size: 1.6em;
+    font-family: PSO;
+    stroke: none;
+    &> text {
+      fill: red !important;
+      transform: rotate(-83.5deg);
+    }
+  }
+  .circle_text {
+    /* font-size: 1.6em;
+    font-family: PSO;
+    //stroke: none;
+    fill: red;
+    color: red;
+
+    &> * {
+      fill: red !important
+    } */
   }
 
   .dashed {
