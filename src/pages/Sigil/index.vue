@@ -122,7 +122,7 @@
   let [circle_3, circle_3_Editor, circle_3_val] = genCircle('circle_3', {r: 41.53,  s: 0.62})
   let [circle_4, circle_4_Editor, circle_4_val] = genCircle('circle_4', {r: 43.85,  s: 1.14})
 
-  let [text_1, text_1_Editor, text_1_val] = genText('text_1', {r: 166.48,  s: 0.05, 0:0.14})
+  let [text_1, text_1_Editor, text_1_val] = genText('text_1', {r: 166.2,  s: 0.05, 0:0.14})
 
 
 
@@ -151,7 +151,7 @@
   }
 
   .text1 {
-    font-size: 1.6em;
+    font-size: 1.65em;
     font-family: PSO;
     stroke: none;
     &> text {

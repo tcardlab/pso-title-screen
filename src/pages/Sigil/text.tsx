@@ -50,7 +50,7 @@ export default function (label:string, elOverrides={} , editorOverrides={}) {
         d={path}
       />
       <text class="circle_text">
-        <textPath href={'#'+label+'_path'} startOffset={O.o.value+'%'} lengthAdjust="spacingAndGlyphs" textLength="100.98%"> PLEASE PROTECT US BY VIRTUE OF YOUR THE GREAT LIGHT POWER  </textPath>
+        <textPath href={'#'+label+'_path'} startOffset={O.o.value+'%'} lengthAdjust="spacingAndGlyphs" textLength="100.78%"> PLEASE PROTECT US BY VIRTUE OF YOUR THE GREAT LIGHT POWER  </textPath>
       </text>
     </g>)
   }
