@@ -16,7 +16,10 @@
       </details>
 
 
-      <circle_1_Editor/>
+      <circle_1_Editor>
+        <circle_1a_Editor/>
+      </circle_1_Editor>
+      
 
       <circle_2_Editor/>
 
@@ -32,6 +35,7 @@
 
         <svg viewBox="-500 -500 1000 1000">
           <circle_1/>
+          <circle_1a/>
 
           <circle_2/>
 
@@ -53,10 +57,16 @@
   let [opacity, _opacity] = memRef(.6)
   
 
-  let [circle_1, circle_1_Editor] = genCircle('circle_1', {r: 14.155,  s: 1.81})
+  let [circle_1, circle_1_Editor, circle_1_val] = genCircle('circle_1', {r: 14.155,  s: 1.81})
+
+  let [circle_1a, circle_1a_Editor] = genCircle('circle_1a', {x: circle_1_val.r, y: circle_1_val.r, r: 14.155,  s: 1.81}, {x:[-50,50], y:[-50,50]})
+
+
   let [circle_2, circle_2_Editor] = genCircle('circle_2', {r: 34.325,  s: 0.93})
   let [circle_3, circle_3_Editor, circle_3_val] = genCircle('circle_3', {x: 35.425, y: -20.485, r: 10.895,  s: 1.475}, {x:[-50,50], y:[-50,50]})
   let test = $computed(()=>circle_3_val.r)
+
+
 
   const jsxNode = () => <div style="color: orange">+</div>
 </script>

@@ -1,4 +1,5 @@
-import { reactive } from "vue"
+import { reactive, defineComponent, useSlots } from "vue"
+let $s = ()=> useSlots()?.default?.call(this)
 
 interface Editor {
   [Keys:string]: false | [number, number]
@@ -28,8 +29,44 @@ export default function (label:string, elOverrides={} , editorOverrides={}) {
     </>
   }
   
+  
+  /* let editorEl = defineComponent({ render() { 
+    return (<>
+      <details>
+        <summary> {label} </summary>
 
-  let editorEl = () => (<>
+        {inputEl('x')}
+        {inputEl('y')}
+        {inputEl('r')}
+        {inputEl('s')}
+
+        
+        <div style="margin-left: 5px; opacity: 0.6">{this.$slots.default && this.$slots.default()}</div>
+      </details>
+    </>)
+    }
+  }) */
+
+  /* let editorEl = { setup(props, {slots}) { 
+    return ()=>(<>
+      <details>
+        <summary> {label} </summary>
+
+        {inputEl('x')}
+        {inputEl('y')}
+        {inputEl('r')}
+        {inputEl('s')}
+
+        
+        <div style="margin-left: 5px; opacity: 0.6">{slots.default && slots.default()}</div>
+      </details>
+    </>)
+    }
+  } */
+
+  /* let editorEl = ()=>{
+    let slots = useSlots()
+    return (<>
     <details>
       <summary> {label} </summary>
 
@@ -38,8 +75,25 @@ export default function (label:string, elOverrides={} , editorOverrides={}) {
       {inputEl('r')}
       {inputEl('s')}
 
+      
+      <div style="margin-left: 5px; opacity: 0.6">{slots.default && slots.default()}</div>
+    </details>
+  </>)
+  } */
+
+  //let slots = useSlots()
+  let editorEl = ()=>(<>
+    <details>
+      <summary> {label} </summary>
+
+      {inputEl('x')}
+      {inputEl('y')}
+      {inputEl('r')}
+      {inputEl('s')}
+      
+      <div style="margin-left: 5px; opacity: 0.6">{$s()}</div>
     </details>
   </>)
 
-  return [ svgEl, editorEl, O ] as [()=>JSX.Element, ()=>JSX.Element, typeof O ]
+  return [ svgEl, editorEl, O ] //as [()=>JSX.Element, {setup():()=>JSX.Element}, typeof O ]
 }
