@@ -11,7 +11,7 @@ interface Defaults {
 export default function (label:string, elOverrides={} , editorOverrides={}) {
 
   let defaults: Defaults = {x:0, y:0, r:10, s:2, ...elOverrides }
-  let O = reactive(defaults)
+  let O = reactive({...defaults})
 
   let svgEl = () => <circle cx={O.x+'%'} cy={O.y+'%'} r={O.r+'%'} stroke-width={O.s+'%'}/>
 
