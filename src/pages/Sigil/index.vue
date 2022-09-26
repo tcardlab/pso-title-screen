@@ -72,12 +72,37 @@
             <circle_2c class="child"/>
           
           <text_3 class="text-path text3"/>
-          <text class="outter-text circle_text_3a">
-            <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.2%"> 
+          <text class="outer-text circle_text_3a" style="transform: rotate(51.82deg);">
+            <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
               farlla
             </textPath>
           </text>
-          
+          <text class="outer-text circle_text_3b" style="transform: rotate(94.56deg);">
+            <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
+              estlla
+            </textPath>
+          </text>
+          <text class="outer-text circle_text_3c" style="transform: rotate(-25.26deg);">
+            <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.72%"> 
+              mylla
+            </textPath>
+          </text>
+          <text class="outer-text circle_text_3d" style="transform: rotate(-68deg);">
+            <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
+              leilla
+            </textPath>
+          </text>
+          <text class="outer-text circle_text_3a" style="transform: rotate(176deg);">
+            <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.75%"> 
+              golla
+            </textPath>
+          </text>
+          <text class="outer-text circle_text_3b" style="transform: rotate(217.27deg);">
+            <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.78%"> 
+              pilla
+            </textPath>
+          </text>
+
           <circle_3/>
           <circle_4/>
 
@@ -95,7 +120,7 @@
   import genCircle from './circle'
   import genText from './text'
 
-  import {reactive, computed} from 'vue'
+  import {computed} from 'vue'
 
   let [offsetX, _offsetX] = memRef(0.155)
   let [offsetY, _offsetY] = memRef(-5.25)
@@ -144,10 +169,9 @@
   let [circle_3, circle_3_Editor, circle_3_val] = genCircle('circle_3', {r: 41.53,  s: 0.62})
   let [circle_4, circle_4_Editor, circle_4_val] = genCircle('circle_4', {r: 43.85,  s: 1.14})
 
-  let [text_1, text_1_Editor, text_1_val] = genText('text_1', {r: 166.26,  s: 0.01})
-  let [text_2, text_2_Editor, text_2_val] = genText('text_2', {r: 205.16,  s: 0.01})
-  let [text_3, text_3_Editor, text_3_val] = genText('text_3', {r: 365.58 ,  s: 0.2})
-
+  let [text_1, text_1_Editor, text_1_val] = genText('text_1', {r: 166.26,  s: 0})
+  let [text_2, text_2_Editor, text_2_val] = genText('text_2', {r: 205.16,  s: 0})
+  let [text_3, text_3_Editor, text_3_val] = genText('text_3', {r: 369.62 , s: 0})
 
 
   let [circle_n, circle_n_Editor, circle_n_val] = genCircle('circle_n', {x: 35.425, y: -20.485, r: 10.895,  s: 1.475}, {x:[-50,50], y:[-50,50]})
@@ -180,8 +204,8 @@
   }
 
   .text-path {
-    stroke: none;
-    //stroke: lime;
+    //stroke: none;
+    stroke: lime;
   }
 
   .inner-text {
@@ -198,14 +222,11 @@
     transform: rotate(98.34deg);
   }
 
-  .outter-text {
+  .outer-text {
     stroke: none;
     font-family: PSO2;
     fill: red !important;
-    font-size: 245%;
-  }
-  .circle_text_3a {
-    transform: rotate(51.5deg);
+    font-size: 321%;
   }
 
   .dashed {
