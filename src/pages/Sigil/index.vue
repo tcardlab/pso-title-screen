@@ -42,12 +42,11 @@
       <line_1_Editor/>
 
       
-      <circle_t_Editor/>
-      
-
-      <line_t1_Editor/>
-      <line_t2_Editor/>
-      <line_t3_Editor/>
+      <triangle_Editor>
+        <line_t1_Editor/>
+        <line_t2_Editor/>
+        <line_t3_Editor/>
+      </triangle_Editor>
 
     </div>
 
@@ -131,10 +130,20 @@
           <line_1/>
 
 
-          <circle_t style="stroke:lime"/>
+          <triangle style="stroke:lime"/>
           <g style="stroke:lime; stroke-dasharray: 462; stroke-dashoffset: -200;">
             <line_t1/> <line_t2/> <line_t3/>
           </g>
+          <g class="outer-text" style="transform: rotate(180deg)">
+            <text x="-70" y="300">
+                e
+            </text>
+            <text x="40" y="300">
+                f
+            </text>
+          </g>
+
+
         </svg>
 
       </div>
@@ -211,8 +220,8 @@
 
 
 
-  let [circle_t, circle_t_Editor, circle_t_val] = genCircle('circle_t', {x: 0, y: 0, r: 49.84,  s: 0.1}, {x:[-50,50], y:[-50,50]})
-  let triangleR = $(circle_t_val.r)
+  let [triangle, triangle_Editor, triangle_val] = genCircle('triangle', {x: 0, y: 0, r: 49.84,  s: 0.1}, {x:[-50,50], y:[-50,50]})
+  let triangleR = $(triangle_val.r)
 
   let t1 = [computed(()=>cos(-30)*triangleR), computed(()=>sin(-30)*triangleR)]
   let t2 = [computed(()=>cos(90)*triangleR), computed(()=>sin(90)*triangleR)] 
