@@ -111,10 +111,10 @@
             </text>
           </g>
 
-          <circle_3/>
-          <circle_4/>
+          <circle_3 style="stroke-dasharray: 603.5, 266.5; stroke-dashoffset: 84;"/>
+          <circle_4 style="stroke-dasharray: 652.5, 265.5; stroke-dashoffset: 97;"/>
 
-          <circle_n class="dashed"/>
+          <circle_n class="dashed"/> <!--dist to center = 40.9%-->
         </svg>
 
       </div>
