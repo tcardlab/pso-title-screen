@@ -67,7 +67,7 @@
             </text>
           </g>
 
-          <circle_2 style="stroke-dasharray: 683 37; stroke-dashoffset: -198;"/>
+          <circle_2 style="stroke-dasharray: 236 209 236 37; stroke-dashoffset: -200;"/>
             <circle_2a class="child"/>
             <circle_2b class="child"/>
             <circle_2c class="child"/>
