@@ -73,7 +73,7 @@
           <text_3 class="text-path text3"/>
           <text class="outter-text circle_text_3a">
             <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.2%"> 
-              FARLLA<!--  ESTLLA -->
+              farlla
             </textPath>
           </text>
           
