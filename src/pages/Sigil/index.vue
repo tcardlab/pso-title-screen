@@ -134,13 +134,31 @@
           <g style="stroke:lime; stroke-dasharray: 462; stroke-dashoffset: -200;">
             <line_t1/> <line_t2/> <line_t3/>
           </g>
-          <g class="outer-text" style="transform: rotate(180deg)">
-            <text x="-7.35%" y="31.1%" style="font-size: 139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
-                e
-            </text>
-            <text x="3.4%" y="31.1%" style="font-size: 139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
-                f
-            </text>
+          <g>
+            <g class="outer-text" style="transform: rotate(180deg)">
+              <text x="-7.35%" y="31.1%" style="font-size: 139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                  e
+              </text>
+              <text x="3.4%" y="31.1%" style="font-size: 139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                  f
+              </text>
+            </g>
+            <g class="outer-text" style="transform: rotate(60deg)">
+              <text x="-8.1%" y="30.85%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                  m 
+              </text>
+              <text x="2.7%" y="30.85%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                l 
+              </text>
+            </g>
+            <g class="outer-text" style="transform: rotate(-60deg)">
+              <text x="-7.55%" y="30.4%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                p 
+              </text>
+              <text x="3.25%" y="30.4%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                g 
+              </text>
+            </g>
           </g>
 
 
@@ -253,7 +271,15 @@
     overflow: visible;
     height: 100%;  //calc(100% + v-bind("(-1*offsetY)+'%'"));
     width: auto;
-    opacity: v-bind(opacity)
+    opacity: v-bind(opacity);
+
+    //animation: spin 40s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(-360deg);
+    }
   }
 
   .child {
