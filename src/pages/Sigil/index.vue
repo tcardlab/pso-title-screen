@@ -53,18 +53,19 @@
             <circle_1c class="child"/>
           
           <text_1 class="text-path text1"/>
-          <text class="inner-text circle_text_1">
-            <textPath href="#text_1_path" startOffset="0.01%" lengthAdjust="spacingAndGlyphs" textLength="100.82%"> 
-              PLEASE PROTECT US BY VIRTUE OF YOUR THE GREAT LIGHT POWER 
-            </textPath>
-          </text>
-
           <text_2 class="text-path text2"/>
-          <text class="inner-text circle_text_2">
-            <textPath href="#text_2_path" lengthAdjust="spacingAndGlyphs" textLength="123%"> 
-              I WISH IT AT AN ALLIANCE FROM SEVERAL YEARS AGO
-            </textPath>
-          </text>
+          <g>
+            <text class="inner-text circle_text_1">
+              <textPath href="#text_1_path" startOffset="0.01%" lengthAdjust="spacingAndGlyphs" textLength="100.82%"> 
+                PLEASE PROTECT US BY VIRTUE OF YOUR THE GREAT LIGHT POWER 
+              </textPath>
+            </text>
+            <text class="inner-text circle_text_2">
+              <textPath href="#text_2_path" lengthAdjust="spacingAndGlyphs" textLength="123%"> 
+                I WISH IT AT AN ALLIANCE FROM SEVERAL YEARS AGO
+              </textPath>
+            </text>
+          </g>
 
           <circle_2/>
             <circle_2a class="child"/>
@@ -72,36 +73,43 @@
             <circle_2c class="child"/>
           
           <text_3 class="text-path text3"/>
-          <text class="outer-text circle_text_3a" style="transform: rotate(51.82deg);">
-            <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
-              farlla
-            </textPath>
-          </text>
-          <text class="outer-text circle_text_3b" style="transform: rotate(94.56deg);">
-            <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
-              estlla
-            </textPath>
-          </text>
-          <text class="outer-text circle_text_3c" style="transform: rotate(-25.26deg);">
-            <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.72%"> 
-              mylla
-            </textPath>
-          </text>
-          <text class="outer-text circle_text_3d" style="transform: rotate(-68deg);">
-            <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
-              leilla
-            </textPath>
-          </text>
-          <text class="outer-text circle_text_3a" style="transform: rotate(176deg);">
-            <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.75%"> 
-              golla
-            </textPath>
-          </text>
-          <text class="outer-text circle_text_3b" style="transform: rotate(217.27deg);">
-            <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.78%"> 
-              pilla
-            </textPath>
-          </text>
+          <g>
+            <text class="outer-text circle_text_3a" style="transform: rotate(51.82deg);">
+              <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
+                farlla
+              </textPath>
+            </text>
+            <text class="outer-text circle_text_3b" style="transform: rotate(94.56deg);">
+              <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
+                estlla
+              </textPath>
+            </text>
+            <text class="outer-text circle_text_3c" style="transform: rotate(-25.26deg)">
+              <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.72%"> 
+                mylla
+              </textPath>
+            </text>
+            <text class="outer-text circle_text_3c2" style="transform: rotate(3.7deg) translateX(.5%); font-size:250%;">
+              <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="3.2%"> 
+                2
+              </textPath>
+            </text>
+            <text class="outer-text circle_text_3d" style="transform: rotate(-68deg);">
+              <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
+                leilla
+              </textPath>
+            </text>
+            <text class="outer-text circle_text_3e" style="transform: rotate(176deg);">
+              <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.75%"> 
+                golla
+              </textPath>
+            </text>
+            <text class="outer-text circle_text_3f" style="transform: rotate(217.27deg);">
+              <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.78%"> 
+                pilla
+              </textPath>
+            </text>
+          </g>
 
           <circle_3/>
           <circle_4/>
