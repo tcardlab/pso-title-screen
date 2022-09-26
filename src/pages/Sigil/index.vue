@@ -36,7 +36,18 @@
       <circle_3_Editor/>
       <circle_4_Editor/>
 
+
+      <circle_s_Editor/>
       <circle_n_Editor/>
+      <line_1_Editor/>
+
+      
+      <circle_t_Editor/>
+      
+
+      <line_t1_Editor/>
+      <line_t2_Editor/>
+      <line_t3_Editor/>
 
     </div>
 
@@ -114,7 +125,16 @@
           <circle_3 style="stroke-dasharray: 603.5, 266.5; stroke-dashoffset: 84;"/>
           <circle_4 style="stroke-dasharray: 652.5, 265.5; stroke-dashoffset: 97;"/>
 
+
+          <circle_s style="stroke:lime"/> <!--dist to center = 40.9%-->
           <circle_n class="dashed"/> <!--dist to center = 40.9%-->
+          <line_1/>
+
+
+          <circle_t style="stroke:lime"/>
+          <g style="stroke:lime; stroke-dasharray: 462; stroke-dashoffset: -200;">
+            <line_t1/> <line_t2/> <line_t3/>
+          </g>
         </svg>
 
       </div>
@@ -127,6 +147,7 @@
   import memRef from '@/use/memRef'
   import genCircle from './circle'
   import genText from './text'
+  import genLine from './line'
 
   import {computed} from 'vue'
 
@@ -182,8 +203,27 @@
   let [text_3, text_3_Editor, text_3_val] = genText('text_3', {r: 369.62 , s: 0})
 
 
+  let [circle_s, circle_s_Editor, circle_s_val] = genCircle('circle_s', {x: 0, y: 0, r: 40.9,  s: 0.1}, {x:[-50,50], y:[-50,50]})
   let [circle_n, circle_n_Editor, circle_n_val] = genCircle('circle_n', {x: 35.425, y: -20.485, r: 10.895,  s: 1.475}, {x:[-50,50], y:[-50,50]})
   let test = circle_n_val.r
+  let [line_1, line_1_Editor, line_1_val] = genLine('line_1',  {x2: 35.425, y2: -20.485, s: 2.19}, {x1:false, y1:false})
+
+
+
+
+  let [circle_t, circle_t_Editor, circle_t_val] = genCircle('circle_t', {x: 0, y: 0, r: 49.84,  s: 0.1}, {x:[-50,50], y:[-50,50]})
+  let triangleR = $(circle_t_val.r)
+
+  let t1 = [computed(()=>cos(-30)*triangleR), computed(()=>sin(-30)*triangleR)]
+  let t2 = [computed(()=>cos(90)*triangleR), computed(()=>sin(90)*triangleR)] 
+  let t3 = [computed(()=>cos(-150)*triangleR), computed(()=>sin(-150)*triangleR)]
+
+  let [line_t1, line_t1_Editor, line_t1_val] = genLine('line_t1',  {x1: t1[0], y1: t1[1], s: 1, x2: t2[0], y2: t2[1], s: .7})
+  let [line_t2, line_t2_Editor, line_t2_val] = genLine('line_t2',  {x1: t2[0], y1: t2[1], s: 1, x2: t3[0], y2: t3[1], s: .7})
+  let [line_t3, line_t3_Editor, line_t3_val] = genLine('line_t3',  {x1: t3[0], y1: t3[1], s: 1, x2: t1[0], y2: t1[1], s: .7})
+  
+  
+  
 
 
 
