@@ -135,10 +135,10 @@
             <line_t1/> <line_t2/> <line_t3/>
           </g>
           <g class="outer-text" style="transform: rotate(180deg)">
-            <text x="-70" y="300">
+            <text x="-7.35%" y="31.1%" style="font-size: 139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
                 e
             </text>
-            <text x="40" y="300">
+            <text x="3.4%" y="31.1%" style="font-size: 139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
                 f
             </text>
           </g>
