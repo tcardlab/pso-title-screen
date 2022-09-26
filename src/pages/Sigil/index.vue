@@ -24,13 +24,14 @@
       
       <text_1_Editor/>
       <text_2_Editor/>
-      <text_3_Editor/>
-
+      
       <circle_2_Editor>
         <circle_2a_Editor/>
         <circle_2b_Editor/>
         <circle_2c_Editor/>
       </circle_2_Editor>
+
+      <text_3_Editor/>
 
       <circle_3_Editor/>
       <circle_4_Editor/>
