@@ -11,9 +11,18 @@
         <label>OffsetY:  {{offsetY}}</label> <button @click="_offsetY">reset</button> <br>
         <input type="range"  min="-10" max="0" step="0.005" v-model="offsetY">
 
-        <label>Opacity:  {{opacity}}</label> <button @click="_opacity">reset</button> <br>
+        <label>SVG Opacity:  {{opacity}}</label> <button @click="_opacity">reset</button> <br>
         <input type="range"  min="0" max="1" step="0.05" v-model="opacity">
+
+        <label>Image Opacity:  {{imgOpacity}}</label> <button @click="_imgOpacity">reset</button> <br>
+        <input type="range"  min="0" max="1" step="0.05" v-model="imgOpacity">
+
+        <label>spin: {{isSpin}}</label>
+        <input type="checkbox" step="0.05" v-model="isSpin">
       </details>
+
+
+      <br>
 
 
       <circle_1_Editor>
@@ -21,10 +30,14 @@
         <circle_1b_Editor/>
         <circle_1c_Editor/>
       </circle_1_Editor>
-      
-      <text_1_Editor/>
-      <text_2_Editor/>
-      
+
+      <details>
+        <summary> Inner Text Ring </summary>
+
+        <text_1_Editor/>
+        <text_2_Editor/>
+      </details>
+
       <circle_2_Editor>
         <circle_2a_Editor/>
         <circle_2b_Editor/>
@@ -36,17 +49,38 @@
       <circle_3_Editor/>
       <circle_4_Editor/>
 
-
-      <circle_s_Editor/>
-      <circle_n_Editor/>
-      <line_1_Editor/>
-
-      
       <triangle_Editor>
-        <line_t1_Editor/>
-        <line_t2_Editor/>
-        <line_t3_Editor/>
+        <line_t1_Editor/> <line_t2_Editor/> <line_t3_Editor/>
       </triangle_Editor>
+
+      <circle_tri_Editor> 
+        <details>
+          <summary> Circle 1 </summary>
+          <circle_tri_1a_Editor/>
+          <circle_tri_1b_Editor/>
+          <circle_tri_1c_Editor/>
+          <line_1_Editor/>
+        </details>
+        <details>
+          <summary> Circle 2 </summary>
+          <circle_tri_2a_Editor/>
+          <circle_tri_2b_Editor/>
+          <circle_tri_2c_Editor/>
+          <line_2_Editor/>
+        </details>
+        <details>
+          <summary> Circle 3 </summary>
+          <circle_tri_3a_Editor/>
+          <circle_tri_3b_Editor/>
+          <circle_tri_3c_Editor/>
+          <line_3_Editor/>
+        </details>
+       
+      </circle_tri_Editor> 
+
+      <p>Use dev tools inspector to edit styles then and update code when satisfied</p>
+
+      <button @click="download"> Download </button>
 
     </div>
 
@@ -56,112 +90,137 @@
       <div class="svg-out">
         <jsxNode />
 
-        <svg id="sigil_output" viewBox="-500 -500 1000 1000">
-          <circle_1/>
-            <circle_1a class="child"/>
-            <circle_1b class="child"/>
-            <circle_1c class="child"/>
+        <svg id="sigil_output" ref="sigilOut" viewBox="-500 -500 1000 1000">
+          <g class="main-frame">
+            <g class="inner-circle circle-1">
+              <circle_1/>
+              <circle_1a class="child"/>
+              <circle_1b class="child"/>
+              <circle_1c class="child"/>
+            </g>
+
+            <g class="outer-circle circle-2">
+              <circle_2 style="stroke-dasharray: 236 209 236 37; stroke-dashoffset: -200;"/>
+              <circle_2a class="child"/>
+              <circle_2b class="child"/>
+              <circle_2c class="child"/>
+            </g>
+
+            <g class="outer-text-ring">
+              <text_3 class="text-path text3"/>
+              <g>
+                <text class="outer-text circle_text_3a" style="transform: rotate(51.82deg);">
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
+                    farlla
+                  </textPath>
+                </text>
+                <text class="outer-text circle_text_3b" style="transform: rotate(94.56deg);">
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
+                    estlla
+                  </textPath>
+                </text>
+                <text class="outer-text circle_text_3c" style="transform: rotate(-25.26deg)">
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.72%"> 
+                    mylla
+                  </textPath>
+                </text>
+                <text class="outer-text circle_text_3c2" style="transform: rotate(3.7deg) translateX(.5%); font-size:250%;">
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="3.2%"> 
+                    2
+                  </textPath>
+                </text>
+                <text class="outer-text circle_text_3d" style="transform: rotate(-68deg);">
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
+                    leilla
+                  </textPath>
+                </text>
+                <text class="outer-text circle_text_3e" style="transform: rotate(176deg);">
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.75%"> 
+                    golla
+                  </textPath>
+                </text>
+                <text class="outer-text circle_text_3f" style="transform: rotate(217.27deg);">
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.78%"> 
+                    pilla
+                  </textPath>
+                </text>
+              </g>
+            </g>
+
+            <circle_3 class="outer-circle circle-3" style="stroke-dasharray: 603.5, 266.5; stroke-dashoffset: 84;"/>
+            <circle_4 class="outer-circle circle-4" style="stroke-dasharray: 652.5, 265.5; stroke-dashoffset: 97;"/>
+
+            <g class="triangle">
+              <triangle style="stroke:lime"/>
+              <g style="stroke:lime; stroke-dasharray: 462; stroke-dashoffset: -200;">
+                <line_t1/> <line_t2/> <line_t3/>
+              </g>
+              <g>
+                <g class="outer-text" style="transform: rotate(180deg)">
+                  <text x="-7.35%" y="31.1%" style="font-size: 139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                      e
+                  </text>
+                  <text x="3.4%" y="31.1%" style="font-size: 139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                      f
+                  </text>
+                </g>
+                <g class="outer-text" style="transform: rotate(60deg)">
+                  <text x="-8.1%" y="30.85%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                      m 
+                  </text>
+                  <text x="2.7%" y="30.85%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                    l 
+                  </text>
+                </g>
+                <g class="outer-text" style="transform: rotate(-60deg)">
+                  <text x="-7.55%" y="30.4%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                    p 
+                  </text>
+                  <text x="3.25%" y="30.4%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                    g 
+                  </text>
+                </g>
+              </g>
+            </g>
+
+            <g class="three-circles">
+              <circle_tri style="stroke:lime"/>
+              <g>
+                <circle_tri_1a/> 
+                <circle_tri_1b class="dashed spins" :style="{strokeDashoffset:-68}" /> 
+                <circle_tri_1c/>
+                <line_1 style="stroke-dasharray: 25 253; stroke-dashoffset: 25;"/>
+              </g>
+              <g>
+                <circle_tri_2a/> 
+                <circle_tri_2b class="dashed spins" :style="{strokeDashoffset:45}" />
+                <circle_tri_2c/>
+                <line_2 style="stroke-dasharray: 25 253; stroke-dashoffset: 25;"/>
+              </g>
+              <g>
+                <circle_tri_3a/> 
+                <circle_tri_3b class="dashed spins" :style="{strokeDashoffset:-11}" /> 
+                <circle_tri_3c/>
+                <line_3 style="stroke-dasharray: 25 253; stroke-dashoffset: 25;"/>
+              </g>
+            </g>
+          </g>
           
-          <text_1 class="text-path text1"/>
-          <text_2 class="text-path text2"/>
-          <g>
+          <g class="inner-text-ring">
+            <text_1 class="text-path text1"/>
             <text class="inner-text circle_text_1">
               <textPath href="#text_1_path" startOffset="0.01%" lengthAdjust="spacingAndGlyphs" textLength="100.82%"> 
                 PLEASE PROTECT US BY VIRTUE OF YOUR THE GREAT LIGHT POWER 
               </textPath>
             </text>
+
+            <text_2 class="text-path text2"/>
             <text class="inner-text circle_text_2">
               <textPath href="#text_2_path" lengthAdjust="spacingAndGlyphs" textLength="123%"> 
                 I WISH IT AT AN ALLIANCE FROM SEVERAL YEARS AGO
               </textPath>
             </text>
           </g>
-
-          <circle_2 style="stroke-dasharray: 236 209 236 37; stroke-dashoffset: -200;"/>
-            <circle_2a class="child"/>
-            <circle_2b class="child"/>
-            <circle_2c class="child"/>
-          
-          <text_3 class="text-path text3"/>
-          <g>
-            <text class="outer-text circle_text_3a" style="transform: rotate(51.82deg);">
-              <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
-                farlla
-              </textPath>
-            </text>
-            <text class="outer-text circle_text_3b" style="transform: rotate(94.56deg);">
-              <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
-                estlla
-              </textPath>
-            </text>
-            <text class="outer-text circle_text_3c" style="transform: rotate(-25.26deg)">
-              <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.72%"> 
-                mylla
-              </textPath>
-            </text>
-            <text class="outer-text circle_text_3c2" style="transform: rotate(3.7deg) translateX(.5%); font-size:250%;">
-              <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="3.2%"> 
-                2
-              </textPath>
-            </text>
-            <text class="outer-text circle_text_3d" style="transform: rotate(-68deg);">
-              <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
-                leilla
-              </textPath>
-            </text>
-            <text class="outer-text circle_text_3e" style="transform: rotate(176deg);">
-              <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.75%"> 
-                golla
-              </textPath>
-            </text>
-            <text class="outer-text circle_text_3f" style="transform: rotate(217.27deg);">
-              <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.78%"> 
-                pilla
-              </textPath>
-            </text>
-          </g>
-
-          <circle_3 style="stroke-dasharray: 603.5, 266.5; stroke-dashoffset: 84;"/>
-          <circle_4 style="stroke-dasharray: 652.5, 265.5; stroke-dashoffset: 97;"/>
-
-
-          <circle_s style="stroke:lime"/> <!--dist to center = 40.9%-->
-          <circle_n class="dashed"/> <!--dist to center = 40.9%-->
-          <line_1/>
-
-
-          <triangle style="stroke:lime"/>
-          <g style="stroke:lime; stroke-dasharray: 462; stroke-dashoffset: -200;">
-            <line_t1/> <line_t2/> <line_t3/>
-          </g>
-          <g>
-            <g class="outer-text" style="transform: rotate(180deg)">
-              <text x="-7.35%" y="31.1%" style="font-size: 139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
-                  e
-              </text>
-              <text x="3.4%" y="31.1%" style="font-size: 139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
-                  f
-              </text>
-            </g>
-            <g class="outer-text" style="transform: rotate(60deg)">
-              <text x="-8.1%" y="30.85%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
-                  m 
-              </text>
-              <text x="2.7%" y="30.85%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
-                l 
-              </text>
-            </g>
-            <g class="outer-text" style="transform: rotate(-60deg)">
-              <text x="-7.55%" y="30.4%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
-                p 
-              </text>
-              <text x="3.25%" y="30.4%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
-                g 
-              </text>
-            </g>
-          </g>
-
-
         </svg>
 
       </div>
@@ -178,9 +237,28 @@
 
   import {computed} from 'vue'
 
+
+  let sigilOut = $ref(null)
+  function download() {
+    // var svgRoot = document.getElementById('htmlsvg')
+    var svgSource = sigilOut.outerHTML
+    var svgDataUri = 'data:image/svg+xml;base64,' + btoa(svgSource)
+
+    const a = document.createElement('a')
+    a.href = svgDataUri
+    a.download = 'sigil.svg'
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+  }
+
+
   let [offsetX, _offsetX] = memRef(0.155)
   let [offsetY, _offsetY] = memRef(-5.25)
   let [opacity, _opacity] = memRef(.6)
+  let [imgOpacity, _imgOpacity] = memRef(0.5)
+
+  let isSpin = $ref(false)
 
   const toRad = (angle:number) => angle * (Math.PI / 180)
   const cos = (angle:number) => Math.cos(toRad(angle))
@@ -222,32 +300,54 @@
       r: 1.94,  s: 0.61}, {x:[-50,50], y:[-50,50]
     })
 
+
   let [circle_3, circle_3_Editor, circle_3_val] = genCircle('circle_3', {r: 41.53,  s: 0.62})
   let [circle_4, circle_4_Editor, circle_4_val] = genCircle('circle_4', {r: 43.85,  s: 1.14})
-
-  let [text_1, text_1_Editor, text_1_val] = genText('text_1', {r: 166.26,  s: 0})
-  let [text_2, text_2_Editor, text_2_val] = genText('text_2', {r: 205.16,  s: 0})
-  let [text_3, text_3_Editor, text_3_val] = genText('text_3', {r: 369.62 , s: 0})
-
-
-  let [circle_s, circle_s_Editor, circle_s_val] = genCircle('circle_s', {x: 0, y: 0, r: 40.9,  s: 0.1}, {x:[-50,50], y:[-50,50]})
-  let [circle_n, circle_n_Editor, circle_n_val] = genCircle('circle_n', {x: 35.425, y: -20.485, r: 10.895,  s: 1.475}, {x:[-50,50], y:[-50,50]})
-  let test = circle_n_val.r
-  let [line_1, line_1_Editor, line_1_val] = genLine('line_1',  {x2: 35.425, y2: -20.485, s: 2.19}, {x1:false, y1:false})
+    let [text_1, text_1_Editor, text_1_val] = genText('text_1', {r: 166.26,  s: 0})
+    let [text_2, text_2_Editor, text_2_val] = genText('text_2', {r: 205.16,  s: 0})
+    let [text_3, text_3_Editor, text_3_val] = genText('text_3', {r: 369.62 , s: 0})
 
 
 
+  let [circle_tri, circle_tri_Editor, circle_tri_val] = genCircle('circle_tri', {x: 0, y: 0, r: 40.9,  s: 0}, {x:[-50,50], y:[-50,50]})
+    let cTriR = $(circle_tri_val.r)
+    let ct1 = [computed(()=>cos(-30)*cTriR), computed(()=>sin(-30)*cTriR)]
+    let ct2 = [computed(()=>cos(90)*cTriR), computed(()=>sin(90)*cTriR)] 
+    let ct3 = [computed(()=>cos(-150)*cTriR), computed(()=>sin(-150)*cTriR)]
 
-  let [triangle, triangle_Editor, triangle_val] = genCircle('triangle', {x: 0, y: 0, r: 49.84,  s: 0.1}, {x:[-50,50], y:[-50,50]})
-  let triangleR = $(triangle_val.r)
+    let [line_1, line_1_Editor, line_1_val] = genLine('line_1',  {x2: ct1[0], y2: ct1[1], s: 2.19}, {x1:false, y1:false})
+    let [line_2, line_2_Editor, line_2_val] = genLine('line_2',  {x2: ct2[0], y2: ct2[1], s: 2.19}, {x1:false, y1:false})
+    let [line_3, line_3_Editor, line_3_val] = genLine('line_3',  {x2: ct3[0], y2: ct3[1], s: 2.19}, {x1:false, y1:false})
 
-  let t1 = [computed(()=>cos(-30)*triangleR), computed(()=>sin(-30)*triangleR)]
-  let t2 = [computed(()=>cos(90)*triangleR), computed(()=>sin(90)*triangleR)] 
-  let t3 = [computed(()=>cos(-150)*triangleR), computed(()=>sin(-150)*triangleR)]
+    let [circle_tri_1a, circle_tri_1a_Editor, circle_tri_1a_val] = genCircle('circle_tri_1a', {x: ct1[0], y: ct1[1], r: 13.05,  s: 1.01}, {x:[-50,50], y:[-50,50]})
+    let [circle_tri_1b, circle_tri_1b_Editor, circle_tri_1b_val] = genCircle('circle_tri_1b', {x: ct1[0], y: ct1[1], r: 10.895,  s: 1.475}, {x:[-50,50], y:[-50,50]})
+    let [circle_tri_1c, circle_tri_1c_Editor, circle_tri_1c_val] = genCircle('circle_tri_1c', {x: ct1[0], y: ct1[1], r: 8.9,  s: 0.39}, {x:[-50,50], y:[-50,50]})
+    let test = circle_tri_1b_val.r
 
-  let [line_t1, line_t1_Editor, line_t1_val] = genLine('line_t1',  {x1: t1[0], y1: t1[1], s: 1, x2: t2[0], y2: t2[1], s: .7})
-  let [line_t2, line_t2_Editor, line_t2_val] = genLine('line_t2',  {x1: t2[0], y1: t2[1], s: 1, x2: t3[0], y2: t3[1], s: .7})
-  let [line_t3, line_t3_Editor, line_t3_val] = genLine('line_t3',  {x1: t3[0], y1: t3[1], s: 1, x2: t1[0], y2: t1[1], s: .7})
+
+    let [circle_tri_2a, circle_tri_2a_Editor, circle_tri_2a_val] = genCircle('circle_tri_2a', {x: ct2[0], y: ct2[1], r: 13.05,  s: 1.01}, {x:[-50,50], y:[-50,50]})
+    let [circle_tri_2b, circle_tri_2b_Editor, circle_tri_2b_val] = genCircle('circle_tri_2b', {x: ct2[0], y: ct2[1], r: 10.895,  s: 1.475}, {x:[-50,50], y:[-50,50]})
+    let [circle_tri_2c, circle_tri_2c_Editor, circle_tri_2c_val] = genCircle('circle_tri_2c', {x: ct2[0], y: ct2[1], r: 8.9,  s: 0.39}, {x:[-50,50], y:[-50,50]})
+    
+
+
+    let [circle_tri_3a, circle_tri_3a_Editor, circle_tri_3a_val] = genCircle('circle_tri_3a', {x: ct3[0], y: ct3[1], r: 13.05,  s: 1.01}, {x:[-50,50], y:[-50,50]})
+    let [circle_tri_3b, circle_tri_3b_Editor, circle_tri_3b_val] = genCircle('circle_tri_3b', {x: ct3[0], y: ct3[1], r: 10.895,  s: 1.475}, {x:[-50,50], y:[-50,50]})
+    let [circle_tri_3c, circle_tri_3c_Editor, circle_tri_3c_val] = genCircle('circle_tri_3c', {x: ct3[0], y: ct3[1], r: 8.9,  s: 0.39}, {x:[-50,50], y:[-50,50]})
+    
+
+
+
+
+  let [triangle, triangle_Editor, triangle_val] = genCircle('triangle', {x: 0, y: 0, r: 49.84,  s: 0}, {x:[-50,50], y:[-50,50]})
+    let triangleR = $(triangle_val.r)
+    let t1 = [computed(()=>cos(-30)*triangleR), computed(()=>sin(-30)*triangleR)]
+    let t2 = [computed(()=>cos(90)*triangleR), computed(()=>sin(90)*triangleR)] 
+    let t3 = [computed(()=>cos(-150)*triangleR), computed(()=>sin(-150)*triangleR)]
+
+    let [line_t1, line_t1_Editor, line_t1_val] = genLine('line_t1',  {x1: t1[0], y1: t1[1], s: 1, x2: t2[0], y2: t2[1], s: .7})
+    let [line_t2, line_t2_Editor, line_t2_val] = genLine('line_t2',  {x1: t2[0], y1: t2[1], s: 1, x2: t3[0], y2: t3[1], s: .7})
+    let [line_t3, line_t3_Editor, line_t3_val] = genLine('line_t3',  {x1: t3[0], y1: t3[1], s: 1, x2: t1[0], y2: t1[1], s: .7})
   
   
   
@@ -272,8 +372,19 @@
     height: 100%;  //calc(100% + v-bind("(-1*offsetY)+'%'"));
     width: auto;
     opacity: v-bind(opacity);
+  }
 
-    //animation: spin 40s linear infinite;
+  .main-frame {
+    animation: v-bind("isSpin ? 'spin 40s linear infinite':'none'");
+  }
+
+  .inner-text-ring {
+    animation: v-bind("isSpin ? 'spin 40s linear infinite reverse':'none'");
+  }
+
+  .spins {
+    transform-origin: center; transform-box: fill-box;
+    animation: v-bind("isSpin ? 'spin 40s linear infinite':'none'");
   }
 
   @keyframes spin {
@@ -316,12 +427,18 @@
     //stroke-dasharray: 92 22 35 22; // r = 10.895
     // stroke-dashoffset: 103;
     stroke-dasharray: v-bind("`${8.44*test} ${2.02*test} ${3.21*test} ${2.02 * test}`");
-    stroke-dashoffset: v-bind("9.45*test")
+    //stroke-dashoffset: v-bind("9.45*test")
+  }
+
+
+  details > details {
+    margin-left: 10px;
+    opacity: 50%; 
   }
 </style>
 
 <!-- Layout Style-->
-<style scoped lang="scss">
+<style lang="scss">
   .editor-container {
     height: 100vh;
     width: 100vw;
@@ -343,14 +460,14 @@
   }
 
   details {
-    margin-bottom: 10px !important;
+    //margin-bottom: 10px !important;
     width: 80%;
     &> label {
       display: inline-block;
       margin-top: 10px !important;
     }
     &> *:not(summary) {
-      margin-left: 25px;
+      margin-left: 15px;
     }
 
     &> button {
@@ -377,7 +494,7 @@
   }
 
   .refImg {
-    opacity: .5;
+    opacity: v-bind(imgOpacity);
     z-index: 0;
   }
 
