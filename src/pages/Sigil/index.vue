@@ -221,19 +221,19 @@
               <circle_tri style="stroke:lime"/>
               <g>
                 <circle_tri_1a/> 
-                <circle_tri_1b class="dashed spins" :style="{strokeDashoffset:-68}" /> 
+                <circle_tri_1b class="dashed spins" :style="{strokeDashoffset: -6.2385 * cTri1, strokeDasharray: `${8.44*cTri1} ${2.02*cTri1} ${3.21*cTri1} ${2.02 * cTri1}`}" /> 
                 <circle_tri_1c/>
                 <line_1 style="stroke-dasharray: 25 253; stroke-dashoffset: 25;"/>
               </g>
               <g>
                 <circle_tri_2a/> 
-                <circle_tri_2b class="dashed spins" :style="{strokeDashoffset:45}" />
+                <circle_tri_2b class="dashed spins" :style="{strokeDashoffset: 4.128 * cTri2, strokeDasharray: `${8.44*cTri2} ${2.02*cTri2} ${3.21*cTri2} ${2.02 * cTri2}`}" />
                 <circle_tri_2c/>
                 <line_2 style="stroke-dasharray: 25 253; stroke-dashoffset: 25;"/>
               </g>
               <g>
                 <circle_tri_3a/> 
-                <circle_tri_3b class="dashed spins" :style="{strokeDashoffset:-11}" /> 
+                <circle_tri_3b class="dashed spins" :style="{strokeDashoffset: -1.009 * cTri3, strokeDasharray: `${8.44*cTri3} ${2.02*cTri3} ${3.21*cTri3} ${2.02 * cTri3}`}" /> 
                 <circle_tri_3c/>
                 <line_3 style="stroke-dasharray: 25 253; stroke-dashoffset: 25;"/>
               </g>
@@ -360,20 +360,19 @@
     let [circle_tri_1a, circle_tri_1a_Editor, circle_tri_1a_val] = genCircle('circle_tri_1a', {x: ct1[0], y: ct1[1], r: 13.05,  s: 1.01}, {x:[-50,50], y:[-50,50]})
     let [circle_tri_1b, circle_tri_1b_Editor, circle_tri_1b_val] = genCircle('circle_tri_1b', {x: ct1[0], y: ct1[1], r: 10.895,  s: 1.475}, {x:[-50,50], y:[-50,50]})
     let [circle_tri_1c, circle_tri_1c_Editor, circle_tri_1c_val] = genCircle('circle_tri_1c', {x: ct1[0], y: ct1[1], r: 8.9,  s: 0.39}, {x:[-50,50], y:[-50,50]})
-    let test = circle_tri_1b_val.r
+    let cTri1 = circle_tri_1b_val.r
 
 
     let [circle_tri_2a, circle_tri_2a_Editor, circle_tri_2a_val] = genCircle('circle_tri_2a', {x: ct2[0], y: ct2[1], r: 13.05,  s: 1.01}, {x:[-50,50], y:[-50,50]})
     let [circle_tri_2b, circle_tri_2b_Editor, circle_tri_2b_val] = genCircle('circle_tri_2b', {x: ct2[0], y: ct2[1], r: 10.895,  s: 1.475}, {x:[-50,50], y:[-50,50]})
     let [circle_tri_2c, circle_tri_2c_Editor, circle_tri_2c_val] = genCircle('circle_tri_2c', {x: ct2[0], y: ct2[1], r: 8.9,  s: 0.39}, {x:[-50,50], y:[-50,50]})
-    
+    let cTri2 = circle_tri_2b_val.r
 
 
     let [circle_tri_3a, circle_tri_3a_Editor, circle_tri_3a_val] = genCircle('circle_tri_3a', {x: ct3[0], y: ct3[1], r: 13.05,  s: 1.01}, {x:[-50,50], y:[-50,50]})
     let [circle_tri_3b, circle_tri_3b_Editor, circle_tri_3b_val] = genCircle('circle_tri_3b', {x: ct3[0], y: ct3[1], r: 10.895,  s: 1.475}, {x:[-50,50], y:[-50,50]})
     let [circle_tri_3c, circle_tri_3c_Editor, circle_tri_3c_val] = genCircle('circle_tri_3c', {x: ct3[0], y: ct3[1], r: 8.9,  s: 0.39}, {x:[-50,50], y:[-50,50]})
-    
-
+    let cTri3 = circle_tri_3b_val.r
 
 
 
@@ -468,8 +467,8 @@
   .dashed {
     //stroke-dasharray: 92 22 35 22; // r = 10.895
     // stroke-dashoffset: 103;
-    stroke-dasharray: v-bind("`${8.44*test} ${2.02*test} ${3.21*test} ${2.02 * test}`");
-    //stroke-dashoffset: v-bind("9.45*test")
+    stroke-dasharray: v-bind("`${8.44 * cTri1} ${2.02 * cTri1} ${3.21 * cTri1} ${2.02 * cTri1}`");
+    //stroke-dashoffset: v-bind("9.45*cTri1")
   }
 
 
