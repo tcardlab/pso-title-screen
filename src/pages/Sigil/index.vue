@@ -92,11 +92,19 @@
 
         <svg id="sigil_output" ref="sigilOut" viewBox="-500 -500 1000 1000">
           <g class="main-frame">
-            <g class="inner-circle circle-1">
-              <circle_1/>
-              <circle_1a class="child"/>
-              <circle_1b class="child"/>
-              <circle_1c class="child"/>
+            
+            <g class="inner-circle circle-1" style="stroke:none; fill:blue">
+              <mask id="circle_1_mask">
+                <rect x="-50%" y="-50%" width="100%" height="100%" fill="white"/>
+                <circle_1a style="stroke:black; fill:black" />
+                <circle_1b style="stroke:black; fill:black" />
+                <circle_1c style="stroke:black; fill:black" />
+              </mask>
+              
+              <circle_1 style="mask:url(#circle_1_mask); stroke:blue; fill: none"/>
+              <circle_1a />
+              <circle_1b />
+              <circle_1c />
             </g>
 
             <g class="outer-circle circle-2">
@@ -269,17 +277,17 @@
     let [circle_1a, circle_1a_Editor] = genCircle('circle_1a', {
       x: computed(()=>cos(-30)*circle_1_val.r.value), 
       y: computed(()=>sin(-30)*circle_1_val.r.value),
-      r: 1.43,  s: 0.5}, {x:[-50,50], y:[-50,50]
+      r: 1.18,  s: 0.9}, {x:[-50,50], y:[-50,50]
     })
     let [circle_1b, circle_1b_Editor] = genCircle('circle_1b', {
       x: computed(()=>cos(90)*circle_1_val.r.value), 
       y: computed(()=>sin(90)*circle_1_val.r.value),
-      r: 1.43,  s: 0.5}, {x:[-50,50], y:[-50,50]
+      r: 1.18,  s: 0.9}, {x:[-50,50], y:[-50,50]
     })
     let [circle_1c, circle_1c_Editor] = genCircle('circle_1c', {
       x: computed(()=>cos(-150)*circle_1_val.r.value), 
       y: computed(()=>sin(-150)*circle_1_val.r.value),
-      r: 1.43,  s: 0.5}, {x:[-50,50], y:[-50,50]
+      r: 1.18,  s: 0.9}, {x:[-50,50], y:[-50,50]
     })
 
 
@@ -393,9 +401,9 @@
     }
   }
 
-  .child {
+  /* .child {
     stroke: rgb(90, 90, 255);
-  }
+  } */
 
   .text-path {
     //stroke: none;
