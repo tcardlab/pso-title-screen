@@ -102,8 +102,8 @@
         <jsxNode />
 
         <svg id="sigil_output" ref="sigilOut" viewBox="-500 -500 1000 1000">
+          <!-- Has a pretty big performance hit... -->
           <mask id="circle_mask">
-            <!-- may in fact be easier to have 1 rule and rotate 3 instances of the same element -->
             <rect x="-50%" y="-50%" width="100%" height="100%" fill="white"/>
             <circle_1a style="stroke:black; fill:black" />
             <circle_1b style="stroke:black; fill:black" />
