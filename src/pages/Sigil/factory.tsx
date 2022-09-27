@@ -58,7 +58,7 @@ const factory = (cb:(label:string, O:Defaults)=>{}, editorDefaults={}) => (label
 
       {keyArr.map(k=>inputEl(k))}
       
-      <div style="margin-left: 5px; opacity: 0.6">{$s()}</div>
+      <div>{$s()}</div>{/* style="margin-left: 5px; opacity: 0.6" */}
     </details>
   </>)
 
