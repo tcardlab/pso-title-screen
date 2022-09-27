@@ -42,6 +42,10 @@
         <circle_2a_Editor/>
         <circle_2b_Editor/>
         <circle_2c_Editor/>
+
+        <c2_line_a_Editor/>
+        <c2_line_b_Editor/>
+        <c2_line_c_Editor/>
       </circle_2_Editor>
 
       <text_3_Editor/>
@@ -107,11 +111,23 @@
               <circle_1c />
             </g>
 
-            <g class="outer-circle circle-2">
+            <g class="outer-circle circle-2"  >
               <circle_2 style="stroke-dasharray: 236 209 236 37; stroke-dashoffset: -200;"/>
-              <circle_2a class="child"/>
-              <circle_2b class="child"/>
-              <circle_2c class="child"/>
+              <circle_2a />
+              <circle_2b />
+              <circle_2c />
+              <mask id="circle_2_mask">
+                <!-- may in fact be easier to have 1 rule and rotate 3 instances of the same element -->
+                <rect x="-50%" y="-50%" width="100%" height="100%" fill="white"/>
+                <circle_2a style="stroke: white; fill: black" />
+                <circle_2b style="stroke: white; fill: black"/>
+                <circle_2c style="stroke: white; fill: black"/>
+              </mask >
+              <g style="mask:url(#circle_2_mask);"> <!--seems you can apply mask to 1D el? must be grouped-->
+                <c2_line_a style="stroke-dasharray: 92 251; stroke-dashoffset: 92;"/>
+                <c2_line_b style="stroke-dasharray: 92 251; stroke-dashoffset: 92;"/>
+                <c2_line_c style="stroke-dasharray: 92 251; stroke-dashoffset: 92;"/>
+              </g>
             </g>
 
             <g class="outer-text-ring">
@@ -292,21 +308,24 @@
 
 
   let [circle_2, circle_2_Editor, circle_2_val] = genCircle('circle_2', {r: 34.325,  s: 0.93})
+    let c2a = [computed(()=>cos(-90)*circle_2_val.r.value), computed(()=>sin(-90)*circle_2_val.r.value)]
+    let c2b = [computed(()=>cos(30)*circle_2_val.r.value), computed(()=>sin(30)*circle_2_val.r.value)]
+    let c2c = [computed(()=>cos(150)*circle_2_val.r.value), computed(()=>sin(150)*circle_2_val.r.value)]
     let [circle_2a, circle_2a_Editor] = genCircle('circle_2a', {
-      x: computed(()=>cos(-90)*circle_2_val.r.value), 
-      y: computed(()=>sin(-90)*circle_2_val.r.value),
+      x: c2a[0], y: c2a[1],
       r: 1.94,  s: 0.61}, {x:[-50,50], y:[-50,50]
     })
     let [circle_2b, circle_2b_Editor] = genCircle('circle_2b', {
-      x: computed(()=>cos(30)*circle_2_val.r.value), 
-      y: computed(()=>sin(30)*circle_2_val.r.value),
+      x: c2b[0], y: c2b[1],
       r: 1.94,  s: 0.61}, {x:[-50,50], y:[-50,50]
     })
     let [circle_2c, circle_2c_Editor] = genCircle('circle_2c', {
-      x: computed(()=>cos(150)*circle_2_val.r.value), 
-      y: computed(()=>sin(150)*circle_2_val.r.value),
+      x: c2c[0], y: c2c[1],
       r: 1.94,  s: 0.61}, {x:[-50,50], y:[-50,50]
     })
+    let [c2_line_a, c2_line_a_Editor, c2_line_a_val] = genLine('c2_line_a',  {x2: c2a[0], y2: c2a[1], s: 3.28}, {x1:false, y1:false, s: [0, 4]})
+    let [c2_line_b, c2_line_b_Editor, c2_line_b_val] = genLine('c2_line_b',  {x2: c2b[0], y2: c2b[1], s: 3.28}, {x1:false, y1:false, s: [0, 4]})
+    let [c2_line_c, c2_line_c_Editor, c2_line_c_val] = genLine('c2_line_c',  {x2: c2c[0], y2: c2c[1], s: 3.28}, {x1:false, y1:false, s: [0, 4]})
 
 
   let [circle_3, circle_3_Editor, circle_3_val] = genCircle('circle_3', {r: 41.53,  s: 0.62})
