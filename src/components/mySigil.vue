@@ -27,9 +27,9 @@
       />
 
       <g class="sigil-spinners" fill="none" stroke="var(--sigilColor)" stroke-dasharray="91.9538, 22.0079, 34.9729, 22.0079" stroke-width="1.475%">
-        <circle class="dashed spins" cx="35.42%" cy="-20.45%" r="10.9%" stroke-dashoffset="-67.97"/>
-        <circle class="dashed spins" cx="2.504e-15%" cy="40.9%" r="10.9%" stroke-dashoffset="44.97"/>
-        <circle class="dashed spins" cx="-35.42%" cy="-20.45%" r="10.9%" stroke-dashoffset="-10.99"/>
+        <circle cx="35.42%" cy="-20.45%" r="10.9%" stroke-dashoffset="-67.97"/>
+        <circle cx="2.504e-15%" cy="40.9%" r="10.9%" stroke-dashoffset="44.97"/>
+        <circle cx="-35.42%" cy="-20.45%" r="10.9%" stroke-dashoffset="-10.99"/>
       </g>
 
       <g class="sigil-frame-text">
