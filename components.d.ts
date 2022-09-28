@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     Hexgrid: typeof import('./src/components/hexgrid.vue')['default']
     Hexgrid2: typeof import('./src/components/hexgrid2.vue')['default']
     JSFree: typeof import('./src/pages/JSFree/index.vue')['default']
+    MySigil: typeof import('./src/components/mySigil.vue')['default']
     Orbs: typeof import('./src/components/orbs.vue')['default']
     PSO: typeof import('./src/pages/PSO/index.vue')['default']
     Router: typeof import('./src/pages/router.ts')['default']

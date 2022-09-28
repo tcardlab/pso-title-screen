@@ -5,6 +5,7 @@ import PSO from './PSO'
 import JSFree from './JSFree'
 import Title from '@/components/title'
 import Editor from './Editor'
+import Sigil from './Sigil'
 
 const routes = [
   { path: '/', component: PSO },
@@ -12,6 +13,7 @@ const routes = [
   { path: '/JSFree', component: JSFree },
   { path: '/JS-Free', component: JSFree },
   { path: '/editor', component: Editor },
+  { path: '/sigil', component: Sigil },
   { path: '/:pathMatch(.*)*', name: 'not-found', component: Title },
   { path: '/:pathMatch(.*)', name: 'bad-not-found', component: Title },
 ]
