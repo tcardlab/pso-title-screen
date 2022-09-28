@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BgText: typeof import('./src/pages/PSO/bgText.vue')['default']
     BgTextF: typeof import('./src/pages/JSFree/bgTextF.vue')['default']
+    Editor: typeof import('./src/pages/Editor/index.vue')['default']
     Hexgrid: typeof import('./src/components/hexgrid.vue')['default']
     Hexgrid2: typeof import('./src/components/hexgrid2.vue')['default']
     JSFree: typeof import('./src/pages/JSFree/index.vue')['default']
