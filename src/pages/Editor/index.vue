@@ -140,6 +140,8 @@
               font-size: 321%;
               fill: var(--sigilColor);
             }
+
+            {{dashArrStyles}}
           </v-style>
 
           <defs>
@@ -452,6 +454,18 @@
 
 
   const jsxNode = () => <div style="color: orange">+</div>
+
+
+  let dashArrStyles = $computed(()=>{
+    if (isMask) return ''
+    return `
+      #circle_2 { stroke-dasharray: 236 209 236 37; stroke-dashoffset: -200; }
+      #circle_3 { stroke-dasharray: 603.5, 266.5;   stroke-dashoffset: 84; }
+      #circle_4 { stroke-dasharray: 652.5, 265.5;   stroke-dashoffset: 97; }
+          
+      #line_t1, #line_t2, #line_t3 { stroke-dasharray: 462; stroke-dashoffset: -200; }
+    `
+  })
 </script>
 
 <!-- Sigil Style-->
@@ -569,27 +583,4 @@
       //opacity: 50%; 
     }
   }
-</style>
-
-
-<style>
-  #circle_2 { stroke-dasharray: 236 209 236 37; stroke-dashoffset: -200; }
-  #circle_3 { stroke-dasharray: 603.5, 266.5; stroke-dashoffset: 84; }
-  #circle_4 { stroke-dasharray: 652.5, 265.5; stroke-dashoffset: 97; }
-      
-  #line_t1, #line_t2, #line_t3 {
-    stroke-dasharray: 462; stroke-dashoffset: -200;
-  }
-
-  /* #c2_line_a, #c2_line_b, #c2_line_c {
-    stroke-dasharray: 92 251;
-    stroke-dashoffset: 92;
-  } */
-  
-  /* #line_1, #line_2, #line_3 {stroke-dasharray: 25 253; stroke-dashoffset: 25;} */
-
-/*   #circle_tri_1b { stroke-dashoffset:-68 }
-  #circle_tri_2b { stroke-dashoffset:45 }
-  #circle_tri_3b { stroke-dashoffset:-11} */
-
 </style>
