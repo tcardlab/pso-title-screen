@@ -1,8 +1,8 @@
 <template>
   <svg 
     class="sigil" 
-    style="--sigilColor: rgb(80, 255, 249); height:100%; width:auto"
-    fill="none" stroke="var(--sigilColor)" version="1.1" viewBox="-500 -500 1e3 1e3" xmlns="http://www.w3.org/2000/svg"
+    style="--sigilColor: rgb(80, 255, 249); height:100%; width:auto; overflow: visible"
+    fill="none" stroke="var(--sigilColor)" version="1.1" viewBox="-500 -450 1e3 1e3" xmlns="http://www.w3.org/2000/svg"
   >
     <v-style type="text/css">
       @font-face {
@@ -50,7 +50,7 @@
 
         <g class="outer-text-ring">
           <path
-            id="text_3_path" class="text-path text3" stroke-width="0%" 
+            id="text_3_path" class="text-path text3" stroke-width="0%" fill="none"
             d=" M 0 0 m -369.62, 0 a 369.62,369.62 0 1,1 739.24,0 a 369.62,369.62 0 1,1 -739.24,0 " 
           />
           <g>
@@ -96,7 +96,7 @@
     
     <g class="sigil-inner-text" stroke-width="0">
       <path
-        id="text_1_path" class="text-path text1" stroke-width="0%" 
+        id="text_1_path" class="text-path text1" stroke-width="0%" fill="none"
         d=" M 0 0 m -166.26, 0 a 166.26,166.26 0 1,1 332.52,0 a 166.26,166.26 0 1,1 -332.52,0 "
       />
       <text class="inner-text circle_text_1" style="font-size: 166%; transform: rotate(-83.47deg);">
@@ -106,7 +106,7 @@
       </text>
 
       <path 
-        id="text_2_path" class="text-path text2" stroke-width="0%" 
+        id="text_2_path" class="text-path text2" stroke-width="0%" fill="none"
         d=" M 0 0 m -205.16, 0 a 205.16,205.16 0 1,1 410.32,0 a 205.16,205.16 0 1,1 -410.32,0 " 
       />
       <text class="inner-text circle_text_2" style="font-size: 245%; transform: rotate(98.34deg);">
