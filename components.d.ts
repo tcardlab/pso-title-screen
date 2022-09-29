@@ -27,5 +27,6 @@ declare module '@vue/runtime-core' {
     Twinkle: typeof import('./src/pages/PSO/twinkle.vue')['default']
     TwinkleF: typeof import('./src/pages/JSFree/twinkleF.vue')['default']
     UseTwo: typeof import('./src/pages/PSO/useTwo.ts')['default']
+    ViewBox: typeof import('./src/pages/ViewBox/index.vue')['default']
   }
 }
