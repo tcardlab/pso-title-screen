@@ -18,8 +18,11 @@
           <label>Image Opacity:  {{imgOpacity}}</label> <button @click="_imgOpacity">reset</button> <br>
           <input type="range"  min="0" max="1" step="0.05" v-model="imgOpacity"> <br>
 
-          <label>spin: (May lag due to masking)</label> <br>
+          <label>spin: </label> <br>
           <input type="checkbox" step="0.05" v-model="isSpin"> <span>{{isSpin}}</span><br>
+
+          <label>masking: (may cause lag)</label> <br>
+          <input type="checkbox" step="0.05" v-model="isMask"> <span>{{isMask}}</span><br>
           
         </details>
 
@@ -139,27 +142,42 @@
             }
           </v-style>
 
-         
-          <mask id="circle_mask">
-             <!-- Has a pretty big performance hit... 45fps –> 25fps -->
-            <rect x="-50%" y="-50%" width="100%" height="100%" fill="white"/>
-            <circle_1a style="stroke:black; fill:black" />
-            <circle_1b style="stroke:black; fill:black" />
-            <circle_1c style="stroke:black; fill:black" />
+          <defs>
+            <mask id="circle_1_mask" v-if="!isMask">
+              <rect x="-50%" y="-50%" width="100%" height="100%" fill="white"/>
+              <circle_1a style="stroke:black; fill:black" />
+              <circle_1b style="stroke:black; fill:black" />
+              <circle_1c style="stroke:black; fill:black" />
+            </mask>
 
-            <circle_2a style="stroke: white; fill: black" />
-            <circle_2b style="stroke: white; fill: black"/>
-            <circle_2c style="stroke: white; fill: black"/>
+            <mask id="circle_2_mask" v-if="!isMask">
+              <rect x="-50%" y="-50%" width="100%" height="100%" fill="white"/>
+              <circle_2a style="stroke: white; fill: black" />
+              <circle_2b style="stroke: white; fill: black"/>
+              <circle_2c style="stroke: white; fill: black"/>
+            </mask >
 
-            <circle_tri_1a style="stroke: black; fill: black"/> 
-            <circle_tri_2a style="stroke: black; fill: black"/> 
-            <circle_tri_3a style="stroke: black; fill: black"/> 
-          </mask >
+            <mask id="circle_mask" v-if="isMask"> <!-- masks all -->
+              <!-- Has a pretty big performance hit... 45fps –> 25fps -->
+              <rect x="-50%" y="-50%" width="100%" height="100%" fill="white"/>
+              <circle_1a style="stroke:black; fill:black" />
+              <circle_1b style="stroke:black; fill:black" />
+              <circle_1c style="stroke:black; fill:black" />
+
+              <circle_2a style="stroke: white; fill: black" />
+              <circle_2b style="stroke: white; fill: black"/>
+              <circle_2c style="stroke: white; fill: black"/>
+
+              <circle_tri_1a style="stroke: black; fill: black"/> 
+              <circle_tri_2a style="stroke: black; fill: black"/> 
+              <circle_tri_3a style="stroke: black; fill: black"/> 
+            </mask >
+          </defs>
 
           <g class="main-frame">
             
             <g class="inner-circle circle-1" style="stroke:none; fill: var(--sigilColor);">
-              <circle_1 style="mask:url(#circle_mask); stroke: var(--sigilColor);; fill: none"/>
+              <circle_1 :style="{ mask: `url(${isMask ? '#circle_mask' : '#circle_1_mask'})`}" style="stroke: var(--sigilColor); fill: none"/>
               <circle_1a />
               <circle_1b />
               <circle_1c />
@@ -171,8 +189,8 @@
               <circle_2b />
               <circle_2c />
               
-              <g style="mask:url(#circle_mask);"> <!--seems you can apply mask to 1D el? must be grouped-->
-                <c2_line_a /> <!-- style="stroke-dasharray: 92 251; stroke-dashoffset: 92;" -->
+              <g :style="{ mask: `url(${isMask ? '#circle_mask' : '#circle_2_mask'})`}"> <!--seems you can apply mask to 1D el? must be grouped-->
+                <c2_line_a />
                 <c2_line_b />
                 <c2_line_c />
               </g>
@@ -330,6 +348,7 @@
   let [imgOpacity, _imgOpacity] = memRef(0.5)
 
   let isSpin = $ref(false)
+  let isMask = $ref(false)
 
   const toRad = (angle:number) => angle * (Math.PI / 180)
   const cos = (angle:number) => Math.cos(toRad(angle))
@@ -550,4 +569,27 @@
       //opacity: 50%; 
     }
   }
+</style>
+
+
+<style>
+  #circle_2 { stroke-dasharray: 236 209 236 37; stroke-dashoffset: -200; }
+  #circle_3 { stroke-dasharray: 603.5, 266.5; stroke-dashoffset: 84; }
+  #circle_4 { stroke-dasharray: 652.5, 265.5; stroke-dashoffset: 97; }
+      
+  #line_t1, #line_t2, #line_t3 {
+    stroke-dasharray: 462; stroke-dashoffset: -200;
+  }
+
+  /* #c2_line_a, #c2_line_b, #c2_line_c {
+    stroke-dasharray: 92 251;
+    stroke-dashoffset: 92;
+  } */
+  
+  /* #line_1, #line_2, #line_3 {stroke-dasharray: 25 253; stroke-dashoffset: 25;} */
+
+/*   #circle_tri_1b { stroke-dashoffset:-68 }
+  #circle_tri_2b { stroke-dashoffset:45 }
+  #circle_tri_3b { stroke-dashoffset:-11} */
+
 </style>
