@@ -21,7 +21,7 @@
           <label>spin: </label> <br>
           <input type="checkbox" step="0.05" v-model="isSpin"> <span>{{isSpin}}</span><br>
 
-          <label>masking: (may cause lag)</label> <br>
+          <label>masking: <br> (may cause lag, but scales better)</label> <br>
           <input type="checkbox" step="0.05" v-model="isMask"> <span>{{isMask}}</span><br>
           
         </details>
@@ -455,15 +455,14 @@
 
   const jsxNode = () => <div style="color: orange">+</div>
 
-
+  let mapDashArr = (arr:Array<number>, scale:number) => arr.map( (v:number) => v * scale).join(' ')
   let dashArrStyles = $computed(()=>{
     if (isMask) return ''
     return `
-      #circle_2 { stroke-dasharray: 236 209 236 37; stroke-dashoffset: -200; }
-      #circle_3 { stroke-dasharray: 603.5, 266.5;   stroke-dashoffset: 84; }
-      #circle_4 { stroke-dasharray: 652.5, 265.5;   stroke-dashoffset: 97; }
-          
-      #line_t1, #line_t2, #line_t3 { stroke-dasharray: 462; stroke-dashoffset: -200; }
+      #circle_2 { stroke-dasharray: ${mapDashArr([6.8755, 6.0888, 6.8755, 1.0779], circle_2_val.r.value)}; stroke-dashoffset: ${-5.8267 * circle_2_val.r.value}; }
+      #circle_3 { stroke-dasharray: ${mapDashArr([14.5317, 6.4170], circle_3_val.r.value)}; stroke-dashoffset: ${2.0226 * circle_3_val.r.value}; }
+      #circle_4 { stroke-dasharray: ${mapDashArr([14.8803, 6.0547], circle_4_val.r.value)}; stroke-dashoffset: ${2.2121 * circle_4_val.r.value}; }
+      #line_t1, #line_t2, #line_t3 { stroke-dasharray: ${9.2697 * triangleR}; stroke-dashoffset: ${-4.0128 * triangleR}; }
     `
   })
 </script>
