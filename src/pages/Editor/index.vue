@@ -469,7 +469,7 @@
 </style>
 
 <!-- Layout Style-->
-<style lang="scss">
+<style scoped lang="scss">
   .editor-container {
     height: 100vh;
     width: 100vw;
@@ -487,27 +487,6 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-  }
-
-  details {
-    width: 80%;
-    &> label {
-      display: inline-block;
-      margin-top: 10px !important;
-    }
-    &> *:not(summary) {
-      margin-left: 15px;
-    }
-
-    &> button {
-      margin-left: auto;
-      float: right
-    }
-  }
-
-  details > details {
-    margin-left: 10px;
-    opacity: 50%; 
   }
 
   .display-port {
@@ -542,6 +521,32 @@
       grid-area: 1 / 1;
       align-self: center;
       justify-self: center;
+    }
+  }
+</style>
+
+<!-- Unscoped Style-->
+<style lang="scss">
+  .editor-container{
+    details {
+      width: 80%;
+      &> label {
+        display: inline-block;
+        margin-top: 10px !important;
+      }
+      &> *:not(summary) {
+        margin-left: 15px;
+      }
+
+      &> button {
+        margin-left: auto;
+        float: right
+      }
+    }
+
+    details > details {
+      margin-left: 10px;
+      //opacity: 50%; 
     }
   }
 </style>
