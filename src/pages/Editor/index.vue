@@ -16,10 +16,11 @@
           <input type="range"  min="0" max="1" step="0.05" v-model="opacity">
 
           <label>Image Opacity:  {{imgOpacity}}</label> <button @click="_imgOpacity">reset</button> <br>
-          <input type="range"  min="0" max="1" step="0.05" v-model="imgOpacity">
+          <input type="range"  min="0" max="1" step="0.05" v-model="imgOpacity"> <br>
 
-          <label>spin: {{isSpin}}</label>
-          <input type="checkbox" step="0.05" v-model="isSpin">
+          <label>spin: (May lag due to masking)</label> <br>
+          <input type="checkbox" step="0.05" v-model="isSpin"> <span>{{isSpin}}</span><br>
+          
         </details>
 
 
