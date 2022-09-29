@@ -282,6 +282,7 @@
                 <circle_tri_1b class="dashed spins" :style="{strokeDashoffset: -6.2385 * cTri1, strokeDasharray: `${8.44*cTri1} ${2.02*cTri1} ${3.21*cTri1} ${2.02 * cTri1}`}" /> 
                 <circle_tri_1c/>
                 <line_1 style="stroke-dasharray: 25 253; stroke-dashoffset: 25;"/>
+                <!-- <line_1 :style="{strokeDasharray: `25 ${6.1858 * cTriR}`, strokeDashoffset: 25}"/> -->
               </g>
               <g>
                 <circle_tri_2a/> 
