@@ -6,14 +6,17 @@
         <details>
           <summary> Display Port </summary>
 
-          <label>Canvas Size:  {{canvasSize}}</label> <button @click="_canvasSize">reset</button> <br>
+          <label>ViewBox Size:  {{canvasSize}}</label> <button @click="_canvasSize">reset</button> <br>
           <input type="range"  min="300" max="3000" step="1" v-model="canvasSize">
 
-          <label>OffsetX:  {{offsetX}}</label> <button @click="_offsetX">reset</button> <br>
+          <label>ViewBox Y:  {{viewBoxY}}</label> <br>
+          <input type="range"  min="-100" max="100" step="1" v-model="viewBoxY">
+
+          <!-- <label>OffsetX:  {{offsetX}}</label> <button @click="_offsetX">reset</button> <br>
           <input type="range"  min="-1" max="1" step="0.005" v-model="offsetX">
 
           <label>OffsetY:  {{offsetY}}</label> <button @click="_offsetY">reset</button> <br>
-          <input type="range"  min="-10" max="0" step="0.005" v-model="offsetY">
+          <input type="range"  min="-10" max="0" step="0.005" v-model="offsetY"> -->
 
           <label>SVG Opacity:  {{opacity}}</label> <button @click="_opacity">reset</button> <br>
           <input type="range"  min="0" max="1" step="0.05" v-model="opacity">
@@ -106,7 +109,9 @@
     </div>
 
     <div class="display-port"  ref="svg">
-      <img class="refImg" draggable="false" :src="refImg">
+      <img class="refImg" draggable="false" :src="refImg"
+        :style="{transform: `scale(${1000 / (canvasSize?+canvasSize:1000)}) translate(-.155%, ${5.25 + -viewBoxY/10}%)`}"
+      >
 
       <div class="svg-out">
         <jsxNode />
@@ -334,7 +339,7 @@
   import {computed, ref} from 'vue'
 
   import {useCanvasSize, scale, scaleV} from './scale'
-  let [canvasSize, _canvasSize ] = useCanvasSize(1000)
+  let [canvasSize, _canvasSize ] = useCanvasSize(1090)
 
 
   let [viewBoxX, viewBoxY] = $([ref(0), ref(0)])
@@ -532,6 +537,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    z-index: 1000;
   }
 
   .display-port {
@@ -560,7 +566,7 @@
     display: grid;
     z-index: 3;
     overflow: visible;
-    transform: translate( v-bind("offsetX+'%'") , v-bind("offsetY+'%'"));
+    //transform: translate( v-bind("offsetX+'%'") , v-bind("offsetY+'%'"));
 
     &> * {
       grid-area: 1 / 1;
