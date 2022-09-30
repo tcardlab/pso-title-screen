@@ -15,7 +15,7 @@
     </div>
 
     <div class="ref-img">
-      <img draggable="false" v-show="showRef" :src="refImg"/>
+      <img draggable="false" v-show="showRef" ref="tmp" :src="refImg"/>
     </div>
 
     <div class="svg-view">
@@ -163,7 +163,7 @@
   let canvasSize = $ref(1090)
   let [offsetX, offsetY] = $([ref(0), ref(0)])
   let isSpin = $ref(true)
-  let showRef = $ref(true)
+  let showRef = $ref(false)  
   
   let halfSize = $computed(()=>Math.round(100 * (canvasSize/-2) / 100))
   let viewbox = $computed(()=>`${halfSize + +offsetX} ${halfSize + +offsetY} ${canvasSize} ${canvasSize}`)
@@ -217,7 +217,6 @@
   }
 
   .ref-img > img {
-    transform: v-bind("`scale(${1000 / +canvasSize}) translate(-1px, ${42 + -offsetY/1.265}px)`")
+    transform: v-bind("`scale(${1000 / +canvasSize}) translate(-1px, ${5.25 + -offsetY/10}%)`")
   }
-
 </style>
