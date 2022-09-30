@@ -1,11 +1,12 @@
 import factory from './factory'
 import { Ref } from 'vue'
+import { scale } from './scale'
 
 let circleCB = ( label:string, O: {[Keys:string]: Ref} ) => (
   <circle 
-    id={label} 
-    cx={O.x.value+'%'} cy={O.y.value+'%'} 
-    r={O.r.value+'%'} stroke-width={O.s.value+'%'}
+    id={label}
+    cx={scale(O.x.value)} cy={scale(O.y.value)} 
+    r={scale(O.r.value)} stroke-width={scale(O.s.value)}
   />
 )
 

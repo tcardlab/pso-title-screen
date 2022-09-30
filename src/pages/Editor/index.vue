@@ -6,6 +6,9 @@
         <details>
           <summary> Display Port </summary>
 
+          <label>Canvas Size:  {{canvasSize}}</label> <button @click="_canvasSize">reset</button> <br>
+          <input type="range"  min="300" max="3000" step="1" v-model="canvasSize">
+
           <label>OffsetX:  {{offsetX}}</label> <button @click="_offsetX">reset</button> <br>
           <input type="range"  min="-1" max="1" step="0.005" v-model="offsetX">
 
@@ -109,7 +112,7 @@
         <jsxNode />
 
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          id="sigil_output" ref="sigilOut" viewBox="-500 -500 1000 1000" 
+          id="sigil_output" ref="sigilOut" :viewBox="viewbox" 
           style="
             --sigilColor: rgb(80, 255, 249);
             stroke: var(--sigilColor);
@@ -202,37 +205,37 @@
               <text_3 class="text-path text3"/>
               <g>
                 <text class="outer-text circle_text_3a" style="transform: rotate(51.82deg);">
-                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(21.3)"> 
                     farlla
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3b" style="transform: rotate(94.56deg);">
-                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(21.3)"> 
                     estlla
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3c" style="transform: rotate(-25.26deg)">
-                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.72%"> 
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(17.72)"> 
                     mylla
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3c2" style="transform: rotate(3.7deg) translateX(.5%); font-size:250%;">
-                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="3.2%"> 
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(3.2)"> 
                     2
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3d" style="transform: rotate(-68deg);">
-                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(21.3)"> 
                     leilla
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3e" style="transform: rotate(176deg);">
-                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.75%"> 
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(17.75)"> 
                     golla
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3f" style="transform: rotate(217.27deg);">
-                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.78%"> 
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(17.78)"> 
                     pilla
                   </textPath>
                 </text>
@@ -249,26 +252,26 @@
               </g>
               <g>
                 <g class="outer-text" style="transform: rotate(180deg)">
-                  <text x="-7.35%" y="31.1%" style="font-size: 139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                  <text :x="scale(-7.35)" :y="scale(31.1)" style="font-size: 139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
                       e
                   </text>
-                  <text x="3.4%" y="31.1%" style="font-size: 139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                  <text :x="scale(3.4)" :y="scale(31.1)" style="font-size: 139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
                       f
                   </text>
                 </g>
                 <g class="outer-text" style="transform: rotate(60deg)">
-                  <text x="-8.1%" y="30.85%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                  <text :x="scale(-8.1)" :y="scale(30.85)" style="font-size:139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
                       m 
                   </text>
-                  <text x="2.7%" y="30.85%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                  <text :x="scale(2.7)" :y="scale(30.85)" style="font-size:139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
                     l 
                   </text>
                 </g>
                 <g class="outer-text" style="transform: rotate(-60deg)">
-                  <text x="-7.55%" y="30.4%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                  <text :x="scale(-7.55)" :y="scale(30.4)" style="font-size:139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
                     p 
                   </text>
-                  <text x="3.25%" y="30.4%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
+                  <text :x="scale(3.25)" :y="scale(30.4)" style="font-size:139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
                     g 
                   </text>
                 </g>
@@ -302,14 +305,14 @@
           <g class="inner-text-ring">
             <text_1 class="text-path text1"/>
             <text class="inner-text circle_text_1" style="font-size: 166%; transform: rotate(-83.47deg);">
-              <textPath href="#text_1_path" startOffset="0.01%" lengthAdjust="spacingAndGlyphs" :textLength="`${text_1_val.r.value*0.6064}%`" >
+              <textPath href="#text_1_path" startOffset="0.01%" lengthAdjust="spacingAndGlyphs" :textLength="scale(text_1_val.r.value*0.6064)" >
                 PLEASE PROTECT US BY VIRTUE OF YOUR THE GREAT LIGHT POWER 
               </textPath>
             </text>
 
             <text_2 class="text-path text2"/>
             <text class="inner-text circle_text_2" style="font-size: 245%; transform: rotate(98.34deg);">
-              <textPath href="#text_2_path" lengthAdjust="spacingAndGlyphs" :textLength="text_2_val.r.value*0.5995 + '%'"> 
+              <textPath href="#text_2_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(text_2_val.r.value*0.5995)"> 
                 I WISH IT AT AN ALLIANCE FROM SEVERAL YEARS AGO
               </textPath>
             </text>
@@ -328,8 +331,15 @@
   import genText from './text'
   import genLine from './line'
 
-  import {computed} from 'vue'
+  import {computed, ref} from 'vue'
 
+  import {useCanvasSize, scale, scaleV} from './scale'
+  let [canvasSize, _canvasSize ] = useCanvasSize(1000)
+
+
+  let [viewBoxX, viewBoxY] = $([ref(0), ref(0)])
+  let halfSize = $computed(()=>Math.round(100 * (canvasSize.value/-2) / 100))
+  let viewbox = $computed(()=>`${halfSize + +viewBoxX} ${halfSize + +viewBoxY} ${canvasSize.value} ${canvasSize.value}`)
 
   let sigilOut = $ref(null)
   function download() {
