@@ -21,11 +21,15 @@ $ npm run dev
 <br>
 
 **Routes:**
- - [/ & /PSO](https://tcardlab.github.io/pso-title-screen/)  –  default version
- - [/js-free](https://tcardlab.github.io/pso-title-screen/jsFree)  – version built with css and html
- - /accurate     –  most accurate recreation (WIP)
+ - [/ & /PSO](https://tcardlab.github.io/pso-title-screen/)       –  default version
+ - [/sigil](https://tcardlab.github.io/pso-title-screen/sigil)    –  you can download an optimized version of the sigil svg here
+ - [/editor](https://tcardlab.github.io/pso-title-screen/editor)  -  you can edit and tweak a non-optimized sigil
+ - [/js-free](https://tcardlab.github.io/pso-title-screen/jsFree) – version built with css and html
+ - /js-dom       -  version built using js for dom animation, probably gsap (WIP)
+ - /canvas       -  a version that renders entirely to canvas (WIP)
+ - /accurate     –  links to most accurate recreation (WIP)
  - /improved     –  design may deviate from original, see To-Do/Improvements (WIP)
- - /performance  –  most performant version (WIP)
+ - /performance  –  links to most performant version (WIP)
 
 ```
 I'll add a menu to navigate between pages and 
