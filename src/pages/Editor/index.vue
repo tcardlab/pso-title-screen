@@ -333,7 +333,8 @@
 
   let sigilOut = $ref(null)
   function download() {
-    var svgSource = sigilOut.outerHTML
+    if(!sigilOut) return
+    var svgSource = (sigilOut as Element).outerHTML
     var svgDataUri = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgSource)))
 
     const a = document.createElement('a')
@@ -407,7 +408,7 @@
 
 
   let [circle_tri, circle_tri_Editor, circle_tri_val] = genCircle('circle_tri', {x: 0, y: 0, r: 40.9,  s: 0}, {x:[-50,50], y:[-50,50]})
-    let cTriR = $(circle_tri_val.r)
+    let cTriR = $computed(()=>circle_tri_val.r.value)
     let ct1 = [computed(()=>cos(-30)*cTriR), computed(()=>sin(-30)*cTriR)]
     let ct2 = [computed(()=>cos(90)*cTriR), computed(()=>sin(90)*cTriR)] 
     let ct3 = [computed(()=>cos(-150)*cTriR), computed(()=>sin(-150)*cTriR)]
@@ -436,7 +437,7 @@
 
 
   let [triangle, triangle_Editor, triangle_val] = genCircle('triangle', {x: 0, y: 0, r: 49.84,  s: 0}, {x:[-50,50], y:[-50,50]})
-    let triangleR = $(triangle_val.r)
+    let triangleR = $computed(()=>triangle_val.r.value)
     let t1 = [computed(()=>cos(-30)*triangleR), computed(()=>sin(-30)*triangleR)]
     let t2 = [computed(()=>cos(90)*triangleR), computed(()=>sin(90)*triangleR)] 
     let t3 = [computed(()=>cos(-150)*triangleR), computed(()=>sin(-150)*triangleR)]

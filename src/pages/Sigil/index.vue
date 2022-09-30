@@ -172,7 +172,8 @@
 
   let downloadRef = $ref(null)
   function download() {
-    var svgSource = downloadRef.outerHTML
+    if (!downloadRef) return
+    var svgSource = (downloadRef as Element).outerHTML
     var svgDataUri = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgSource)))
 
     const a = document.createElement('a')

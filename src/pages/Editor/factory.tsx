@@ -6,7 +6,7 @@ interface Editor {
 }
 
 interface Defaults {
-  [Keys:string]: Ref
+  [Key:string]: Ref
 }
 
 interface Delta {
@@ -19,7 +19,8 @@ const factory = (cb:(label:string, O:Defaults)=>{}, editorDefaults={}) => (label
   let keyArr = Object.keys(editorDefaults)
 
   let parseArg = (key:string) => {
-    let v = elOverrides?.[key]
+    // @ts-ignore
+    let v = elOverrides?.[key] 
     if (!v) return 0
     if (typeof v === 'string') return +v || 0
     if (typeof v === 'number') return v
@@ -62,7 +63,7 @@ const factory = (cb:(label:string, O:Defaults)=>{}, editorDefaults={}) => (label
     </details>
   </>)
 
-  return $$([ svgEl, editorEl, O ]) // as [()=>JSX.Element, ()=>JSX.Element, typeof O ]
+  return $$([ svgEl, editorEl, O ]) as [Ref<()=>JSX.Element>, Ref<()=>JSX.Element>, any ] // Ref<typeof O>
 }
 
 export default factory
