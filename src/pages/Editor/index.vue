@@ -6,11 +6,17 @@
         <details>
           <summary> Display Port </summary>
 
-          <label>OffsetX:  {{offsetX}}</label> <button @click="_offsetX">reset</button> <br>
+          <label>ViewBox Size:  {{canvasSize}}</label> <button @click="_canvasSize">reset</button> <br>
+          <input type="range"  min="300" max="3000" step="1" v-model="canvasSize">
+
+          <label>ViewBox Y:  {{viewBoxY}}</label> <br>
+          <input type="range"  min="-100" max="100" step="1" v-model="viewBoxY">
+
+          <!-- <label>OffsetX:  {{offsetX}}</label> <button @click="_offsetX">reset</button> <br>
           <input type="range"  min="-1" max="1" step="0.005" v-model="offsetX">
 
           <label>OffsetY:  {{offsetY}}</label> <button @click="_offsetY">reset</button> <br>
-          <input type="range"  min="-10" max="0" step="0.005" v-model="offsetY">
+          <input type="range"  min="-10" max="0" step="0.005" v-model="offsetY"> -->
 
           <label>SVG Opacity:  {{opacity}}</label> <button @click="_opacity">reset</button> <br>
           <input type="range"  min="0" max="1" step="0.05" v-model="opacity">
@@ -46,8 +52,14 @@
         <details>
           <summary> Inner Text Ring </summary>
 
-          <text_1_Editor/>
-          <text_2_Editor/>
+          <text_1_Editor> 
+            <label>Text: </label> <button @click="_text_1_str">reset</button> <br/>
+            <input type="text" v-model="text_1_str"/>
+          </text_1_Editor>
+          <text_2_Editor> 
+            <label>Text: </label> <button @click="_text_2_str">reset</button> <br/>
+            <input type="text" v-model="text_2_str"/>
+          </text_2_Editor>
         </details>
 
         <circle_2_Editor>
@@ -60,7 +72,30 @@
           <c2_line_c_Editor/>
         </circle_2_Editor>
 
-        <text_3_Editor/>
+        <details>
+          <summary> Outer Text </summary>
+          <text_3_Editor>
+            <button @click="outerTextReset">reset text</button> <br/>
+            <input type="text" v-model="outer_text_str[0]"/> <br/>
+            <input type="text" v-model="outer_text_str[1]"/> <br/>
+            <input type="text" v-model="outer_text_str[2]"/> <br/>
+            <input type="text" v-model="outer_text_str[3]"/> <br/>
+            <input type="text" v-model="outer_text_str[4]"/> <br/>
+            <input type="text" v-model="outer_text_str[5]"/> <br/>
+            <input type="text" v-model="outer_text_str[6]"/> <br/>
+          </text_3_Editor>
+
+          <details>
+            <summary> Triangle Text </summary>
+            <button @click="triangleTextReset">reset text</button> <br/>
+            <input type="text" v-model="triangle_text_str[0]"/> <br/>
+            <input type="text" v-model="triangle_text_str[1]"/> <br/>
+            <input type="text" v-model="triangle_text_str[2]"/> <br/>
+            <input type="text" v-model="triangle_text_str[3]"/> <br/>
+            <input type="text" v-model="triangle_text_str[4]"/> <br/>
+            <input type="text" v-model="triangle_text_str[5]"/> <br/>
+          </details>
+        </details>
 
         <circle_3_Editor/>
         <circle_4_Editor/>
@@ -103,13 +138,15 @@
     </div>
 
     <div class="display-port"  ref="svg">
-      <img class="refImg" draggable="false" :src="refImg">
+      <img class="refImg" draggable="false" :src="refImg"
+        :style="{transform: `scale(${1000 / (canvasSize?+canvasSize:1000)}) translate(-.155%, ${5.25 + -viewBoxY/10}%)`}"
+      >
 
       <div class="svg-out">
         <jsxNode />
 
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          id="sigil_output" ref="sigilOut" viewBox="-500 -500 1000 1000" 
+          id="sigil_output" ref="sigilOut" :viewBox="viewbox" 
           style="
             --sigilColor: rgb(80, 255, 249);
             stroke: var(--sigilColor);
@@ -202,38 +239,38 @@
               <text_3 class="text-path text3"/>
               <g>
                 <text class="outer-text circle_text_3a" style="transform: rotate(51.82deg);">
-                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
-                    farlla
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(21.3)"> 
+                    {{outer_text_str[0]}}
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3b" style="transform: rotate(94.56deg);">
-                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
-                    estlla
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(21.3)"> 
+                    {{outer_text_str[1]}}
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3c" style="transform: rotate(-25.26deg)">
-                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.72%"> 
-                    mylla
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(17.72)"> 
+                    {{outer_text_str[2]}}
                   </textPath>
                 </text>
-                <text class="outer-text circle_text_3c2" style="transform: rotate(3.7deg) translateX(.5%); font-size:250%;">
-                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="3.2%"> 
-                    2
+                <text class="outer-text circle_text_3c2" :style="{transform: `rotate(3.7deg) translateX(${scale(.5)})`, fontSize:'250%'}">
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(3.2)"> 
+                    {{outer_text_str[3]}}
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3d" style="transform: rotate(-68deg);">
-                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="21.3%"> 
-                    leilla
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(21.3)"> 
+                    {{outer_text_str[4]}}
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3e" style="transform: rotate(176deg);">
-                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.75%"> 
-                    golla
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(17.75)"> 
+                    {{outer_text_str[5]}}
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3f" style="transform: rotate(217.27deg);">
-                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" textLength="17.78%"> 
-                    pilla
+                  <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(17.78)"> 
+                    {{outer_text_str[6]}}
                   </textPath>
                 </text>
               </g>
@@ -249,27 +286,27 @@
               </g>
               <g>
                 <g class="outer-text" style="transform: rotate(180deg)">
-                  <text x="-7.35%" y="31.1%" style="font-size: 139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
-                      e
+                  <text :x="scale(-7.35)" :y="scale(31.1)" style="font-size: 139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
+                    {{triangle_text_str[0]}}
                   </text>
-                  <text x="3.4%" y="31.1%" style="font-size: 139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
-                      f
+                  <text :x="scale(3.4)" :y="scale(31.1)" style="font-size: 139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
+                    {{triangle_text_str[1]}}
                   </text>
                 </g>
                 <g class="outer-text" style="transform: rotate(60deg)">
-                  <text x="-8.1%" y="30.85%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
-                      m 
+                  <text :x="scale(-8.1)" :y="scale(30.85)" style="font-size:139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
+                    {{triangle_text_str[2]}}
                   </text>
-                  <text x="2.7%" y="30.85%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
-                    l 
+                  <text :x="scale(2.7)" :y="scale(30.85)" style="font-size:139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
+                    {{triangle_text_str[3]}}
                   </text>
                 </g>
                 <g class="outer-text" style="transform: rotate(-60deg)">
-                  <text x="-7.55%" y="30.4%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
-                    p 
+                  <text :x="scale(-7.55)" :y="scale(30.4)" style="font-size:139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
+                    {{triangle_text_str[4]}}
                   </text>
-                  <text x="3.25%" y="30.4%" style="font-size:139%;" textLength="4.55%" lengthAdjust="spacingAndGlyphs">
-                    g 
+                  <text :x="scale(3.25)" :y="scale(30.4)" style="font-size:139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
+                    {{triangle_text_str[5]}}
                   </text>
                 </g>
               </g>
@@ -302,15 +339,15 @@
           <g class="inner-text-ring">
             <text_1 class="text-path text1"/>
             <text class="inner-text circle_text_1" style="font-size: 166%; transform: rotate(-83.47deg);">
-              <textPath href="#text_1_path" startOffset="0.01%" lengthAdjust="spacingAndGlyphs" :textLength="`${text_1_val.r.value*0.6064}%`" >
-                PLEASE PROTECT US BY VIRTUE OF YOUR THE GREAT LIGHT POWER 
+              <textPath href="#text_1_path" startOffset="0.01%" lengthAdjust="spacingAndGlyphs" :textLength="scale(text_1_val.r.value*0.6064)" >
+                {{text_1_str}}
               </textPath>
             </text>
 
             <text_2 class="text-path text2"/>
             <text class="inner-text circle_text_2" style="font-size: 245%; transform: rotate(98.34deg);">
-              <textPath href="#text_2_path" lengthAdjust="spacingAndGlyphs" :textLength="text_2_val.r.value*0.5995 + '%'"> 
-                I WISH IT AT AN ALLIANCE FROM SEVERAL YEARS AGO
+              <textPath href="#text_2_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(text_2_val.r.value*0.5995)"> 
+                {{text_2_str}}
               </textPath>
             </text>
           </g>
@@ -322,14 +359,24 @@
 </template>
 
 <script lang="tsx" setup>
+  /* 
+    Probably should have used portals to send elements to the appropriate locations so i don't have so much manual work 
+  */
   import refImg from './PSO.png'
   import memRef from '@/use/memRef'
   import genCircle from './circle'
   import genText from './text'
   import genLine from './line'
 
-  import {computed} from 'vue'
+  import {computed, ref, reactive} from 'vue'
 
+  import {useCanvasSize, scale, scaleV} from './scale'
+  let [canvasSize, _canvasSize ] = useCanvasSize(1090)
+
+
+  let [viewBoxX, viewBoxY] = $([ref(0), ref(0)])
+  let halfSize = $computed(()=>Math.round(100 * (canvasSize.value/-2) / 100))
+  let viewbox = $computed(()=>`${halfSize + +viewBoxX} ${halfSize + +viewBoxY} ${canvasSize.value} ${canvasSize.value}`)
 
   let sigilOut = $ref(null)
   function download() {
@@ -404,7 +451,18 @@
   let [text_1, text_1_Editor, text_1_val] = genText('text_1', {r: 166.26,  s: 0})
   let [text_2, text_2_Editor, text_2_val] = genText('text_2', {r: 205.16,  s: 0})
   let [text_3, text_3_Editor, text_3_val] = genText('text_3', {r: 369.62 , s: 0})
+  let [text_1_str, _text_1_str] = memRef('PLEASE PROTECT US BY VIRTUE OF YOUR THE GREAT LIGHT POWER')
+  let [text_2_str, _text_2_str] = memRef('I WISH IT AT AN ALLIANCE FROM SEVERAL YEARS AGO')
 
+  let defaultOuterText = ['farlla', 'estlla', 'mylla', '2', 'leilla', 'golla', 'pilla']
+  let outer_text_str = $ref([...defaultOuterText]) 
+  let outerTextReset = () => outer_text_str = [...defaultOuterText]
+
+
+  
+  let defaultTriangleText = ['e', 'f', 'm' , 'l', 'p', 'g' ]
+  let triangle_text_str = $ref([...defaultTriangleText])
+  let triangleTextReset = () => triangle_text_str = [...defaultTriangleText]
 
 
   let [circle_tri, circle_tri_Editor, circle_tri_val] = genCircle('circle_tri', {x: 0, y: 0, r: 40.9,  s: 0}, {x:[-50,50], y:[-50,50]})
@@ -522,6 +580,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    z-index: 1000;
   }
 
   .display-port {
@@ -550,7 +609,7 @@
     display: grid;
     z-index: 3;
     overflow: visible;
-    transform: translate( v-bind("offsetX+'%'") , v-bind("offsetY+'%'"));
+    //transform: translate( v-bind("offsetX+'%'") , v-bind("offsetY+'%'"));
 
     &> * {
       grid-area: 1 / 1;
