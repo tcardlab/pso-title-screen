@@ -1,10 +1,11 @@
-import {Ref} from 'vue'
+import {Ref, ref} from 'vue'
 import memRef from '@/use/memRef'
  
-let canvasSize,  _canvasSize;
+let canvasSize = ref(1000) 
+let _canvasSize;
 
-let useCanvasSize = (n) => {
-  [canvasSize, _canvasSize ] = memRef(n) 
+let useCanvasSize = (n:number) => {
+  [canvasSize, _canvasSize] = memRef(n) 
   return [canvasSize, _canvasSize]
 }
 

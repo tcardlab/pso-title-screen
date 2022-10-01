@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "git checkout deploy && git merge master && vue-tsc --noEmit && vite build --base=/pso-title-screen/",
     "deploy": "git checkout deploy && git subtree push --prefix dist tcardlab gh-pages && git checkout master",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "tsCheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@vueuse/core": "^9.2.0",
