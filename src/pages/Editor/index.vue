@@ -224,7 +224,7 @@
                     mylla
                   </textPath>
                 </text>
-                <text class="outer-text circle_text_3c2" style="transform: rotate(3.7deg) translateX(.5%); font-size:250%;">
+                <text class="outer-text circle_text_3c2" :style="{transform: `rotate(3.7deg) translateX(${scale(.5)})`, fontSize:'250%'}">
                   <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(3.2)"> 
                     2
                   </textPath>
