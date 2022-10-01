@@ -52,8 +52,14 @@
         <details>
           <summary> Inner Text Ring </summary>
 
-          <text_1_Editor/>
-          <text_2_Editor/>
+          <text_1_Editor> 
+            <label>Text: </label> <button @click="_text_1_str">reset</button> <br/>
+            <input type="text" v-model="text_1_str"/>
+          </text_1_Editor>
+          <text_2_Editor> 
+            <label>Text: </label> <button @click="_text_2_str">reset</button> <br/>
+            <input type="text" v-model="text_2_str"/>
+          </text_2_Editor>
         </details>
 
         <circle_2_Editor>
@@ -66,7 +72,30 @@
           <c2_line_c_Editor/>
         </circle_2_Editor>
 
-        <text_3_Editor/>
+        <details>
+          <summary> Outer Text </summary>
+          <text_3_Editor>
+            <button @click="outerTextReset">reset text</button> <br/>
+            <input type="text" v-model="outer_text_str[0]"/> <br/>
+            <input type="text" v-model="outer_text_str[1]"/> <br/>
+            <input type="text" v-model="outer_text_str[2]"/> <br/>
+            <input type="text" v-model="outer_text_str[3]"/> <br/>
+            <input type="text" v-model="outer_text_str[4]"/> <br/>
+            <input type="text" v-model="outer_text_str[5]"/> <br/>
+            <input type="text" v-model="outer_text_str[6]"/> <br/>
+          </text_3_Editor>
+
+          <details>
+            <summary> Triangle Text </summary>
+            <button @click="triangleTextReset">reset text</button> <br/>
+            <input type="text" v-model="triangle_text_str[0]"/> <br/>
+            <input type="text" v-model="triangle_text_str[1]"/> <br/>
+            <input type="text" v-model="triangle_text_str[2]"/> <br/>
+            <input type="text" v-model="triangle_text_str[3]"/> <br/>
+            <input type="text" v-model="triangle_text_str[4]"/> <br/>
+            <input type="text" v-model="triangle_text_str[5]"/> <br/>
+          </details>
+        </details>
 
         <circle_3_Editor/>
         <circle_4_Editor/>
@@ -211,37 +240,37 @@
               <g>
                 <text class="outer-text circle_text_3a" style="transform: rotate(51.82deg);">
                   <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(21.3)"> 
-                    farlla
+                    {{outer_text_str[0]}}
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3b" style="transform: rotate(94.56deg);">
                   <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(21.3)"> 
-                    estlla
+                    {{outer_text_str[1]}}
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3c" style="transform: rotate(-25.26deg)">
                   <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(17.72)"> 
-                    mylla
+                    {{outer_text_str[2]}}
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3c2" :style="{transform: `rotate(3.7deg) translateX(${scale(.5)})`, fontSize:'250%'}">
                   <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(3.2)"> 
-                    2
+                    {{outer_text_str[3]}}
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3d" style="transform: rotate(-68deg);">
                   <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(21.3)"> 
-                    leilla
+                    {{outer_text_str[4]}}
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3e" style="transform: rotate(176deg);">
                   <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(17.75)"> 
-                    golla
+                    {{outer_text_str[5]}}
                   </textPath>
                 </text>
                 <text class="outer-text circle_text_3f" style="transform: rotate(217.27deg);">
                   <textPath href="#text_3_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(17.78)"> 
-                    pilla
+                    {{outer_text_str[6]}}
                   </textPath>
                 </text>
               </g>
@@ -258,26 +287,26 @@
               <g>
                 <g class="outer-text" style="transform: rotate(180deg)">
                   <text :x="scale(-7.35)" :y="scale(31.1)" style="font-size: 139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
-                      e
+                    {{triangle_text_str[0]}}
                   </text>
                   <text :x="scale(3.4)" :y="scale(31.1)" style="font-size: 139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
-                      f
+                    {{triangle_text_str[1]}}
                   </text>
                 </g>
                 <g class="outer-text" style="transform: rotate(60deg)">
                   <text :x="scale(-8.1)" :y="scale(30.85)" style="font-size:139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
-                      m 
+                    {{triangle_text_str[2]}}
                   </text>
                   <text :x="scale(2.7)" :y="scale(30.85)" style="font-size:139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
-                    l 
+                    {{triangle_text_str[3]}}
                   </text>
                 </g>
                 <g class="outer-text" style="transform: rotate(-60deg)">
                   <text :x="scale(-7.55)" :y="scale(30.4)" style="font-size:139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
-                    p 
+                    {{triangle_text_str[4]}}
                   </text>
                   <text :x="scale(3.25)" :y="scale(30.4)" style="font-size:139%;" :textLength="scale(4.55)" lengthAdjust="spacingAndGlyphs">
-                    g 
+                    {{triangle_text_str[5]}}
                   </text>
                 </g>
               </g>
@@ -311,14 +340,14 @@
             <text_1 class="text-path text1"/>
             <text class="inner-text circle_text_1" style="font-size: 166%; transform: rotate(-83.47deg);">
               <textPath href="#text_1_path" startOffset="0.01%" lengthAdjust="spacingAndGlyphs" :textLength="scale(text_1_val.r.value*0.6064)" >
-                PLEASE PROTECT US BY VIRTUE OF YOUR THE GREAT LIGHT POWER 
+                {{text_1_str}}
               </textPath>
             </text>
 
             <text_2 class="text-path text2"/>
             <text class="inner-text circle_text_2" style="font-size: 245%; transform: rotate(98.34deg);">
               <textPath href="#text_2_path" lengthAdjust="spacingAndGlyphs" :textLength="scale(text_2_val.r.value*0.5995)"> 
-                I WISH IT AT AN ALLIANCE FROM SEVERAL YEARS AGO
+                {{text_2_str}}
               </textPath>
             </text>
           </g>
@@ -330,13 +359,16 @@
 </template>
 
 <script lang="tsx" setup>
+  /* 
+    Probably should have used portals to send elements to the appropriate locations so i don't have so much manual work 
+  */
   import refImg from './PSO.png'
   import memRef from '@/use/memRef'
   import genCircle from './circle'
   import genText from './text'
   import genLine from './line'
 
-  import {computed, ref} from 'vue'
+  import {computed, ref, reactive} from 'vue'
 
   import {useCanvasSize, scale, scaleV} from './scale'
   let [canvasSize, _canvasSize ] = useCanvasSize(1090)
@@ -419,7 +451,18 @@
   let [text_1, text_1_Editor, text_1_val] = genText('text_1', {r: 166.26,  s: 0})
   let [text_2, text_2_Editor, text_2_val] = genText('text_2', {r: 205.16,  s: 0})
   let [text_3, text_3_Editor, text_3_val] = genText('text_3', {r: 369.62 , s: 0})
+  let [text_1_str, _text_1_str] = memRef('PLEASE PROTECT US BY VIRTUE OF YOUR THE GREAT LIGHT POWER')
+  let [text_2_str, _text_2_str] = memRef('I WISH IT AT AN ALLIANCE FROM SEVERAL YEARS AGO')
 
+  let defaultOuterText = ['farlla', 'estlla', 'mylla', '2', 'leilla', 'golla', 'pilla']
+  let outer_text_str = $ref([...defaultOuterText]) 
+  let outerTextReset = () => outer_text_str = [...defaultOuterText]
+
+
+  
+  let defaultTriangleText = ['e', 'f', 'm' , 'l', 'p', 'g' ]
+  let triangle_text_str = $ref([...defaultTriangleText])
+  let triangleTextReset = () => triangle_text_str = [...defaultTriangleText]
 
 
   let [circle_tri, circle_tri_Editor, circle_tri_val] = genCircle('circle_tri', {x: 0, y: 0, r: 40.9,  s: 0}, {x:[-50,50], y:[-50,50]})
